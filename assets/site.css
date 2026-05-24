@@ -79,14 +79,11 @@ a:hover {
   text-decoration: none;
 }
 
-.brand-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 14px;
-  background: var(--brand-peach);
-  border: 2px solid var(--line);
-  display: grid;
-  place-items: center;
+.brand-logo-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-links {

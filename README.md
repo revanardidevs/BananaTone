@@ -40,6 +40,20 @@ Simply clone the repository and open the entrypoint in any modern browser:
      npx serve
      ```
 
+## 🎨 Logo Assets
+
+All brand and logo files live in `/assets/`:
+
+| File | Size | Purpose |
+|------|------|---------|
+| `rabbitear_logo.svg` | Source | Original vector logo (icon-only, no wordmark) |
+| `logo-icon.svg` | Vector | Clean vector copy for general use |
+| `logo-icon-512.png` | 512×512 | High-res icon for topbar, PWA, etc. |
+| `apple-touch-icon.png` | 180×180 | iOS home-screen icon |
+| `favicon.svg` | Vector | SVG favicon for modern browsers |
+| `favicon-32.png` | 32×32 | PNG favicon fallback |
+| `og-image.png` | 1200×630 | Open Graph / Twitter Card sharing image |
+
 ## 🌐 Deployment
 
 - **Deploy Target**: [Cloudflare Pages](https://pages.cloudflare.com/) (or any other static hosting platform like Vercel, Netlify, or GitHub Pages).
