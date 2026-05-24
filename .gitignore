@@ -1,0 +1,14 @@
+# Temporary preview files
+preview*.html
+preview (*).html
+
+# Antigravity/Gemini internal directories
+.gemini/
+.antigravity/
+
+# Node.js dependencies (just in case)
+node_modules/
+
+# OS/System files
+.DS_Store
+Thumbs.db

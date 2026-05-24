@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn Ear Training — RabbitEar</title>
+  <meta name="description" content="Free guides and tutorials on how to train your ear for intervals, chords, notes, and scales." />
+  <link rel="canonical" href="https://rabbitear.app/learn/" />
+  
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .grid-card {
+      background: var(--panel);
+      border: 2px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: inherit;
+      transition: .2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .grid-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .grid-card h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    .grid-card p {
+      margin-bottom: 0;
+      flex-grow: 1;
+    }
+    .grid-card .read-more {
+      margin-top: 20px;
+      font-weight: 800;
+      color: var(--brand-orange);
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar">
+    <a href="/" class="brand">
+      <div class="brand-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width: 20px; height: 20px;">
+          <g fill="#504e76">
+            <path d="M 30 20 C 30 5, 45 5, 45 20 L 45 50 C 45 65, 30 65, 30 50 Z" transform="rotate(-14 37 40)"></path>
+            <path d="M 55 20 C 55 5, 70 5, 70 20 L 70 50 C 70 65, 55 65, 55 50 Z" transform="rotate(14 62 40)"></path>
+            <path d="M 25 45 Q 50 35 75 45 L 75 65 Q 50 85 25 65 Z"></path>
+          </g>
+          <g fill="#fcdd9d">
+            <circle cx="40" cy="55" r="7"></circle>
+            <circle cx="60" cy="55" r="7"></circle>
+          </g>
+        </svg>
+      </div>
+      RabbitEar
+    </a>
+    <div class="nav-links">
+      <a href="/learn/" style="color: var(--text);">Learn</a>
+      <a href="/about.html">About</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Learn Ear Training</h1>
+    <div class="intro">Master the fundamentals of relative pitch with our free guides. Choose a topic below to get started.</div>
+
+    <div class="grid">
+      <a href="/learn/interval-ear-training.html" class="grid-card">
+        <h3>Intervals</h3>
+        <p>Learn how to identify the distance between two notes. The foundation of all ear training.</p>
+        <div class="read-more">Read guide &rarr;</div>
+      </a>
+      <a href="/learn/chord-ear-training.html" class="grid-card">
+        <h3>Chords</h3>
+        <p>Master major, minor, diminished, and seventh chords by recognizing their unique emotional colors.</p>
+        <div class="read-more">Read guide &rarr;</div>
+      </a>
+      <a href="/learn/note-ear-training.html" class="grid-card">
+        <h3>Notes</h3>
+        <p>Develop relative pitch by learning to identify scale degrees against a tonal center.</p>
+        <div class="read-more">Read guide &rarr;</div>
+      </a>
+      <a href="/learn/scale-ear-training.html" class="grid-card">
+        <h3>Scales</h3>
+        <p>Identify major, minor, and exotic scales by listening to their overall mood and characteristic notes.</p>
+        <div class="read-more">Read guide &rarr;</div>
+      </a>
+      <a href="/learn/how-to-practice-ear-training.html" class="grid-card">
+        <h3>How to Practice</h3>
+        <p>Discover the best daily routines, common pitfalls to avoid, and how to practice effectively.</p>
+        <div class="read-more">Read guide &rarr;</div>
+      </a>
+    </div>
+
+    <div class="card" style="margin-top: 40px; text-align: center;">
+      <h2>Ready to test your ears?</h2>
+      <p>Put your knowledge to the test with our free, distraction-free practice tool.</p>
+      <div style="margin-top: 24px;">
+        <a href="/" class="btn">Start Practicing</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <a href="/">App</a>
+      <a href="/learn/">Learn</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+    <div style="margin-top: 15px; font-size: 0.9em; opacity: 0.7;">
+      &copy; 2026 RabbitEar. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
