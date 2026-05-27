@@ -1,6 +1,6 @@
-# 🐰 RabbitEar — Free Online Ear Training for Musicians
+# 🐰 BananaTone — Free Online Ear Training for Musicians
 
-RabbitEar is a modern, fast, and beautiful in-browser ear training web application designed to help musicians improve their relative pitch and musical ear. Features include practice exercises for intervals, chords, single notes, and scales, complete with keyboard shortcuts, visual feedback, dark/light theme support, and responsive layouts.
+BananaTone is a modern, fast, and beautiful in-browser ear training web application designed to help musicians improve their relative pitch and musical ear. Features include practice exercises for intervals, chords, single notes, and scales, complete with keyboard shortcuts, visual feedback, dark/light theme support, and responsive layouts.
 
 ## ✨ Key Features
 

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RabbitEar — Free Online Ear Training for Musicians</title>
-  <meta name="description" content="Improve your musical ear with RabbitEar. Free online ear training exercises for intervals, chords, notes, and scales. Clean, fast, and easy to use." />
+  <title>BananaTone — Free Online Ear Training for Musicians</title>
+  <meta name="description" content="BananaTone is a fast, lightweight ear-training web app for musicians. Practice intervals, chords, notes, and scales with a focused, keyboard-friendly trainer." />
   <link rel="canonical" href="https://rabbitear.app/" />
   
   <!-- Open Graph -->
-  <meta property="og:title" content="RabbitEar — Free Online Ear Training for Musicians" />
-  <meta property="og:description" content="Improve your musical ear with RabbitEar. Free online ear training exercises for intervals, chords, notes, and scales." />
+  <meta property="og:title" content="BananaTone — Free Online Ear Training for Musicians" />
+  <meta property="og:description" content="BananaTone is a fast, lightweight ear-training web app for musicians. Practice intervals, chords, notes, and scales with a focused, keyboard-friendly trainer." />
   <meta property="og:image" content="https://rabbitear.app/assets/og-image.png" />
   <meta property="og:url" content="https://rabbitear.app/" />
   <meta property="og:type" content="website" />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="RabbitEar — Free Online Ear Training" />
-  <meta name="twitter:description" content="Improve your musical ear with RabbitEar. Free online ear training exercises for intervals, chords, notes, and scales." />
+  <meta name="twitter:title" content="BananaTone — Free Online Ear Training for Musicians" />
+  <meta name="twitter:description" content="BananaTone is a fast, lightweight ear-training web app for musicians. Practice intervals, chords, notes, and scales with a focused, keyboard-friendly trainer." />
   <meta name="twitter:image" content="https://rabbitear.app/assets/og-image.png" />
 
   <!-- Favicons -->
@@ -29,7 +29,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "RabbitEar",
+    "name": "BananaTone",
     "url": "https://rabbitear.app/",
     "description": "Free online ear training exercises for musicians. Practice intervals, chords, notes, and scales.",
     "applicationCategory": "EducationalApplication",
@@ -46,32 +46,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --brand-purple-light: #c4c3e3;
-      --brand-purple: #504e76;
-      --brand-beige: #fdf8e2;
-      --brand-sage: #a3b565;
-      --brand-peach: #fcdd9d;
-      --brand-orange: #f1642e;
-      --brand-black: #504e76;
+      --brand-purple-light: #EFE6CD;
+      --brand-purple: #3E334F;
+      --brand-beige: #FFF8EA;
+      --brand-sage: #7E8B5E;
+      --brand-peach: #D9B85F;
+      --brand-orange: #E9A66B;
+      --brand-black: #3E334F;
+      --brand-yellow: #D9B85F;
+      --brand-yellow-2: #C4A34A;
+      --brand-blue: #3E334F;
+      --brand-blue-2: #2E253A;
 
-      --bg: #6a688f;
-      --bg-2: #5b597d;
-      --panel: #75739a;
-      --panel-2: #8482aa;
-      --panel-3: #9391b7;
-      --text: #fdf8e2;
-      --muted: #f1edf8;
-      --muted-2: #e1dcef;
-      --line: rgba(253,248,226,.28);
-      --primary: var(--brand-peach);
-      --primary-2: #f8e8bb;
-      --primary-soft: rgba(252,221,157,.18);
-      --success: var(--brand-sage);
-      --success-soft: rgba(163,181,101,.18);
-      --danger: #d67a67;
-      --danger-soft: rgba(214,122,103,.16);
-      --shadow: 0 24px 60px rgba(80, 78, 118, .24);
-      --shadow-button: 0 5px 0 rgba(80, 78, 118, .55);
+      --bg: #F5EEDC;
+      --bg-2: #EFE6CD;
+      --panel: #FFF8EA;
+      --panel-2: #F6EEDC;
+      --panel-3: #EAE0CA;
+      --text: #3E334F;
+      --muted: #4A3D33;
+      --muted-2: #6A5B4D;
+      --line: rgba(62, 51, 79, 0.14);
+      --primary: #D9B85F;
+      --primary-2: #C4A34A;
+      --primary-soft: rgba(217, 184, 95, 0.2);
+      --success: #7E8B5E;
+      --success-soft: rgba(126, 139, 94, 0.2);
+      --danger: #E9A66B;
+      --danger-soft: rgba(233, 166, 107, 0.2);
+      --shadow: 0 24px 60px rgba(62, 51, 79, 0.15);
+      --shadow-button: 0 5px 0 rgba(62, 51, 79, 0.4);
       --radius-sm: 14px;
       --radius-md: 22px;
       --radius-lg: 32px;
@@ -82,24 +86,24 @@
     }
 
     [data-theme="light"] {
-      --bg: #f8f5eb;
-      --bg-2: #fdf8e2;
-      --panel: #ffffff;
-      --panel-2: #f8f2dc;
-      --panel-3: #f3ead1;
-      --text: #504e76;
-      --muted: #666388;
-      --muted-2: #6f6b8f;
-      --line: rgba(80,78,118,.16);
-      --primary: #504e76;
-      --primary-2: #6a688f;
-      --primary-soft: rgba(80,78,118,.08);
-      --success: #8fa552;
-      --success-soft: rgba(143,165,82,.13);
-      --danger: #d1785e;
-      --danger-soft: rgba(209,120,94,.12);
-      --shadow: 0 20px 48px rgba(80,78,118,.10);
-      --shadow-button: 0 5px 0 rgba(80,78,118,.30);
+      --bg: #F5EEDC;
+      --bg-2: #EFE6CD;
+      --panel: #FFF8EA;
+      --panel-2: #F6EEDC;
+      --panel-3: #EAE0CA;
+      --text: #3E334F;
+      --muted: #4A3D33;
+      --muted-2: #6A5B4D;
+      --line: rgba(62, 51, 79, 0.14);
+      --primary: #D9B85F;
+      --primary-2: #C4A34A;
+      --primary-soft: rgba(217, 184, 95, 0.2);
+      --success: #7E8B5E;
+      --success-soft: rgba(126, 139, 94, 0.2);
+      --danger: #E9A66B;
+      --danger-soft: rgba(233, 166, 107, 0.2);
+      --shadow: 0 20px 48px rgba(62, 51, 79, 0.1);
+      --shadow-button: 0 5px 0 rgba(62, 51, 79, 0.25);
     }
 
     * { box-sizing: border-box; }
@@ -2999,8 +3003,8 @@
   <div class="app">
     <header class="topbar">
       <div class="brand" onclick="closeLearn()" role="button" tabindex="0">
-        <img src="/assets/logo-icon-512.png" alt="RabbitEar logo" class="brand-logo-img">
-        RabbitEar
+        <img src="/assets/logo-icon-512.png" alt="BananaTone logo" class="brand-logo-img">
+        BananaTone
       </div>
 
       <nav class="tabs" aria-label="Exercise modes">
@@ -3334,7 +3338,7 @@
         </div>
       </div>
       <div class="interstitial-actions">
-        <span>RabbitEar keeps ads outside listening moments.</span>
+        <span>BananaTone keeps ads outside listening moments.</span>
         <button class="btn primary" id="continueInterstitialBtn" onclick="skipInterstitial()" disabled>Continue</button>
       </div>
     </div>
@@ -3822,7 +3826,7 @@
           updateAudioStatus("piano ready", "ready");
           return sampleState.buffers;
         } catch (err) {
-          console.warn("RabbitEar piano samples failed; falling back to synth model.", err);
+          console.warn("BananaTone piano samples failed; falling back to synth model.", err);
           sampleState.status = "fallback";
           sampleState.failed = true;
           sampleState.buffers = {};
@@ -4387,7 +4391,7 @@
         state.bestStreak = Math.max(state.bestStreak, state.streak);
         progress.totalCorrect++;
 
-        setFeedback(`Correct! — ${state.currentQuestion.answerName}`, "Nice hit. RabbitEar keeps the flow moving.", "success", `
+        setFeedback(`Correct! — ${state.currentQuestion.answerName}`, "Nice hit. BananaTone keeps the flow moving.", "success", `
           <button class="btn primary" onclick="nextQuestion()">Next</button>
         `);
 
@@ -4888,7 +4892,7 @@
       document.getElementById("modalContent").innerHTML = `
         <div class="result-surface">
           <div class="result-top">
-            <span>RabbitEar · ${settings.mode}</span>
+            <span>BananaTone · ${settings.mode}</span>
             <button class="small-link" onclick="closeModal()">back to practice</button>
           </div>
 
@@ -4897,7 +4901,7 @@
               <div class="mode-label">${dailyDone ? "Daily goal complete" : "Session complete"}</div>
               <div class="result-score">${pct}%</div>
               <h2>${dailyDone ? "Goal complete." : pct >= 80 ? "Strong session." : pct >= 60 ? "Good session." : "Keep going."}</h2>
-              <p>${settings.mode} practice complete. RabbitEar tracks your real misses so your next drill feels clear, focused, and worth repeating.</p>
+              <p>${settings.mode} practice complete. BananaTone tracks your real misses so your next drill feels clear, focused, and worth repeating.</p>
 
               <div class="result-meta">
                 <span class="result-meta-pill">${total} questions</span>
@@ -5009,7 +5013,7 @@
       document.getElementById("modalContent").className = "modal";
       document.getElementById("modalContent").innerHTML = `
         <div class="mode-label">Feedback</div>
-        <h2>Help improve RabbitEar</h2>
+        <h2>Help improve BananaTone</h2>
         <p>Report a bug, audio issue, confusing UX, or suggestion. A small technical context is attached automatically.</p>
 
         <form class="feedback-form" id="feedbackForm" onsubmit="submitFeedback(event)">
