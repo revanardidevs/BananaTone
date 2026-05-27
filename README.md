@@ -27,7 +27,7 @@ Simply clone the repository and open the entrypoint in any modern browser:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<username>/rabbitear.git
+   git clone https://github.com/<username>/bananatone.git
    ```
 2. Open the file in your browser:
    - Double-click `index.html` in your file explorer, OR
@@ -46,7 +46,7 @@ All brand and logo files live in `/assets/`:
 
 | File | Size | Purpose |
 |------|------|---------|
-| `rabbitear_logo.svg` | Source | Original vector logo (icon-only, no wordmark) |
+| `bananatone-logo.svg` | Source | Original vector logo (icon-only, no wordmark) |
 | `logo-icon.svg` | Vector | Clean vector copy for general use |
 | `logo-icon-512.png` | 512×512 | High-res icon for topbar, PWA, etc. |
 | `apple-touch-icon.png` | 180×180 | iOS home-screen icon |
