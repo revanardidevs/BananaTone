@@ -2999,6 +2999,40 @@
     }
 
     .brand-logo-img { width: 38px; height: 38px; object-fit: contain; display: block; }
+
+    /* v32 Dark Mode Fallback Fixes */
+    [data-theme="dark"] .result-fullscreen .result-top { color: var(--muted); }
+    [data-theme="dark"] .result-fullscreen .result-top .small-link { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .result-fullscreen .result-top .small-link:hover { background: rgba(255,255,255,.12); color: var(--brand-beige); }
+    [data-theme="dark"] .result-fullscreen .result-left {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(252,221,157,.10), transparent 14rem),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.018)),
+        rgba(55, 51, 82, .34);
+    }
+    [data-theme="dark"] .result-fullscreen .result-left .mode-label { color: #ffd778; background: rgba(252,221,157,.18); border-color: rgba(252,221,157,.22); box-shadow: none; }
+    [data-theme="dark"] .result-fullscreen .result-score { color: var(--text); }
+    [data-theme="dark"] .result-fullscreen h2 { color: var(--text); }
+    [data-theme="dark"] .result-fullscreen p { color: var(--muted); }
+    [data-theme="dark"] .result-meta-pill { color: var(--text); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.1); }
+    [data-theme="dark"] .result-next { background: rgba(0,0,0,.2); border-color: rgba(255,255,255,.06); box-shadow: none; }
+    [data-theme="dark"] .result-next b { color: var(--text); }
+    [data-theme="dark"] .result-next span { color: var(--muted); }
+    [data-theme="dark"] .result-panel { background: var(--panel); }
+    [data-theme="dark"] .result-stat { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .result-stat b { color: var(--text); }
+    [data-theme="dark"] .result-stat span { color: var(--muted); }
+    [data-theme="dark"] .result-panel .field-label b { color: var(--text); }
+    [data-theme="dark"] .result-panel .field-label span { color: var(--muted); }
+    [data-theme="dark"] .result-panel .weak-item { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.08); }
+    [data-theme="dark"] .result-panel .weak-item b { color: var(--text); }
+    [data-theme="dark"] .result-panel .weak-item span { color: var(--muted); }
+    [data-theme="dark"] .result-ad { background: rgba(0,0,0,.15); border-color: rgba(255,255,255,.06); }
+    [data-theme="dark"] .result-ad .ad-content b { color: var(--text); }
+    [data-theme="dark"] .result-ad .ad-content span { color: var(--muted); }
+    [data-theme="dark"] .result-fullscreen .result-actions .btn { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); }
+    [data-theme="dark"] .result-fullscreen .result-actions .btn.primary { color: #332107; background: var(--brand-peach); border-color: rgba(240,177,51,.25); box-shadow: 0 4px 0 rgba(0,0,0,.3); }
+    [data-theme="dark"] .result-fullscreen .result-actions .btn.ghost { color: var(--muted); background: transparent; border-color: transparent; }
   </style>
 </head>
 <body>
