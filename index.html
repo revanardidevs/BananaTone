@@ -3300,6 +3300,10 @@
           <button class="active" id="feedbackSoundsOn" onclick="setFeedbackSounds(true)">On</button>
           <button id="feedbackSoundsOff" onclick="setFeedbackSounds(false)">Off</button>
         </div>
+        <div id="feedbackVolumeWrap" style="margin-top:10px;transition:opacity .2s">
+          <div class="field-label" style="margin-bottom:4px"><b style="font-size:12px">Feedback volume</b><span id="feedbackVolLabel">18%</span></div>
+          <input id="feedbackVolSlider" type="range" min="1" max="40" value="18" style="width:100%" oninput="onFeedbackVolChange(Number(this.value))"/>
+        </div>
       </div>
       <div class="ad-slot drawer-ad" id="settingsDrawerAd">
         <div class="ad-content">
@@ -3631,6 +3635,7 @@
       volume: 0.7,
       autoNext: true,
       feedbackSounds: true,
+      feedbackVolume: 18,
       customPools: {
         Intervals: [...PRESETS.Intervals.Beginner],
         Chords: [...PRESETS.Chords.Beginner],
@@ -4245,7 +4250,7 @@
       try {
         const ctx = audioCtx;
         const now = ctx.currentTime;
-        const vol = settings.volume * 0.18;
+        const vol = (settings.feedbackVolume != null ? settings.feedbackVolume : 18) / 100;
         if (isCorrect) {
           // Two-note upward chime: C5 -> E5, sine, ~180ms total
           const g = ctx.createGain();
@@ -4802,6 +4807,7 @@
       const fbOff = document.getElementById("feedbackSoundsOff");
       if (fbOn) fbOn.classList.toggle("active", settings.feedbackSounds !== false);
       if (fbOff) fbOff.classList.toggle("active", settings.feedbackSounds === false);
+      syncFeedbackVolumeUI();
     }
 
     // =============================
@@ -4899,7 +4905,30 @@
     function setFeedbackSounds(value) {
       settings.feedbackSounds = value;
       updateDrawerControls();
+      syncFeedbackVolumeUI();
       saveProgress();
+    }
+
+    function onFeedbackVolChange(val) {
+      settings.feedbackVolume = val;
+      if (!settings.feedbackSounds) {
+        settings.feedbackSounds = true;
+        updateDrawerControls();
+      }
+      syncFeedbackVolumeUI();
+      saveProgress();
+    }
+
+    function syncFeedbackVolumeUI() {
+      const wrap = document.getElementById("feedbackVolumeWrap");
+      const slider = document.getElementById("feedbackVolSlider");
+      const label = document.getElementById("feedbackVolLabel");
+      if (!wrap) return;
+      const isOn = settings.feedbackSounds !== false;
+      wrap.style.opacity = isOn ? "1" : "0.35";
+      wrap.style.pointerEvents = isOn ? "auto" : "none";
+      if (slider) slider.value = settings.feedbackVolume != null ? settings.feedbackVolume : 18;
+      if (label) label.textContent = (settings.feedbackVolume != null ? settings.feedbackVolume : 18) + "%";
     }
 
     function togglePoolItem(id, el) {
