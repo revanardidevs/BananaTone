@@ -3303,8 +3303,8 @@
           <button id="feedbackSoundsOff" onclick="setFeedbackSounds(false)">Off</button>
         </div>
         <div id="feedbackVolumeWrap" style="margin-top:10px;transition:opacity .2s">
-          <div class="field-label" style="margin-bottom:4px"><b style="font-size:12px">Feedback volume</b><span id="feedbackVolLabel">18%</span></div>
-          <input id="feedbackVolSlider" type="range" min="1" max="40" value="18" style="width:100%" oninput="onFeedbackVolChange(Number(this.value))"/>
+          <div class="field-label" style="margin-bottom:4px"><b style="font-size:12px">Feedback volume</b><span id="feedbackVolLabel">40%</span></div>
+          <input id="feedbackVolSlider" type="range" min="1" max="100" value="40" style="width:100%" oninput="onFeedbackVolChange(Number(this.value))"/>
         </div>
       </div>
       <div class="ad-slot drawer-ad" id="settingsDrawerAd">
@@ -3637,7 +3637,7 @@
       volume: 0.7,
       autoNext: true,
       feedbackSounds: true,
-      feedbackVolume: 18,
+      feedbackVolume: 40,
       customPools: {
         Intervals: [...PRESETS.Intervals.Beginner],
         Chords: [...PRESETS.Chords.Beginner],
@@ -4252,7 +4252,7 @@
       try {
         const ctx = audioCtx;
         const now = ctx.currentTime;
-        const vol = (settings.feedbackVolume != null ? settings.feedbackVolume : 18) / 100;
+        const vol = (settings.feedbackVolume != null ? settings.feedbackVolume : 40) / 100;
         if (isCorrect) {
           // Two-note upward chime: C5 -> E5, sine, ~180ms total
           const g = ctx.createGain();
@@ -4929,8 +4929,8 @@
       const isOn = settings.feedbackSounds !== false;
       wrap.style.opacity = isOn ? "1" : "0.35";
       wrap.style.pointerEvents = isOn ? "auto" : "none";
-      if (slider) slider.value = settings.feedbackVolume != null ? settings.feedbackVolume : 18;
-      if (label) label.textContent = (settings.feedbackVolume != null ? settings.feedbackVolume : 18) + "%";
+      if (slider) slider.value = settings.feedbackVolume != null ? settings.feedbackVolume : 40;
+      if (label) label.textContent = (settings.feedbackVolume != null ? settings.feedbackVolume : 40) + "%";
     }
 
     function togglePoolItem(id, el) {
