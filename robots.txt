@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://rabbitear.app/sitemap.xml
+Sitemap: https://bananatone.com/sitemap.xml

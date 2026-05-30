@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BananaTone — Calculating Results Interstitial Reference</title>
+  <style>
+    :root {
+      --cream: #FFF8EA;
+      --cream-2: #F5EEDC;
+      --plum: #504b73;
+      --muted: #6B6174;
+      --banana: #FFE29A;
+      --gold: #D9B85F;
+      --line: rgba(80, 75, 115, .14);
+      --font: ui-rounded, "Nunito", "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --cream: #26212F;
+      --cream-2: #1F1B27;
+      --plum: #FFF8EA;
+      --muted: #D9CFBE;
+      --line: rgba(255, 248, 234, .13);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      color: var(--plum);
+      background:
+        radial-gradient(circle at 14% 12%, rgba(255, 226, 148, .22), transparent 22rem),
+        linear-gradient(180deg, var(--cream), var(--cream-2));
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .fake-page {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: .65;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 226, 148, .24), transparent 24rem),
+        linear-gradient(180deg, var(--cream), var(--cream-2));
+    }
+
+    .interstitial {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      padding: clamp(18px, 4vw, 36px);
+      background:
+        radial-gradient(circle at 22% 12%, rgba(255, 226, 148, .28), transparent 26rem),
+        radial-gradient(circle at 78% 82%, rgba(126, 139, 94, .12), transparent 24rem),
+        rgba(255, 248, 234, .72);
+      backdrop-filter: blur(16px) saturate(1.04);
+      -webkit-backdrop-filter: blur(16px) saturate(1.04);
+    }
+
+    [data-theme="dark"] .interstitial {
+      background:
+        radial-gradient(circle at 22% 12%, rgba(217, 184, 95, .12), transparent 26rem),
+        radial-gradient(circle at 78% 82%, rgba(126, 139, 94, .09), transparent 24rem),
+        rgba(31, 27, 39, .78);
+      backdrop-filter: blur(16px) saturate(1.03);
+      -webkit-backdrop-filter: blur(16px) saturate(1.03);
+    }
+
+    .interstitial-card {
+      width: min(980px, calc(100vw - 44px));
+      min-height: min(560px, calc(100vh - 110px));
+      border-radius: clamp(26px, 3vw, 38px);
+      border: 1.5px solid rgba(80, 75, 115, .14);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255, 226, 148, .13), transparent 20rem),
+        linear-gradient(180deg, rgba(255, 250, 238, .96), rgba(244, 238, 224, .92));
+      box-shadow:
+        0 28px 72px rgba(80, 75, 115, .18),
+        0 1px 0 rgba(255, 255, 255, .72) inset;
+      padding: clamp(22px, 3vw, 34px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(18px, 2.4vw, 26px);
+      color: var(--plum);
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .interstitial-card {
+      border-color: rgba(255, 248, 234, .13);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(217, 184, 95, .10), transparent 20rem),
+        linear-gradient(180deg, rgba(52, 46, 63, .96), rgba(37, 33, 46, .94));
+      box-shadow:
+        0 30px 86px rgba(0, 0, 0, .34),
+        0 1px 0 rgba(255, 255, 255, .08) inset;
+    }
+
+    .interstitial-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 44px;
+    }
+
+    .interstitial-top span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .skip-btn {
+      min-width: 96px;
+      min-height: 42px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: rgba(255,255,255,.58);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 950;
+      box-shadow: 0 3px 0 rgba(80, 75, 115, .07);
+      cursor: not-allowed;
+      opacity: .68;
+    }
+
+    [data-theme="dark"] .skip-btn {
+      background: rgba(255,255,255,.07);
+      box-shadow: 0 3px 0 rgba(0,0,0,.20);
+    }
+
+    .ad-box {
+      width: 100%;
+      min-height: clamp(250px, 42vh, 370px);
+      border-radius: clamp(22px, 2.6vw, 32px);
+      border: 1.5px dashed rgba(80, 75, 115, .16);
+      background: linear-gradient(135deg, rgba(255,255,255,.58), rgba(255,248,234,.42));
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.68),
+        0 10px 34px rgba(80, 75, 115, .06);
+      position: relative;
+    }
+
+    [data-theme="dark"] .ad-box {
+      border-color: rgba(255, 248, 234, .14);
+      background: linear-gradient(135deg, rgba(255,248,234,.070), rgba(255,255,255,.040));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.07),
+        0 10px 34px rgba(0,0,0,.18);
+    }
+
+    .ad-box::before {
+      content: "AD";
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      color: rgba(80, 75, 115, .45);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .05em;
+    }
+
+    [data-theme="dark"] .ad-box::before {
+      color: rgba(255, 248, 234, .42);
+    }
+
+    .ad-content {
+      text-align: center;
+      max-width: 620px;
+    }
+
+    .ad-content strong {
+      display: block;
+      color: var(--plum);
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 1000;
+      line-height: 1.18;
+      margin-bottom: 8px;
+    }
+
+    .ad-content span {
+      display: block;
+      color: var(--muted);
+      font-size: clamp(13px, 1.4vw, 16px);
+      font-weight: 780;
+      line-height: 1.35;
+    }
+
+    .interstitial-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 52px;
+    }
+
+    .interstitial-bottom p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .continue-btn {
+      min-width: 120px;
+      min-height: 48px;
+      border-radius: 999px;
+      background: var(--banana);
+      color: #504b73;
+      border: 1.5px solid rgba(217, 184, 95, .34);
+      box-shadow: 0 5px 0 rgba(80, 75, 115, .16);
+      font-family: inherit;
+      font-weight: 1000;
+      cursor: pointer;
+    }
+
+    .continue-btn:disabled {
+      background: rgba(255,255,255,.60);
+      color: rgba(80, 75, 115, .56);
+      border-color: rgba(80, 75, 115, .12);
+      box-shadow: 0 3px 0 rgba(80, 75, 115, .08);
+      cursor: not-allowed;
+    }
+
+    [data-theme="dark"] .continue-btn:disabled {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,248,234,.50);
+      border-color: rgba(255,248,234,.12);
+      box-shadow: 0 3px 0 rgba(0,0,0,.20);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.62);
+      color: var(--plum);
+      min-height: 40px;
+      padding: 0 14px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    [data-theme="dark"] .theme-toggle { background: rgba(255,255,255,.08); }
+
+    @media (max-width: 700px) {
+      .interstitial { padding: 14px; }
+      .interstitial-card {
+        width: calc(100vw - 28px);
+        min-height: min(560px, calc(100vh - 64px));
+        padding: 18px;
+        gap: 14px;
+      }
+
+      .ad-box { min-height: 230px; }
+
+      .interstitial-bottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .continue-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fake-page" aria-hidden="true"></div>
+
+  <section class="interstitial" role="dialog" aria-modal="true" aria-label="Advertisement">
+    <div class="interstitial-card">
+      <div class="interstitial-top">
+        <span>Advertisement · calculating your results</span>
+        <button class="skip-btn" type="button" disabled>Skip in 2</button>
+      </div>
+
+      <div class="ad-box">
+        <div class="ad-content">
+          <strong>Ad space</strong>
+          <span>Your session summary will appear after this short break.</span>
+        </div>
+      </div>
+
+      <div class="interstitial-bottom">
+        <p>Ads never interrupt your listening practice.</p>
+        <button class="continue-btn" type="button" disabled>Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <button class="theme-toggle" type="button" onclick="toggleTheme()">Toggle theme</button>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    }
+  </script>
+</body>
+</html>
