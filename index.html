@@ -3766,7 +3766,7 @@
 
     <div class="drawer-body">
       <div class="field">
-        <div class="field-label"><b>Exercise</b><span>working MVP modes</span></div>
+        <div class="field-label"><b>Exercise</b><span>Drill type</span></div>
         <div class="seg" id="exerciseSeg">
           <button class="active" onclick="selectModeInDrawer(this,'Intervals')">Intervals</button>
           <button onclick="selectModeInDrawer(this,'Chords')">Chords</button>
@@ -3776,7 +3776,7 @@
       </div>
 
       <div class="field">
-        <div class="field-label"><b>Preset</b><span>pool + session + playback</span></div>
+        <div class="field-label"><b>Preset</b><span>Curated settings</span></div>
         <div class="seg" id="presetSeg">
           <button class="active" onclick="selectPreset(this,'Beginner')">Beginner</button>
           <button onclick="selectPreset(this,'Balanced')">Balanced</button>
@@ -3786,7 +3786,7 @@
       </div>
 
       <div class="field">
-        <div class="field-label"><b>Session</b><span>duration</span></div>
+        <div class="field-label"><b>Session</b><span>Questions per round</span></div>
         <div class="seg" id="lengthSeg">
           <button onclick="selectLength(this,10)">10 q</button>
           <button class="active" onclick="selectLength(this,20)">20 q</button>
@@ -3795,7 +3795,7 @@
       </div>
 
       <div class="field">
-        <div class="field-label"><b>Sound</b><span>sample-free instrument models</span></div>
+        <div class="field-label"><b>Sound</b><span>Instrument voice</span></div>
         <div class="seg" id="soundSeg">
           <button class="active" data-sound="Piano" onclick="selectSound(this,'Piano')">HQ Grand Piano (Sampled)</button>
           <button data-sound="E-piano" onclick="selectSound(this,'E-piano')">E-Piano</button>
@@ -3804,7 +3804,7 @@
       </div>
 
       <div class="field">
-        <div class="field-label"><b>Playback</b><span id="playbackDesc">Intervals only uses direction</span></div>
+        <div class="field-label"><b>Playback</b><span id="playbackDesc">Note sequence</span></div>
         <div class="seg" id="directionSeg">
           <button class="active" onclick="selectDirection(this,'Ascending')">Ascending</button>
           <button onclick="selectDirection(this,'Descending')">Descending</button>
@@ -3819,7 +3819,7 @@
       </div>
 
       <div class="field">
-        <div class="field-label"><b id="poolTitle">Included intervals</b><span>custom answer pool</span></div>
+        <div class="field-label"><b id="poolTitle">Included intervals</b><span>Answer pool</span></div>
         <div class="check-grid" id="poolGrid"></div>
       </div>
 
@@ -3858,7 +3858,7 @@
       </div>
 
       <div class="field">
-        <div class="field-label"><b>Weak areas</b><span>from local data</span></div>
+        <div class="field-label"><b>Weak areas</b><span>Based on your performance</span></div>
         <div class="weak-list" id="weakList">
           <div class="weak-item"><b>No weak areas yet</b><span>answer questions first</span></div>
         </div>
@@ -3890,19 +3890,19 @@
 
     <div class="drawer-body">
       <div class="field">
-        <div class="field-label"><b>Volume</b><span>balanced loud output</span></div>
+        <div class="field-label"><b>Volume</b><span>Master output</span></div>
         <input id="volumeSlider" type="range" min="0" max="100" value="70" style="width:100%" oninput="settings.volume = Number(this.value)/100; saveProgress()"/>
         <button class="btn" style="margin-top:10px" onclick="audioTest()">Audio test</button>
       </div>
       <div class="field">
-        <div class="field-label"><b>Behavior</b><span>flow</span></div>
+        <div class="field-label"><b>Behavior</b><span>Session flow</span></div>
         <div class="seg">
           <button class="active" id="autoNextOn" onclick="setAutoNext(true)">Auto next on correct</button>
           <button id="autoNextOff" onclick="setAutoNext(false)">Manual next</button>
         </div>
       </div>
       <div class="field">
-        <div class="field-label"><b>Feedback sounds</b><span>chime on answer</span></div>
+        <div class="field-label"><b>Feedback sounds</b><span>Sound effects</span></div>
         <div class="seg">
           <button class="active" id="feedbackSoundsOn" onclick="setFeedbackSounds(true)">On</button>
           <button id="feedbackSoundsOff" onclick="setFeedbackSounds(false)">Off</button>
