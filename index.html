@@ -3042,7 +3042,7 @@
       position: relative;
       width: min(1120px, calc(100vw - 36px));
       margin: 18px auto;
-      min-height: calc(100vh - 36px);
+      min-height: calc(100vh - 68px - 36px);
       border-radius: clamp(34px, 5vw, 62px);
       border: 1.5px solid var(--line);
       background:
@@ -3346,7 +3346,7 @@
 
     @media (max-height: 820px) and (min-width: 701px) {
       .session-done-card {
-        min-height: calc(100vh - 36px);
+        min-height: calc(100vh - 68px - 36px);
         padding-top: 42px;
         padding-bottom: 42px;
       }
@@ -3368,7 +3368,7 @@
 
     @media (max-width: 700px) {
       .session-done-card {
-        min-height: calc(100vh - 24px);
+        min-height: calc(100vh - 62px - 24px);
         margin: 12px auto;
         border-radius: 34px;
         padding: 34px 16px 28px;
@@ -3718,7 +3718,40 @@
         <a href="/terms.html" style="color: inherit; text-decoration: none; margin: 0 8px;">Terms</a>
       </div>
     </main>
-  </div>
+  <section class="session-done-card" id="sessionDoneCard" aria-live="polite" style="display: none;">
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="session-done-content">
+      <div class="session-kicker">Practice round complete</div>
+      <h1 class="session-title">Session done</h1>
+      <p class="session-copy">Nice work — your ear got a little sharper.</p>
+
+      <div class="session-stats">
+        <div class="stat-card">
+          <strong class="stat-value" id="sdCompletedVal">10/10</strong>
+          <span class="stat-label">Completed</span>
+        </div>
+
+        <div class="stat-card">
+          <strong class="stat-value" id="sdAccuracyVal">90%</strong>
+          <span class="stat-label">Accuracy</span>
+        </div>
+
+        <div class="stat-card weak-stat">
+          <div class="weak-area-chips" id="sdWeakAreaChips" aria-label="Weak areas">
+            <span class="weak-area-empty">No major weak area</span>
+          </div>
+          <span class="weak-label">Weak areas</span>
+        </div>
+      </div>
+
+      <div class="session-actions">
+        <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
+        <button class="secondary" onclick="sessionDoneChangeSettings()">Change settings</button>
+        <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
+      </div>
+    </div>
+  </section>
+</div>
 
   <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
 
@@ -3968,40 +4001,7 @@
     </div>
   </section>
 
-  <section class="session-done-card" id="sessionDoneCard" aria-live="polite" style="display: none;">
-    <div class="confetti" id="confetti" aria-hidden="true"></div>
-    <div class="session-done-content">
-      <div class="session-kicker">Practice round complete</div>
-      <h1 class="session-title">Session done</h1>
-      <p class="session-copy">Nice work — your ear got a little sharper.</p>
-
-      <div class="session-stats">
-        <div class="stat-card">
-          <strong class="stat-value" id="sdCompletedVal">10/10</strong>
-          <span class="stat-label">Completed</span>
-        </div>
-
-        <div class="stat-card">
-          <strong class="stat-value" id="sdAccuracyVal">90%</strong>
-          <span class="stat-label">Accuracy</span>
-        </div>
-
-        <div class="stat-card weak-stat">
-          <div class="weak-area-chips" id="sdWeakAreaChips" aria-label="Weak areas">
-            <span class="weak-area-empty">No major weak area</span>
-          </div>
-          <span class="weak-label">Weak areas</span>
-        </div>
-      </div>
-
-      <div class="session-actions">
-        <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
-        <button class="secondary" onclick="sessionDoneChangeSettings()">Change settings</button>
-        <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
-      </div>
-    </div>
-  </section>
-
+  
   <div class="toast-wrap" id="toastWrap"></div>
 
   <script>
@@ -5639,7 +5639,9 @@
     function showSessionDoneState(pct, total) {
       state.sessionDoneActive = true;
       
-      document.querySelector(".app").style.display = "none";
+      document.querySelector(".main").style.display = "none";
+      document.querySelector(".top-actions").style.visibility = "hidden";
+      document.querySelector(".tabs").style.visibility = "hidden";
       
       document.getElementById("sessionDoneCard").style.display = "flex";
       
@@ -5671,7 +5673,9 @@
 
     function hideSessionDoneState() {
       state.sessionDoneActive = false;
-      document.querySelector(".app").style.display = "";
+      document.querySelector(".main").style.display = "";
+      document.querySelector(".top-actions").style.visibility = "visible";
+      document.querySelector(".tabs").style.visibility = "visible";
       document.getElementById("sessionDoneCard").style.display = "none";
     }
 
