@@ -5204,7 +5204,7 @@
       const pct = attempted > 0 ? Math.round((state.correctCount / attempted) * 100) : 0;
       
       setTimeout(() => {
-        showInterstitialBeforeSessionDone(pct, state.qIndex);
+        showInterstitialBeforeSessionDone(pct, attempted);
       }, 250);
     }
 
@@ -5644,7 +5644,7 @@
       
       document.getElementById("sessionDoneCard").style.display = "flex";
       
-      document.getElementById("sdCompletedVal").textContent = `${state.qIndex}/${settings.sessionLength}`;
+      document.getElementById("sdCompletedVal").textContent = `${total}/${settings.sessionLength}`;
       document.getElementById("sdAccuracyVal").textContent = `${pct}%`;
       
       let weak = topSessionWeakAreas();
