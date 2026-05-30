@@ -132,7 +132,6 @@
       min-height: 100vh;
       display: grid;
       grid-template-rows: 68px 1fr;
-      overflow: hidden;
     }
 
     .topbar {
@@ -5201,7 +5200,8 @@
 
       state.sessionComplete = true;
       saveProgress();
-      const pct = Math.round((state.correctCount / Math.max(1, state.qIndex)) * 100);
+      const attempted = state.answered ? state.qIndex : Math.max(0, state.qIndex - 1);
+      const pct = attempted > 0 ? Math.round((state.correctCount / attempted) * 100) : 0;
       
       setTimeout(() => {
         showInterstitialBeforeSessionDone(pct, state.qIndex);
@@ -5647,12 +5647,23 @@
       document.getElementById("sdCompletedVal").textContent = `${state.qIndex}/${settings.sessionLength}`;
       document.getElementById("sdAccuracyVal").textContent = `${pct}%`;
       
-      const weak = topSessionWeakAreas();
+      let weak = topSessionWeakAreas();
+      
+      const numPct = Number(pct);
+      
+      // Fallback ke all-time weak areas jika tidak ada kesalahan di sesi ini tapi akurasi kurang dari 100% (atau jika user belum menjawab sama sekali)
+      if ((!weak || weak.length === 0) && numPct < 100) {
+        const mode = settings.mode;
+        weak = Object.entries(progress.weakItems || {})
+          .filter(([key, v]) => key.startsWith(`${mode}:`) && v.wrong > 0)
+          .sort((a,b) => (b[1].wrong/Math.max(1, b[1].heard)) - (a[1].wrong/Math.max(1, a[1].heard)))
+          .map(([key, v]) => [key.split(":")[1], v.wrong]);
+      }
+      
       const wrap = document.getElementById("sdWeakAreaChips");
       wrap.innerHTML = "";
       
       // Tampilkan weak areas jika ada kesalahan
-      const numPct = Number(pct);
       const hasWeakAreas = weak && weak.length > 0;
       
       if (numPct >= 100 && !hasWeakAreas) {
