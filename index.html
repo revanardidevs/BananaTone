@@ -5640,8 +5640,6 @@
       state.sessionDoneActive = true;
       
       document.querySelector(".main").style.display = "none";
-      document.querySelector(".top-actions").style.visibility = "hidden";
-      document.querySelector(".tabs").style.visibility = "hidden";
       
       document.getElementById("sessionDoneCard").style.display = "flex";
       
@@ -5688,8 +5686,6 @@
     function hideSessionDoneState() {
       state.sessionDoneActive = false;
       document.querySelector(".main").style.display = "";
-      document.querySelector(".top-actions").style.visibility = "visible";
-      document.querySelector(".tabs").style.visibility = "visible";
       document.getElementById("sessionDoneCard").style.display = "none";
     }
 
