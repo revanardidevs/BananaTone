@@ -5652,20 +5652,34 @@
       const wrap = document.getElementById("sdWeakAreaChips");
       wrap.innerHTML = "";
       
-      // Hanya tampilkan "No major weak area" saat akurasi 100% atau tidak ada kesalahan
-      if (pct === 100 || !weak || !weak.length) {
+      // Tampilkan weak areas jika ada kesalahan
+      const numPct = Number(pct);
+      const hasWeakAreas = weak && weak.length > 0;
+      
+      if (numPct >= 100 && !hasWeakAreas) {
         const empty = document.createElement("span");
         empty.className = "weak-area-empty";
         empty.textContent = "No major weak area";
         wrap.appendChild(empty);
-      } else {
-        // Tampilkan top 3 (atau kurang) weak areas
-        weak.forEach((item) => {
+      } else if (hasWeakAreas) {
+        const maxVisible = 3;
+        weak.slice(0, maxVisible).forEach((item) => {
           const chip = document.createElement("span");
           chip.className = "weak-area-chip";
           chip.textContent = item[0];
           wrap.appendChild(chip);
         });
+        if (weak.length > maxVisible) {
+          const more = document.createElement("span");
+          more.className = "weak-area-chip more";
+          more.textContent = `+${weak.length - maxVisible} more`;
+          wrap.appendChild(more);
+        }
+      } else {
+        const empty = document.createElement("span");
+        empty.className = "weak-area-empty";
+        empty.textContent = "No major weak area";
+        wrap.appendChild(empty);
       }
       
       launchConfetti();
@@ -5716,7 +5730,7 @@
     function topSessionWeakAreas() {
       const counts = {};
       state.sessionWrong.forEach(name => counts[name] = (counts[name] || 0) + 1);
-      return Object.entries(counts).sort((a,b) => b[1] - a[1]).slice(0,3);
+      return Object.entries(counts).sort((a,b) => b[1] - a[1]);
     }
 
     function showResult(pct, total) {
