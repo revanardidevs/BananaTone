@@ -5649,25 +5649,21 @@
       const weak = topSessionWeakAreas();
       const wrap = document.getElementById("sdWeakAreaChips");
       wrap.innerHTML = "";
-      if (!weak || !weak.length) {
+      
+      // Hanya tampilkan "No major weak area" saat akurasi 100% atau tidak ada kesalahan
+      if (pct === 100 || !weak || !weak.length) {
         const empty = document.createElement("span");
         empty.className = "weak-area-empty";
         empty.textContent = "No major weak area";
         wrap.appendChild(empty);
       } else {
-        const maxVisible = 3;
-        weak.slice(0, maxVisible).forEach((item) => {
+        // Tampilkan top 3 (atau kurang) weak areas
+        weak.forEach((item) => {
           const chip = document.createElement("span");
           chip.className = "weak-area-chip";
           chip.textContent = item[0];
           wrap.appendChild(chip);
         });
-        if (weak.length > maxVisible) {
-          const more = document.createElement("span");
-          more.className = "weak-area-chip more";
-          more.textContent = `+${weak.length - maxVisible} more`;
-          wrap.appendChild(more);
-        }
       }
       
       launchConfetti();
