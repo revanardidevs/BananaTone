@@ -3036,6 +3036,578 @@
     [data-theme="dark"] .result-fullscreen .result-actions .btn { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); }
     [data-theme="dark"] .result-fullscreen .result-actions .btn.primary { color: #332107; background: var(--brand-peach); border-color: rgba(240,177,51,.25); box-shadow: 0 4px 0 rgba(0,0,0,.3); }
     [data-theme="dark"] .result-fullscreen .result-actions .btn.ghost { color: var(--muted); background: transparent; border-color: transparent; }
+
+    /* New Session Done Styles */
+    .session-done-card {
+      position: relative;
+      width: min(1120px, calc(100vw - 36px));
+      margin: 18px auto;
+      min-height: calc(100vh - 36px);
+      border-radius: clamp(34px, 5vw, 62px);
+      border: 1.5px solid var(--line);
+      background:
+        radial-gradient(circle at 16% 10%, rgba(255, 226, 148, .26), transparent 18rem),
+        radial-gradient(circle at 86% 86%, rgba(126, 139, 94, .14), transparent 19rem),
+        linear-gradient(180deg, rgba(255, 248, 234, .92), rgba(255, 255, 255, .70));
+      box-shadow:
+        0 24px 66px rgba(80, 75, 115, .16),
+        inset 0 1px 0 rgba(255, 255, 255, .72);
+      overflow: hidden;
+      text-align: center;
+      padding: clamp(54px, 7vh, 92px) clamp(34px, 5.8vw, 76px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [data-theme="dark"] .session-done-card {
+      background:
+        radial-gradient(circle at 16% 10%, rgba(217, 184, 95, .12), transparent 18rem),
+        radial-gradient(circle at 86% 86%, rgba(126, 139, 94, .09), transparent 19rem),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
+      box-shadow:
+        0 24px 66px rgba(0, 0, 0, .32),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      border-color: rgba(255, 248, 234, .14);
+    }
+
+    .session-done-card::before,
+    .session-done-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .session-done-card::before {
+      width: 230px;
+      height: 230px;
+      right: -96px;
+      top: -108px;
+      background: rgba(217, 184, 95, .15);
+    }
+
+    .session-done-card::after {
+      width: 180px;
+      height: 180px;
+      left: -90px;
+      bottom: -98px;
+      background: rgba(126, 139, 94, .11);
+    }
+
+    .session-done-content {
+      position: relative;
+      z-index: 1;
+      width: min(860px, 100%);
+      margin: 0 auto;
+    }
+
+    .session-kicker {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 184, 95, .28);
+      background: rgba(217, 184, 95, .22);
+      color: #735616;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.48);
+    }
+
+    [data-theme="dark"] .session-kicker {
+      color: #FFE29A;
+      background: rgba(217, 184, 95, .13);
+    }
+
+    .session-title {
+      margin: clamp(16px, 2.2vh, 26px) 0 clamp(10px, 1.4vh, 16px);
+      color: var(--text);
+      font-size: clamp(64px, 8.8vw, 112px);
+      line-height: .82;
+      letter-spacing: -.085em;
+      font-weight: 1000;
+    }
+
+    .session-copy {
+      max-width: 56ch;
+      margin: 0 auto;
+      color: var(--muted-2);
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 800;
+      line-height: 1.38;
+    }
+
+    .session-stats {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, .9fr) minmax(280px, 1.2fr);
+      gap: 14px;
+      width: min(880px, 100%);
+      margin: clamp(34px, 5vh, 58px) auto 0;
+      align-items: stretch;
+    }
+
+    .session-done-card .stat-card {
+      min-height: clamp(112px, 14vh, 152px);
+      border-radius: 30px;
+      border: 1px solid rgba(80, 75, 115, .10);
+      background: rgba(255,255,255,.50);
+      box-shadow: 0 3px 0 rgba(80, 75, 115, .07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 18px;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .session-done-card .stat-card {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255, 248, 234, .12);
+      box-shadow: 0 3px 0 rgba(0,0,0,.22);
+    }
+
+    .session-done-card .stat-value {
+      color: var(--text);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1;
+      font-weight: 1000;
+      letter-spacing: -.055em;
+    }
+
+    .session-done-card .stat-label {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+    }
+
+    .session-done-card .weak-stat {
+      gap: 12px;
+    }
+
+    .weak-area-chips {
+      order: 1;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .weak-area-empty {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      color: var(--text);
+      font-size: clamp(34px, 3.45vw, 52px);
+      line-height: .98;
+      font-weight: 1000;
+      letter-spacing: -.075em;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .weak-area-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(80, 75, 115, .12);
+      background: rgba(255, 248, 234, .78);
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 1000;
+      line-height: 1;
+      box-shadow: 0 2px 0 rgba(80, 75, 115, .07);
+      white-space: nowrap;
+    }
+
+    [data-theme="dark"] .weak-area-chip {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,248,234,.13);
+      color: #E6DBC8;
+    }
+
+    .weak-area-chip.more {
+      background: rgba(217, 184, 95, .18);
+      color: #735616;
+      border-color: rgba(217, 184, 95, .24);
+    }
+    
+    [data-theme="dark"] .weak-area-chip.more {
+      background: rgba(217, 184, 95, .18);
+      color: #E7C96F;
+    }
+
+    .weak-label {
+      order: 2;
+      display: block;
+      width: 100%;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.05;
+      font-weight: 950;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .session-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: clamp(34px, 5vh, 58px) auto 0;
+      max-width: 680px;
+    }
+
+    .session-actions button {
+      min-height: 52px;
+      min-width: 156px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(80, 75, 115, .12);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 950;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .session-actions button:hover { transform: translateY(-2px); }
+
+    .session-actions .primary {
+      min-width: 180px !important;
+      background: var(--brand-peach);
+      color: #3E334F;
+      border-color: rgba(217, 184, 95, .34) !important;
+      box-shadow: 0 5px 0 rgba(80, 75, 115, .16);
+    }
+
+    .session-actions .secondary {
+      background: rgba(255,255,255,.66);
+      color: var(--text);
+      box-shadow: 0 4px 0 rgba(80, 75, 115, .10);
+    }
+
+    .session-actions .ghost {
+      background: transparent;
+      color: var(--muted-2);
+      box-shadow: none;
+      opacity: .88;
+    }
+
+    [data-theme="dark"] .session-actions .secondary {
+      background: rgba(255,255,255,.07);
+      color: #E6DBC8;
+      border-color: rgba(255,248,234,.13);
+    }
+
+    .confetti {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .confetti i {
+      position: absolute;
+      width: 7px;
+      height: 11px;
+      border-radius: 3px;
+      opacity: 0;
+      animation: fall 1.18s cubic-bezier(.18, .84, .28, 1) forwards;
+    }
+
+    @keyframes fall {
+      0% { opacity: 0; transform: translateY(-36px) rotate(0deg) scale(.72); }
+      12% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(188px) rotate(240deg) scale(1); }
+    }
+
+    @media (max-height: 820px) and (min-width: 701px) {
+      .session-done-card {
+        min-height: calc(100vh - 36px);
+        padding-top: 42px;
+        padding-bottom: 42px;
+      }
+      .session-title { font-size: clamp(54px, 7.4vw, 88px); }
+      .session-copy { font-size: 17px; }
+      .session-stats { margin-top: 26px; }
+      .session-done-card .stat-card { min-height: 96px; }
+      .session-actions { margin-top: 26px; }
+      .weak-area-empty { font-size: clamp(30px, 3vw, 44px); }
+    }
+
+    @media (max-width: 900px) and (min-width: 701px) {
+      .session-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 760px;
+      }
+      .weak-area-empty { font-size: clamp(26px, 3vw, 36px); }
+    }
+
+    @media (max-width: 700px) {
+      .session-done-card {
+        min-height: calc(100vh - 24px);
+        margin: 12px auto;
+        border-radius: 34px;
+        padding: 34px 16px 28px;
+        width: calc(100vw - 24px);
+      }
+      .session-title { font-size: clamp(48px, 14vw, 72px); }
+      .session-copy { font-size: 15px; }
+      .session-stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 24px;
+      }
+      .session-done-card .stat-card {
+        min-height: 66px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px 14px;
+      }
+      .session-done-card .weak-stat {
+        min-height: 92px;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .weak-area-empty {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 28px;
+        line-height: 1.05;
+      }
+      .session-actions { margin-top: 24px; }
+      .session-actions button {
+        flex: 1 1 100%;
+        min-width: 0 !important;
+        min-height: 44px;
+      }
+    }
+
+    /* Interstitial Override */
+    .interstitial-ad {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: none;
+      place-items: center;
+      padding: clamp(18px, 4vw, 36px);
+      background:
+        radial-gradient(circle at 22% 12%, rgba(255, 226, 148, .28), transparent 26rem),
+        radial-gradient(circle at 78% 82%, rgba(126, 139, 94, .12), transparent 24rem),
+        rgba(255, 248, 234, .72) !important;
+      backdrop-filter: blur(16px) saturate(1.04);
+      -webkit-backdrop-filter: blur(16px) saturate(1.04);
+    }
+
+    [data-theme="dark"] .interstitial-ad {
+      background:
+        radial-gradient(circle at 22% 12%, rgba(217, 184, 95, .12), transparent 26rem),
+        radial-gradient(circle at 78% 82%, rgba(126, 139, 94, .09), transparent 24rem),
+        rgba(31, 27, 39, .78) !important;
+      backdrop-filter: blur(16px) saturate(1.03);
+      -webkit-backdrop-filter: blur(16px) saturate(1.03);
+    }
+
+    .interstitial-ad.active { display: grid; }
+
+    .interstitial-ad .interstitial-card {
+      width: min(980px, calc(100vw - 44px));
+      min-height: min(560px, calc(100vh - 110px));
+      border-radius: clamp(26px, 3vw, 38px);
+      border: 1.5px solid rgba(80, 75, 115, .14);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255, 226, 148, .13), transparent 20rem),
+        linear-gradient(180deg, rgba(255, 250, 238, .96), rgba(244, 238, 224, .92));
+      box-shadow:
+        0 28px 72px rgba(80, 75, 115, .18),
+        inset 0 1px 0 rgba(255, 255, 255, .72);
+      padding: clamp(22px, 3vw, 34px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(18px, 2.4vw, 26px);
+      color: #504b73;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .interstitial-ad .interstitial-card {
+      border-color: rgba(255, 248, 234, .13);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(217, 184, 95, .10), transparent 20rem),
+        linear-gradient(180deg, rgba(52, 46, 63, .96), rgba(37, 33, 46, .94));
+      box-shadow:
+        0 30px 86px rgba(0, 0, 0, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+      color: #FFF8EA;
+    }
+
+    .interstitial-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 44px;
+    }
+
+    .interstitial-top span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .skip-btn {
+      min-width: 96px;
+      min-height: 42px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: rgba(255,255,255,.58);
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 950;
+      box-shadow: 0 3px 0 rgba(80, 75, 115, .07);
+      cursor: not-allowed;
+      opacity: .68;
+    }
+
+    [data-theme="dark"] .skip-btn {
+      background: rgba(255,255,255,.07);
+      box-shadow: 0 3px 0 rgba(0,0,0,.20);
+    }
+    
+    .skip-btn:not(:disabled) {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .ad-box {
+      width: 100%;
+      min-height: clamp(250px, 42vh, 370px);
+      border-radius: clamp(22px, 2.6vw, 32px);
+      border: 1.5px dashed rgba(80, 75, 115, .16);
+      background: linear-gradient(135deg, rgba(255,255,255,.58), rgba(255,248,234,.42));
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.68),
+        0 10px 34px rgba(80, 75, 115, .06);
+      position: relative;
+    }
+
+    [data-theme="dark"] .ad-box {
+      border-color: rgba(255, 248, 234, .14);
+      background: linear-gradient(135deg, rgba(255,248,234,.070), rgba(255,255,255,.040));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.07),
+        0 10px 34px rgba(0,0,0,.18);
+    }
+
+    .ad-box::before {
+      content: "AD";
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      color: rgba(80, 75, 115, .45);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .05em;
+    }
+
+    [data-theme="dark"] .ad-box::before {
+      color: rgba(255, 248, 234, .42);
+    }
+
+    .ad-box .ad-content {
+      text-align: center;
+      max-width: 620px;
+    }
+
+    .ad-box .ad-content strong {
+      display: block;
+      color: var(--text);
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 1000;
+      line-height: 1.18;
+      margin-bottom: 8px;
+    }
+
+    .ad-box .ad-content span {
+      display: block;
+      color: var(--muted-2);
+      font-size: clamp(13px, 1.4vw, 16px);
+      font-weight: 780;
+      line-height: 1.35;
+    }
+
+    .interstitial-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 52px;
+    }
+
+    .interstitial-bottom p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .continue-btn {
+      min-width: 120px;
+      min-height: 48px;
+      border-radius: 999px;
+      background: var(--brand-peach);
+      color: #504b73;
+      border: 1.5px solid rgba(217, 184, 95, .34);
+      box-shadow: 0 5px 0 rgba(80, 75, 115, .16);
+      font-family: inherit;
+      font-weight: 1000;
+      cursor: pointer;
+    }
+
+    .continue-btn:disabled {
+      background: rgba(255,255,255,.60);
+      color: rgba(80, 75, 115, .56);
+      border-color: rgba(80, 75, 115, .12);
+      box-shadow: 0 3px 0 rgba(80, 75, 115, .08);
+      cursor: not-allowed;
+    }
+
+    [data-theme="dark"] .continue-btn:disabled {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,248,234,.50);
+      border-color: rgba(255,248,234,.12);
+      box-shadow: 0 3px 0 rgba(0,0,0,.20);
+    }
+
   </style>
 </head>
 <body>
@@ -3375,24 +3947,60 @@
     <button class="ad-close" onclick="closeMobileAd()" aria-label="Close mobile ad">×</button>
   </div>
 
-  <div class="interstitial-ad" id="interstitialAd" aria-label="Interstitial ad">
+  <section class="interstitial-ad" id="interstitialAd" role="dialog" aria-modal="true" aria-label="Advertisement">
     <div class="interstitial-card">
       <div class="interstitial-top">
         <span>Advertisement · calculating your results</span>
-        <button class="btn ghost" id="skipInterstitialBtn" onclick="skipInterstitial()" disabled>Skip in 3</button>
+        <button class="skip-btn" id="skipInterstitialBtn" type="button" onclick="skipInterstitial()" disabled>Skip in 3</button>
       </div>
-      <div class="ad-slot interstitial-main-ad">
+
+      <div class="ad-box">
         <div class="ad-content">
-          <b>Ad space</b>
-          <span>Shown only after the session ends · never during listening</span>
+          <strong>Ad space</strong>
+          <span>Your session summary will appear after this short break.</span>
         </div>
       </div>
-      <div class="interstitial-actions">
-        <span>Ads never interrupt your listening practice.</span>
-        <button class="btn primary" id="continueInterstitialBtn" onclick="skipInterstitial()" disabled>Continue</button>
+
+      <div class="interstitial-bottom">
+        <p>Ads never interrupt your listening practice.</p>
+        <button class="continue-btn" id="continueInterstitialBtn" type="button" onclick="skipInterstitial()" disabled>Continue</button>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="session-done-card" id="sessionDoneCard" aria-live="polite" style="display: none;">
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="session-done-content">
+      <div class="session-kicker">Practice round complete</div>
+      <h1 class="session-title">Session done</h1>
+      <p class="session-copy">Nice work — your ear got a little sharper.</p>
+
+      <div class="session-stats">
+        <div class="stat-card">
+          <strong class="stat-value" id="sdCompletedVal">10/10</strong>
+          <span class="stat-label">Completed</span>
+        </div>
+
+        <div class="stat-card">
+          <strong class="stat-value" id="sdAccuracyVal">90%</strong>
+          <span class="stat-label">Accuracy</span>
+        </div>
+
+        <div class="stat-card weak-stat">
+          <div class="weak-area-chips" id="sdWeakAreaChips" aria-label="Weak areas">
+            <span class="weak-area-empty">No major weak area</span>
+          </div>
+          <span class="weak-label">Weak areas</span>
+        </div>
+      </div>
+
+      <div class="session-actions">
+        <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
+        <button class="secondary" onclick="sessionDoneChangeSettings()">Change settings</button>
+        <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
+      </div>
+    </div>
+  </section>
 
   <div class="toast-wrap" id="toastWrap"></div>
 
@@ -3675,6 +4283,7 @@
       interstitialTimer: null,
       pendingResult: null,
       sessionComplete: false,
+      sessionDoneActive: false,
       canAnswer: false,
       compareTimer: null,
       isComparing: false
@@ -4592,7 +5201,10 @@
       state.sessionComplete = true;
       saveProgress();
       const pct = Math.round((state.correctCount / Math.max(1, state.qIndex)) * 100);
-      showInterstitialBeforeResult(pct, state.qIndex);
+      
+      setTimeout(() => {
+        showInterstitialBeforeSessionDone(pct, state.qIndex);
+      }, 250);
     }
 
     function resetSession() {
@@ -4987,7 +5599,7 @@
     // =============================
     // 10. Result and ads
     // =============================
-    function showInterstitialBeforeResult(pct, total) {
+    function showInterstitialBeforeSessionDone(pct, total) {
       const ad = document.getElementById("interstitialAd");
       const skip = document.getElementById("skipInterstitialBtn");
       const cont = document.getElementById("continueInterstitialBtn");
@@ -5020,8 +5632,89 @@
       if (state.pendingResult) {
         const { pct, total } = state.pendingResult;
         state.pendingResult = null;
-        showResult(pct, total);
+        showSessionDoneState(pct, total);
       }
+    }
+
+    function showSessionDoneState(pct, total) {
+      state.sessionDoneActive = true;
+      
+      document.querySelector(".main").style.display = "none";
+      document.querySelector(".top-actions").style.visibility = "hidden";
+      document.querySelector(".tabs").style.visibility = "hidden";
+      
+      document.getElementById("sessionDoneCard").style.display = "flex";
+      
+      document.getElementById("sdCompletedVal").textContent = `${state.qIndex}/${settings.sessionLength}`;
+      document.getElementById("sdAccuracyVal").textContent = `${pct}%`;
+      
+      const weak = topSessionWeakAreas();
+      const wrap = document.getElementById("sdWeakAreaChips");
+      wrap.innerHTML = "";
+      if (!weak || !weak.length) {
+        const empty = document.createElement("span");
+        empty.className = "weak-area-empty";
+        empty.textContent = "No major weak area";
+        wrap.appendChild(empty);
+      } else {
+        const maxVisible = 3;
+        weak.slice(0, maxVisible).forEach((item) => {
+          const chip = document.createElement("span");
+          chip.className = "weak-area-chip";
+          chip.textContent = item[0];
+          wrap.appendChild(chip);
+        });
+        if (weak.length > maxVisible) {
+          const more = document.createElement("span");
+          more.className = "weak-area-chip more";
+          more.textContent = `+${weak.length - maxVisible} more`;
+          wrap.appendChild(more);
+        }
+      }
+      
+      launchConfetti();
+    }
+
+    function hideSessionDoneState() {
+      state.sessionDoneActive = false;
+      document.querySelector(".main").style.display = "";
+      document.querySelector(".top-actions").style.visibility = "visible";
+      document.querySelector(".tabs").style.visibility = "visible";
+      document.getElementById("sessionDoneCard").style.display = "none";
+    }
+
+    function sessionDoneNextSession() {
+      hideSessionDoneState();
+      state.sessionComplete = false;
+      resetSession();
+    }
+
+    function sessionDoneChangeSettings() {
+      openDrawer("customize");
+    }
+
+    function sessionDoneEndSession() {
+      hideSessionDoneState();
+      setPostSessionReadyState();
+    }
+
+    function launchConfetti() {
+      const wrap = document.getElementById("confetti");
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const colors = ["#D9B85F", "#7E8B5E", "#E9A66B", "#3E334F", "#FFF8EA"];
+      wrap.innerHTML = "";
+      for (let i = 0; i < 26; i++) {
+        const piece = document.createElement("i");
+        piece.style.left = `${8 + Math.random() * 84}%`;
+        piece.style.top = `${-10 - Math.random() * 22}px`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDelay = `${Math.random() * .26}s`;
+        piece.style.animationDuration = `${0.9 + Math.random() * .45}s`;
+        piece.style.width = `${5 + Math.random() * 5}px`;
+        piece.style.height = `${8 + Math.random() * 9}px`;
+        wrap.appendChild(piece);
+      }
+      setTimeout(() => { wrap.innerHTML = ""; }, 1600);
     }
 
     function topSessionWeakAreas() {
@@ -5382,6 +6075,9 @@
 
       if (document.getElementById("learnPanel").classList.contains("active")) {
         if (e.key === "Escape") closeLearn();
+        return;
+      }
+      if (state.sessionDoneActive) {
         return;
       }
       if (document.getElementById("interstitialAd").classList.contains("active")) {
