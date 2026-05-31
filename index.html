@@ -3274,7 +3274,7 @@
       align-items: center;
       gap: 12px;
       margin: clamp(34px, 5vh, 58px) auto 0;
-      max-width: 680px;
+      max-width: 800px;
     }
 
     .session-actions button {
@@ -3744,15 +3744,11 @@
         </div>
       </div>
 
-      <div class="session-actions" style="flex-direction: column; gap: 12px; width: 100%; align-items: center;">
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%;">
-          <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
-          <button class="secondary" id="sdPracticeWeakBtn" onclick="sessionDonePracticeWeakAreas()" style="display:none">Practice weak areas</button>
-        </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%;">
-          <button class="secondary" onclick="sessionDoneChangeSettings()">Change settings</button>
-          <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
-        </div>
+      <div class="session-actions">
+        <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
+        <button class="secondary" id="sdPracticeWeakBtn" onclick="sessionDonePracticeWeakAreas()" style="display:none">Practice weak areas</button>
+        <button class="secondary" onclick="sessionDoneChangeSettings()">Change settings</button>
+        <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
       </div>
     </div>
   </section>
