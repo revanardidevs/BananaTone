@@ -3746,6 +3746,7 @@
 
       <div class="session-actions">
         <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
+        <button class="secondary" id="sdPracticeWeakBtn" onclick="sessionDonePracticeWeakAreas()" style="display:none">Practice weak areas</button>
         <button class="secondary" onclick="sessionDoneChangeSettings()">Change settings</button>
         <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
       </div>
@@ -5665,6 +5666,10 @@
       
       // Tampilkan weak areas jika ada kesalahan
       const hasWeakAreas = weak && weak.length > 0;
+      const practiceBtn = document.getElementById("sdPracticeWeakBtn");
+      if (practiceBtn) {
+        practiceBtn.style.display = hasWeakAreas ? "inline-block" : "none";
+      }
       
       if (numPct >= 100 && !hasWeakAreas) {
         const empty = document.createElement("span");
@@ -5705,6 +5710,12 @@
       hideSessionDoneState();
       state.sessionComplete = false;
       resetSession();
+    }
+
+    function sessionDonePracticeWeakAreas() {
+      hideSessionDoneState();
+      state.sessionComplete = false;
+      startWeakAreas();
     }
 
     function sessionDoneChangeSettings() {
