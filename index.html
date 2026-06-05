@@ -3697,8 +3697,6 @@
       <footer class="bottom-bar">
         <div class="bottom-stat">
           <span id="sessionStatus">Intervals · Beginner</span>
-          <span>·</span>
-          <span id="workoutStatus">normal mode</span>
         </div>
         <div class="bottom-stat center">
           <button class="small-link" onclick="openDrawer('progress')">Progress</button>
@@ -5372,7 +5370,6 @@
       document.getElementById("topGoal").textContent = `${Math.min(progress.today, 20)}/20`;
       document.getElementById("topStreak").textContent = progress.streakDays;
       document.getElementById("sessionStatus").textContent = `${settings.mode} · ${settings.preset}`;
-      document.getElementById("workoutStatus").textContent = "functional MVP";
 
       document.getElementById("drawerGoal").textContent = `${Math.min(progress.today, 20)} / 20 questions`;
       document.getElementById("goalFill").style.width = `${Math.min(100, progress.today / 20 * 100)}%`;
