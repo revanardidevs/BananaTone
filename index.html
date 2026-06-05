@@ -3313,12 +3313,12 @@
 
     .session-revealed {
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       color: #7864C8;
-      margin-top: -4px;
-      margin-bottom: 4px;
-      font-weight: 600;
-      opacity: 0.85;
+      margin-top: 6px;
+      margin-bottom: -2px;
+      font-weight: 700;
+      opacity: 0.9;
       letter-spacing: .01em;
     }
     [data-theme="dark"] .session-revealed {
@@ -3790,6 +3790,7 @@
         <div class="stat-card">
           <strong class="stat-value" id="sdAccuracyVal">90%</strong>
           <span class="stat-label">Accuracy</span>
+          <div class="session-revealed" id="sdRevealedInfo" style="display:none"></div>
         </div>
 
         <div class="stat-card weak-stat">
@@ -3799,8 +3800,6 @@
           <span class="weak-label">Weak areas</span>
         </div>
       </div>
-
-      <p class="session-revealed" id="sdRevealedInfo" style="display:none"></p>
 
       <div class="session-actions">
         <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
