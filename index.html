@@ -660,6 +660,45 @@
       100% { transform: translateY(-2px) scale(1.01); }
     }
 
+    .answer-btn.revealed {
+      background: linear-gradient(180deg, rgba(120,100,200,.22), rgba(120,100,200,.14));
+      border-color: rgba(120,100,200,.75);
+      color: #B8A8E8;
+      box-shadow: 0 0 0 3px rgba(120,100,200,.12), 0 10px 24px rgba(120,100,200,.14), 0 5px 0 rgba(80,78,118,.18);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .answer-btn.revealed::after {
+      content: "👁";
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      right: 15px;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      background: rgba(120,100,200,.18);
+      box-shadow: 0 3px 10px rgba(120,100,200,.20);
+      animation: correctBadgeIn .22s ease;
+    }
+    .answer-btn.revealed kbd {
+      background: rgba(184,168,232,.18);
+      color: #B8A8E8;
+      border-color: rgba(184,168,232,.36);
+    }
+    [data-theme="light"] .answer-btn.revealed {
+      background: linear-gradient(180deg, rgba(120,100,200,.18), rgba(120,100,200,.10));
+      border-color: rgba(120,100,200,.65);
+      color: #6B5BA8;
+    }
+    [data-theme="light"] .answer-btn.revealed kbd {
+      background: rgba(120,100,200,.12);
+      color: #6B5BA8;
+      border-color: rgba(120,100,200,.28);
+    }
+
     .answer-btn.wrong {
       background: var(--danger-soft);
       border-color: rgba(255,107,115,.72);
@@ -688,6 +727,11 @@
     .feedback.danger {
       background: linear-gradient(180deg, rgba(241,100,46,.12), rgba(241,100,46,.08)), var(--panel);
       border-color: rgba(241,100,46,.42);
+    }
+    .feedback.info {
+      background: linear-gradient(180deg, rgba(120,100,200,.14), rgba(120,100,200,.08)), var(--panel);
+      border-color: rgba(120,100,200,.50);
+      box-shadow: 0 14px 36px rgba(120,100,200,.12);
     }
     .feedback.flash {
       animation: feedbackFlash .34s ease;
@@ -3267,6 +3311,20 @@
       white-space: nowrap;
     }
 
+    .session-revealed {
+      text-align: center;
+      font-size: 13px;
+      color: #7864C8;
+      margin-top: -4px;
+      margin-bottom: 4px;
+      font-weight: 600;
+      opacity: 0.85;
+      letter-spacing: .01em;
+    }
+    [data-theme="dark"] .session-revealed {
+      color: #B8A8E8;
+    }
+
     .session-actions {
       display: flex;
       flex-wrap: wrap;
@@ -3741,6 +3799,8 @@
           <span class="weak-label">Weak areas</span>
         </div>
       </div>
+
+      <p class="session-revealed" id="sdRevealedInfo" style="display:none"></p>
 
       <div class="session-actions">
         <button class="primary" onclick="sessionDoneNextSession()">Next session</button>
@@ -4285,7 +4345,8 @@
       sessionDoneActive: false,
       canAnswer: false,
       compareTimer: null,
-      isComparing: false
+      isComparing: false,
+      revealedCount: 0
     };
 
     let audioCtx = null;
@@ -5009,6 +5070,7 @@
       state.sessionWrong = [];
       state.sessionHeard = [];
       state.sessionDirty = false;
+      state.revealedCount = 0;
       nextQuestion(true);
     }
 
@@ -5068,6 +5130,7 @@
           setAnswersEnabled(true);
           setFeedback("Choose your answer.", "Now you can answer using the buttons or keyboard shortcuts.", "neutral", `
             <button class="btn" onclick="playCurrentQuestion()">Hear again</button>
+            <button class="btn" onclick="revealAnswer()" style="opacity:.85">Show answer</button>
           `);
         }
       }, listenMs);
@@ -5152,6 +5215,48 @@
       }
     }
 
+    function revealAnswer() {
+      if (state.answered || !state.played || !state.canAnswer) return;
+
+      state.answered = true;
+      state.canAnswer = false;
+      state.revealedCount++;
+
+      setAnswersEnabled(false);
+      document.querySelectorAll(".answer-btn").forEach(b => b.disabled = true);
+
+      document.querySelectorAll(".answer-btn").forEach(b => {
+        if (b.dataset.answer === state.currentQuestion.answerName) {
+          b.classList.add("revealed");
+        }
+      });
+
+      const key = `${settings.mode}:${state.currentQuestion.answerName}`;
+      if (!progress.weakItems[key]) progress.weakItems[key] = { heard: 0, wrong: 0 };
+      progress.weakItems[key].heard++;
+      progress.weakItems[key].wrong++;
+
+      state.sessionWrong.push(state.currentQuestion.answerName);
+
+      setFeedback(
+        `Answer: ${state.currentQuestion.answerName}`,
+        "This question won\u2019t count toward your accuracy.",
+        "info",
+        `<button class="btn" onclick="playCurrentQuestion()">Hear again</button>
+         <button class="btn primary" onclick="nextQuestion()">Next</button>`
+      );
+
+      maybeRefreshFooterAfterAnswer();
+      updateStats();
+      saveProgress();
+
+      if (settings.autoNext) {
+        setTimeout(() => {
+          if (state.answered) nextQuestion();
+        }, 1500);
+      }
+    }
+
     function getWrongTip(choiceName) {
       if (settings.mode === "Intervals") return `Compare will play the correct interval first, then ${choiceName}.`;
       if (settings.mode === "Chords") return `Compare will play the correct chord first, then ${choiceName}.`;
@@ -5199,11 +5304,12 @@
 
       state.sessionComplete = true;
       saveProgress();
-      const attempted = state.answered ? state.qIndex : Math.max(0, state.qIndex - 1);
-      const pct = attempted > 0 ? Math.round((state.correctCount / attempted) * 100) : 0;
+      const totalQuestions = state.answered ? state.qIndex : Math.max(0, state.qIndex - 1);
+      const manuallyAnswered = totalQuestions - state.revealedCount;
+      const pct = manuallyAnswered > 0 ? Math.round((state.correctCount / manuallyAnswered) * 100) : 0;
       
       setTimeout(() => {
-        showInterstitialBeforeSessionDone(pct, attempted);
+        showInterstitialBeforeSessionDone(pct, totalQuestions, state.revealedCount);
       }, 250);
     }
 
@@ -5598,11 +5704,11 @@
     // =============================
     // 10. Result and ads
     // =============================
-    function showInterstitialBeforeSessionDone(pct, total) {
+    function showInterstitialBeforeSessionDone(pct, total, revealed = 0) {
       const ad = document.getElementById("interstitialAd");
       const skip = document.getElementById("skipInterstitialBtn");
       const cont = document.getElementById("continueInterstitialBtn");
-      state.pendingResult = { pct, total };
+      state.pendingResult = { pct, total, revealed };
       ad.classList.add("active");
       skip.disabled = true;
       cont.disabled = true;
@@ -5629,13 +5735,13 @@
       clearInterval(state.interstitialTimer);
       document.getElementById("interstitialAd").classList.remove("active");
       if (state.pendingResult) {
-        const { pct, total } = state.pendingResult;
+        const { pct, total, revealed } = state.pendingResult;
         state.pendingResult = null;
-        showSessionDoneState(pct, total);
+        showSessionDoneState(pct, total, revealed);
       }
     }
 
-    function showSessionDoneState(pct, total) {
+    function showSessionDoneState(pct, total, revealed = 0) {
       state.sessionDoneActive = true;
       
       document.querySelector(".main").style.display = "none";
@@ -5644,6 +5750,16 @@
       
       document.getElementById("sdCompletedVal").textContent = `${total}/${settings.sessionLength}`;
       document.getElementById("sdAccuracyVal").textContent = `${pct}%`;
+
+      const revealInfo = document.getElementById("sdRevealedInfo");
+      if (revealInfo) {
+        if (revealed > 0) {
+          revealInfo.textContent = `${revealed} answer${revealed > 1 ? "s" : ""} revealed`;
+          revealInfo.style.display = "block";
+        } else {
+          revealInfo.style.display = "none";
+        }
+      }
       
       let weak = topSessionWeakAreas();
       
