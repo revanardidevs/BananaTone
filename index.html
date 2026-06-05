@@ -661,11 +661,12 @@
     }
 
     .answer-btn.revealed {
-      background: linear-gradient(180deg, rgba(120,100,200,.22), rgba(120,100,200,.14));
-      border-color: rgba(120,100,200,.75);
-      color: #B8A8E8;
-      box-shadow: 0 0 0 3px rgba(120,100,200,.12), 0 10px 24px rgba(120,100,200,.14), 0 5px 0 rgba(80,78,118,.18);
-      transform: translateY(-2px) scale(1.01);
+      background: linear-gradient(180deg, rgba(120,100,200,.22), rgba(120,100,200,.14)) !important;
+      border-color: rgba(120,100,200,.75) !important;
+      color: #B8A8E8 !important;
+      box-shadow: 0 0 0 3px rgba(120,100,200,.12), 0 10px 24px rgba(120,100,200,.14), 0 5px 0 rgba(80,78,118,.18) !important;
+      transform: translateY(-2px) scale(1.01) !important;
+      opacity: 1 !important;
     }
     .answer-btn.revealed::after {
       content: "👁";
@@ -684,19 +685,20 @@
       animation: correctBadgeIn .22s ease;
     }
     .answer-btn.revealed kbd {
-      background: rgba(184,168,232,.18);
-      color: #B8A8E8;
-      border-color: rgba(184,168,232,.36);
+      background: rgba(184,168,232,.18) !important;
+      color: #B8A8E8 !important;
+      border-color: rgba(184,168,232,.36) !important;
     }
     [data-theme="light"] .answer-btn.revealed {
-      background: linear-gradient(180deg, rgba(120,100,200,.18), rgba(120,100,200,.10));
-      border-color: rgba(120,100,200,.65);
-      color: #6B5BA8;
+      background: linear-gradient(180deg, rgba(120,100,200,.18), rgba(120,100,200,.10)) !important;
+      border-color: rgba(120,100,200,.65) !important;
+      color: #6B5BA8 !important;
+      opacity: 1 !important;
     }
     [data-theme="light"] .answer-btn.revealed kbd {
-      background: rgba(120,100,200,.12);
-      color: #6B5BA8;
-      border-color: rgba(120,100,200,.28);
+      background: rgba(120,100,200,.12) !important;
+      color: #6B5BA8 !important;
+      border-color: rgba(120,100,200,.28) !important;
     }
 
     .answer-btn.wrong {
