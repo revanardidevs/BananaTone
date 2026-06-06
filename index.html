@@ -417,7 +417,7 @@
       margin-bottom: 10px;
     }
 
-    h1 {
+    h1, h2 {
       margin: 0;
       font-family: var(--font-display);
       font-size: clamp(32px, 4.9vw, 58px);
@@ -1502,7 +1502,7 @@
         gap: 8px;
       }
       .meta-right .badge:nth-child(n+2) { display: none; }
-      h1 { font-size: 31px; }
+      h1, h2 { font-size: 31px; }
       .hint { font-size: 12px; }
       .play-wrap {
         margin: 10px auto 9px;
@@ -3669,7 +3669,19 @@
       box-shadow: 0 3px 0 rgba(0,0,0,.20);
     }
 
-  </style>
+  
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+</style>
   <!-- Structured Data for Site Name -->
   <script type="application/ld+json">
   {
@@ -3729,7 +3741,8 @@
       <section class="stage">
         <div class="question-area">
           <div class="mode-label" id="modeLabel">Intervals · Beginner</div>
-          <h1 id="questionTitle">What interval did you hear?</h1>
+          <h1 class="sr-only">BananaTone — Free Online Ear Training for Musicians</h1>
+          <h2 id="questionTitle">What interval did you hear?</h2>
           <p class="hint" id="questionHint">Press play, listen carefully, then choose the interval. Space: play/next · A: replay · answer keys shown on buttons.</p>
 
           <div class="beginner-note" id="beginnerNote">
@@ -3782,16 +3795,16 @@
       </footer>
       <div style="text-align: center; font-size: 11px; padding-top: 15px; color: var(--muted); opacity: 0.7; font-family: var(--mono);">
         <a href="/learn/" style="color: inherit; text-decoration: none; margin: 0 8px;">Learn</a>
-        <a href="/about.html" style="color: inherit; text-decoration: none; margin: 0 8px;">About</a>
-        <a href="/privacy.html" style="color: inherit; text-decoration: none; margin: 0 8px;">Privacy</a>
-        <a href="/terms.html" style="color: inherit; text-decoration: none; margin: 0 8px;">Terms</a>
+        <a href="/about" style="color: inherit; text-decoration: none; margin: 0 8px;">About</a>
+        <a href="/privacy" style="color: inherit; text-decoration: none; margin: 0 8px;">Privacy</a>
+        <a href="/terms" style="color: inherit; text-decoration: none; margin: 0 8px;">Terms</a>
       </div>
     </main>
   <section class="session-done-card" id="sessionDoneCard" aria-live="polite" style="display: none;">
     <div class="confetti" id="confetti" aria-hidden="true"></div>
     <div class="session-done-content">
       <div class="session-kicker">Practice round complete</div>
-      <h1 class="session-title">Session done</h1>
+      <h2 class="session-title">Session done</h2>
       <p class="session-copy">Nice work — your ear got a little sharper.</p>
 
       <div class="session-stats">
