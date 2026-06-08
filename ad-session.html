@@ -492,6 +492,34 @@
     </div>
 
     <div class="field">
+      <div class="field-label"><b>Difficulty</b><span>Preset level</span></div>
+      <div class="seg" id="presetSeg">
+        <button onclick="selectPreset(this, 'Beginner')">Beginner</button>
+        <button onclick="selectPreset(this, 'Balanced')">Balanced</button>
+        <button class="active" onclick="selectPreset(this, 'Challenge')">Challenge</button>
+      </div>
+    </div>
+
+    <div class="field" id="speedField">
+      <div class="field-label"><b>Speed</b><span>Playback tempo</span></div>
+      <div class="seg" id="speedSeg">
+        <button onclick="selectSpeed(this, 'Slow')">Slow</button>
+        <button class="active" onclick="selectSpeed(this, 'Medium')">Medium</button>
+        <button onclick="selectSpeed(this, 'Fast')">Fast</button>
+      </div>
+    </div>
+
+    <div class="field" id="directionField" style="display:none;">
+      <div class="field-label"><b>Direction</b><span>Playback style</span></div>
+      <div class="seg" id="directionSeg">
+        <button class="active" onclick="selectDirection(this, 'Ascending')">Ascending</button>
+        <button onclick="selectDirection(this, 'Descending')">Descending</button>
+        <button onclick="selectDirection(this, 'Harmonic')">Harmonic</button>
+        <button onclick="selectDirection(this, 'Mixed')">Mixed</button>
+      </div>
+    </div>
+
+    <div class="field">
       <div class="field-label"><b>Sound</b><span>Instrument voice</span></div>
       <div class="seg" id="soundSeg">
         <button class="active" data-sound="Piano" onclick="selectSound(this,'Piano')">HQ Grand Piano</button>
@@ -594,6 +622,29 @@
       Scales: "Scales"
     };
 
+    const PRESETS = {
+      Intervals: {
+        Beginner: ["m3", "M3", "P5", "P8"],
+        Balanced: ["M2", "m3", "M3", "P4", "P5", "P8"],
+        Challenge: INTERVALS.map(x => x.id)
+      },
+      Chords: {
+        Beginner: ["maj", "min"],
+        Balanced: ["maj", "min", "dim", "aug"],
+        Challenge: CHORDS.map(x => x.id)
+      },
+      Notes: {
+        Beginner: ["C", "D", "E", "G", "A"],
+        Balanced: ["C", "D", "E", "F", "G", "A", "B"],
+        Challenge: NOTES.map(x => x.id)
+      },
+      Scales: {
+        Beginner: ["major", "natmin"],
+        Balanced: ["major", "natmin", "harmin", "dorian", "mixolydian"],
+        Challenge: SCALES.map(x => x.id)
+      }
+    };
+
     const POOL_TITLES = {
       Intervals: "Included intervals",
       Chords: "Included chords",
@@ -606,6 +657,7 @@
     // =============================
     const adSettings = {
       mode: "Notes",
+      preset: "Challenge",
       sound: "Piano",
       volume: 0.7,
       speed: "Medium",
@@ -1336,11 +1388,50 @@
     // =============================
     // 7. Customize panel
     // =============================
+    function updateCustomizeUI() {
+      document.querySelectorAll("#exerciseSeg button").forEach(b => b.classList.toggle("active", b.textContent.trim() === adSettings.mode));
+      const presetSegs = document.querySelectorAll("#presetSeg button");
+      if(presetSegs.length) presetSegs.forEach(b => b.classList.toggle("active", b.textContent.trim() === (adSettings.preset || "Challenge")));
+      document.querySelectorAll("#soundSeg button").forEach(b => b.classList.toggle("active", b.dataset.sound === adSettings.sound));
+      const speedSegs = document.querySelectorAll("#speedSeg button");
+      if(speedSegs.length) speedSegs.forEach(b => b.classList.toggle("active", b.textContent.trim() === adSettings.speed));
+      const dirSegs = document.querySelectorAll("#directionSeg button");
+      if(dirSegs.length) dirSegs.forEach(b => b.classList.toggle("active", b.textContent.trim() === adSettings.direction));
+
+      if (adSettings.mode === "Intervals") {
+        if(document.getElementById("speedField")) document.getElementById("speedField").style.display = "none";
+        if(document.getElementById("directionField")) document.getElementById("directionField").style.display = "block";
+      } else {
+        if(document.getElementById("speedField")) document.getElementById("speedField").style.display = "block";
+        if(document.getElementById("directionField")) document.getElementById("directionField").style.display = "none";
+      }
+      
+      document.getElementById("modeLabel").textContent = `${adSettings.mode} · ${adSettings.preset || "Challenge"}`;
+    }
+
+    function selectPreset(btn, preset) {
+      adSettings.preset = preset;
+      adSettings.pool = PRESETS[adSettings.mode][preset] || PRESETS[adSettings.mode].Challenge;
+      document.getElementById("poolTitle").textContent = POOL_TITLES[adSettings.mode];
+      updateCustomizeUI();
+      renderPoolGrid();
+      newQuestion();
+    }
+
+    function selectSpeed(btn, speed) {
+      adSettings.speed = speed;
+      updateCustomizeUI();
+    }
+
+    function selectDirection(btn, dir) {
+      adSettings.direction = dir;
+      updateCustomizeUI();
+    }
+
     function selectMode(el, mode) {
       adSettings.mode = mode;
-      // Set default pool for the new mode
-      adSettings.pool = MODE_DATA[mode].map(x => x.id);
-      document.getElementById("modeLabel").textContent = `${mode} · Challenge`;
+      const preset = adSettings.preset || "Challenge";
+      adSettings.pool = PRESETS[mode][preset] || PRESETS[mode].Challenge;
       document.getElementById("poolTitle").textContent = POOL_TITLES[mode];
       updateCustomizeUI();
       renderPoolGrid();
