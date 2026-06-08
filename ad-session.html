@@ -123,9 +123,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 28px;
-      gap: 18px;
+      padding: 0 28px 48px;
       background: var(--bg);
     }
 
@@ -144,6 +142,7 @@
       transition: .16s ease;
       position: relative;
       flex-shrink: 0;
+      margin: auto 0;
     }
 
     .play-btn:hover:not(:disabled) {
@@ -277,25 +276,6 @@
       color: var(--text);
       letter-spacing: .04em;
       user-select: none;
-    }
-
-    /* ===== Next Prompt ===== */
-    .next-prompt {
-      position: absolute;
-      bottom: 22px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-      opacity: 0;
-      transition: opacity .3s ease;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-
-    .next-prompt.visible {
-      opacity: 1;
     }
 
     /* ===== Toast ===== */
@@ -494,9 +474,6 @@
         <!-- Filled by JS -->
       </div>
     </div>
-
-    <!-- Next prompt -->
-    <div class="next-prompt" id="nextPrompt">tap or press space to continue</div>
   </div>
 
   <!-- ===== Customize Panel (below viewport, not visible during recording) ===== -->
@@ -633,6 +610,8 @@
       volume: 0.7,
       speed: "Medium",
       direction: "Ascending",
+      feedbackSounds: true,
+      feedbackVolume: 40,
       pool: NOTES.map(x => x.id) // Challenge = all 12 notes
     };
 
@@ -1069,6 +1048,71 @@
       return 900;
     }
 
+    // Answer feedback micro-chimes (Web Audio API, no external files)
+    function playAnswerFeedbackSound(isCorrect) {
+      if (!adSettings.feedbackSounds) return;
+      if (!audioCtx) return;
+      if (audioCtx.state === "suspended") return;
+      try {
+        const ctx = audioCtx;
+        const now = ctx.currentTime;
+        const vol = (adSettings.feedbackVolume != null ? adSettings.feedbackVolume : 40) / 100;
+        if (isCorrect) {
+          // Two-note upward chime: C5 -> E5, sine, ~180ms total
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0, now);
+          g.gain.linearRampToValueAtTime(vol, now + 0.012);
+          g.gain.linearRampToValueAtTime(vol * 0.7, now + 0.08);
+          g.gain.linearRampToValueAtTime(0, now + 0.18);
+          g.connect(ctx.destination);
+          const o1 = ctx.createOscillator();
+          o1.type = "sine";
+          o1.frequency.value = 523.25; // C5
+          o1.connect(g);
+          o1.start(now);
+          o1.stop(now + 0.09);
+          const g2 = ctx.createGain();
+          g2.gain.setValueAtTime(0, now + 0.07);
+          g2.gain.linearRampToValueAtTime(vol, now + 0.082);
+          g2.gain.linearRampToValueAtTime(vol * 0.6, now + 0.14);
+          g2.gain.linearRampToValueAtTime(0, now + 0.20);
+          g2.connect(ctx.destination);
+          const o2 = ctx.createOscillator();
+          o2.type = "sine";
+          o2.frequency.value = 659.25; // E5
+          o2.connect(g2);
+          o2.start(now + 0.07);
+          o2.stop(now + 0.20);
+        } else {
+          // Two-note downward soft tone: E4 -> C4, triangle, ~220ms total
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0, now);
+          g.gain.linearRampToValueAtTime(vol * 0.7, now + 0.015);
+          g.gain.linearRampToValueAtTime(vol * 0.5, now + 0.10);
+          g.gain.linearRampToValueAtTime(0, now + 0.22);
+          g.connect(ctx.destination);
+          const o1 = ctx.createOscillator();
+          o1.type = "triangle";
+          o1.frequency.value = 329.63; // E4
+          o1.connect(g);
+          o1.start(now);
+          o1.stop(now + 0.11);
+          const g2 = ctx.createGain();
+          g2.gain.setValueAtTime(0, now + 0.09);
+          g2.gain.linearRampToValueAtTime(vol * 0.55, now + 0.105);
+          g2.gain.linearRampToValueAtTime(vol * 0.35, now + 0.17);
+          g2.gain.linearRampToValueAtTime(0, now + 0.25);
+          g2.connect(ctx.destination);
+          const o2 = ctx.createOscillator();
+          o2.type = "triangle";
+          o2.frequency.value = 261.63; // C4
+          o2.connect(g2);
+          o2.start(now + 0.09);
+          o2.stop(now + 0.25);
+        }
+      } catch (e) { /* silently ignore audio errors */ }
+    }
+
     function audioTest() {
       stopActiveAudio(true);
       playNotes([60, 64, 67], 0, 0.85, 0);
@@ -1187,7 +1231,6 @@
       adState.answered = false;
 
       renderAnswers();
-      document.getElementById("nextPrompt").classList.remove("visible");
 
       const btn = document.getElementById("playBtn");
       btn.textContent = "▶";
@@ -1260,8 +1303,8 @@
         }
       });
 
-      // Show next prompt
-      document.getElementById("nextPrompt").classList.add("visible");
+      playAnswerFeedbackSound(true);
+
       document.getElementById("playBtn").disabled = false;
       document.getElementById("playBtn").textContent = "▶";
 
