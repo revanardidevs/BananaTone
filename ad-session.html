@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BananaTone — Ad Recording Session</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Design Tokens ===== */
+    :root {
+      --brand-purple-light: #c4c3e3;
+      --brand-purple: #504e76;
+      --brand-beige: #fdf8e2;
+      --brand-sage: #a3b565;
+      --brand-peach: #fcdd9d;
+      --brand-orange: #f1642e;
+      --brand-black: #504e76;
+
+      --bg: #F5EEDC;
+      --bg-2: #EFE6CD;
+      --panel: #FFF8EA;
+      --panel-2: #F6EEDC;
+      --panel-3: #EAE0CA;
+      --text: #3E334F;
+      --muted: #4A3D33;
+      --muted-2: #6A5B4D;
+      --line: rgba(62, 51, 79, 0.14);
+      --primary: #D9B85F;
+      --primary-2: #C4A34A;
+      --primary-soft: rgba(217, 184, 95, 0.2);
+      --success: #7E8B5E;
+      --success-soft: rgba(126, 139, 94, 0.2);
+      --danger: #E9A66B;
+      --danger-soft: rgba(233, 166, 107, 0.2);
+      --shadow: 0 20px 48px rgba(62, 51, 79, 0.1);
+      --shadow-button: 0 5px 0 rgba(62, 51, 79, 0.25);
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+      --font: "Nunito", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-display: "Fredoka", "Nunito", Inter, ui-sans-serif, system-ui, sans-serif;
+      --mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button, input, select { font: inherit; }
+    button { border: 0; cursor: pointer; }
+
+    /* ===== 9:16 Phone Frame (Now Fullscreen for Recording) ===== */
+    .ad-viewport {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* ===== Top Section ===== */
+    .ad-top-section {
+      width: 100%;
+      background: #FFF2CD; /* Brighter yellow than base bg */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ===== Top Space (for ad text overlay in editing) ===== */
+    .ad-top-space {
+      width: 100%;
+      min-height: 120px;
+      flex-shrink: 0;
+    }
+
+    /* ===== Mode Label ===== */
+    .mode-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      color: var(--brand-beige);
+      background: var(--brand-purple);
+      border: 2px solid var(--brand-purple);
+      box-shadow: 0 3px 0 rgba(80,78,118,.22);
+      font-size: 13px;
+      font-weight: 800;
+      font-family: var(--font);
+      letter-spacing: -.01em;
+      margin-bottom: 14px;
+    }
+
+    /* ===== Separator ===== */
+    .ad-separator {
+      width: 100%;
+      height: 2px;
+      background: var(--line);
+    }
+
+    /* ===== Game Area ===== */
+    .ad-game {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      gap: 18px;
+      background: var(--bg);
+    }
+
+    /* ===== Play Button ===== */
+    .play-btn {
+      width: 108px;
+      height: 108px;
+      border-radius: 38px;
+      background: var(--brand-peach);
+      color: var(--brand-purple);
+      border: 3px solid rgba(80,78,118,.30);
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      box-shadow: 0 6px 0 rgba(80,78,118,.36), 0 20px 48px rgba(80,78,118,.18);
+      transition: .16s ease;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .play-btn:hover:not(:disabled) {
+      transform: translateY(-3px) scale(1.02);
+      background: #f8e8bb;
+      box-shadow: 0 8px 0 rgba(80,78,118,.36), 0 22px 52px rgba(80,78,118,.18);
+    }
+
+    .play-btn:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .play-btn.playing {
+      animation: rabbitPulse 1s ease-in-out infinite;
+    }
+
+    @keyframes rabbitPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.045); }
+    }
+
+    /* ===== Answer Area ===== */
+    .ad-answers {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .answer-btn {
+      width: 100%;
+      min-height: 58px;
+      text-align: left;
+      color: var(--text);
+      background: var(--panel);
+      border: 2px solid rgba(80,78,118,.14);
+      border-radius: 22px;
+      padding: 14px 18px;
+      font-weight: 900;
+      font-size: 16px;
+      letter-spacing: -.02em;
+      transition: .14s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 0 rgba(80,78,118,.14);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .answer-btn:disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .answer-btn kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 8px;
+      border-radius: 10px;
+      background: rgba(34,30,22,.05);
+      border: 2px solid var(--line);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .answer-btn.correct {
+      background: linear-gradient(180deg, rgba(163,181,101,.36), rgba(163,181,101,.25));
+      color: #3f4b22;
+      border-color: rgba(125,145,62,.76);
+      box-shadow:
+        0 0 0 3px rgba(163,181,101,.16),
+        0 10px 24px rgba(125,145,62,.14),
+        0 5px 0 rgba(80,78,118,.18);
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    .answer-btn.correct::after {
+      content: "✓";
+      position: absolute;
+      top: 50%;
+      margin-top: -14px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 900;
+      color: #fffbea;
+      background: #4f5f24;
+      box-shadow: 0 4px 14px rgba(80,78,118,.18);
+      animation: correctBadgeIn .22s ease;
+    }
+
+    .answer-btn.correct kbd {
+      background: rgba(253,248,226,.70);
+      color: #4f5f24;
+      border-color: rgba(125,145,62,.34);
+    }
+
+    .answer-btn.correct.pop {
+      animation: correctPop .28s ease;
+    }
+
+    @keyframes correctBadgeIn {
+      0% { transform: scale(.6) rotate(-12deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+
+    @keyframes correctPop {
+      0% { transform: scale(.96); }
+      55% { transform: translateY(-2px) scale(1.04); }
+      100% { transform: translateY(-2px) scale(1.01); }
+    }
+
+    /* ===== OR Separator ===== */
+    .or-separator {
+      font-family: var(--font);
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--text);
+      letter-spacing: .04em;
+      user-select: none;
+    }
+
+    /* ===== Next Prompt ===== */
+    .next-prompt {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .next-prompt.visible {
+      opacity: 1;
+    }
+
+    /* ===== Toast ===== */
+    .toast-wrap {
+      position: fixed;
+      z-index: 200;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast {
+      min-width: 240px;
+      border: 2px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 13px 15px;
+      animation: toastIn .22s ease both;
+      font-size: 14px;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Customize Panel (below viewport) ===== */
+    .customize-section {
+      width: 360px;
+      margin: 32px auto 60px;
+      padding: 24px;
+      background: var(--panel);
+      border-radius: 28px;
+      border: 2px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .customize-section h2 {
+      margin: 0 0 6px;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -.04em;
+    }
+
+    .customize-section > p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 18px;
+      line-height: 1.4;
+    }
+
+    .field {
+      border-top: 2px solid var(--line);
+      padding-top: 17px;
+      margin-top: 17px;
+    }
+    .field:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+
+    .field-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .field-label b { font-size: 14px; letter-spacing: -.015em; }
+    .field-label span { color: var(--muted); font-size: 12px; }
+
+    .seg {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .seg button {
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 2px solid var(--line);
+      background: var(--panel-2);
+      color: var(--muted);
+      font-weight: 900;
+      transition: .14s ease;
+      font-size: 13px;
+    }
+    .seg button:hover { color: var(--text); background: var(--panel-3); }
+    .seg button.active {
+      color: var(--brand-beige);
+      background: var(--brand-purple);
+      border-color: var(--brand-purple);
+      box-shadow: 0 4px 0 rgba(80,78,118,.24);
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 9px;
+    }
+    .check {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 10px 0 12px;
+      border-radius: 14px;
+      border: 2px solid var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+      transition: .14s ease;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .check.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-color: rgba(232,185,75,.27);
+    }
+    .preview-mini {
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      background: rgba(34,30,22,.05);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      border: 2px solid var(--line);
+    }
+
+    .apply-btn {
+      width: 100%;
+      margin-top: 20px;
+      min-height: 46px;
+      border-radius: 999px;
+      background: var(--brand-purple);
+      color: var(--brand-beige);
+      border: 2px solid var(--brand-purple);
+      box-shadow: 0 5px 0 rgba(80,78,118,.26);
+      font-weight: 900;
+      font-size: 15px;
+      transition: .16s ease;
+    }
+    .apply-btn:hover {
+      background: #646286;
+      transform: translateY(-1px);
+    }
+
+    .volume-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .volume-row input[type="range"] {
+      flex: 1;
+    }
+    .volume-row span {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    /* ===== Responsive: let wider screens see it nicely ===== */
+    @media (min-width: 600px) {
+      body { padding-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 9:16 Ad Viewport ===== -->
+  <div class="ad-viewport" id="adViewport">
+    <div class="ad-top-section">
+      <!-- Top space for text overlay (added in video editing) -->
+      <div class="ad-top-space"></div>
+
+      <!-- Mode Label -->
+      <div class="mode-label" id="modeLabel">Notes · Challenge</div>
+
+      <!-- Separator -->
+      <div class="ad-separator"></div>
+    </div>
+
+    <!-- Game Area -->
+    <div class="ad-game">
+      <button class="play-btn" id="playBtn" onclick="handlePlay()" aria-label="Play note">▶</button>
+
+      <div class="ad-answers" id="answerArea">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+
+    <!-- Next prompt -->
+    <div class="next-prompt" id="nextPrompt">tap or press space to continue</div>
+  </div>
+
+  <!-- ===== Customize Panel (below viewport, not visible during recording) ===== -->
+  <div class="customize-section" id="customizeSection">
+    <h2>Customize</h2>
+    <p>Change exercise type, note pool, instrument, and volume for your ad recording session.</p>
+
+    <div class="field" style="border-top:0; padding-top:0; margin-top:0;">
+      <div class="field-label"><b>Exercise</b><span>Drill type</span></div>
+      <div class="seg" id="exerciseSeg">
+        <button onclick="selectMode(this,'Intervals')">Intervals</button>
+        <button onclick="selectMode(this,'Chords')">Chords</button>
+        <button class="active" onclick="selectMode(this,'Notes')">Notes</button>
+        <button onclick="selectMode(this,'Scales')">Scales</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><b>Sound</b><span>Instrument voice</span></div>
+      <div class="seg" id="soundSeg">
+        <button class="active" data-sound="Piano" onclick="selectSound(this,'Piano')">HQ Grand Piano</button>
+        <button data-sound="E-piano" onclick="selectSound(this,'E-piano')">E-Piano</button>
+        <button data-sound="Synth" onclick="selectSound(this,'Synth')">Synth</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><b>Volume</b><span>Master output</span></div>
+      <div class="volume-row">
+        <input id="volumeSlider" type="range" min="0" max="100" value="70" oninput="adSettings.volume = Number(this.value)/100; document.getElementById('volLabel').textContent = this.value + '%'" />
+        <span id="volLabel">70%</span>
+      </div>
+      <button class="seg" style="margin-top:10px;display:inline-flex">
+        <button onclick="audioTest()">Audio test</button>
+      </button>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><b id="poolTitle">Included notes</b><span>Answer pool</span></div>
+      <div class="check-grid" id="poolGrid"></div>
+    </div>
+
+    <button class="apply-btn" onclick="applySettings()">Apply & restart</button>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <script>
+    // =============================
+    // 1. Music theory data
+    // =============================
+    const NOTES = [
+      { id: "C", name: "C", semitone: 0 },
+      { id: "Cs", name: "C#/Db", semitone: 1 },
+      { id: "D", name: "D", semitone: 2 },
+      { id: "Ds", name: "D#/Eb", semitone: 3 },
+      { id: "E", name: "E", semitone: 4 },
+      { id: "F", name: "F", semitone: 5 },
+      { id: "Fs", name: "F#/Gb", semitone: 6 },
+      { id: "G", name: "G", semitone: 7 },
+      { id: "Gs", name: "G#/Ab", semitone: 8 },
+      { id: "A", name: "A", semitone: 9 },
+      { id: "As", name: "A#/Bb", semitone: 10 },
+      { id: "B", name: "B", semitone: 11 }
+    ];
+
+    const INTERVALS = [
+      { id: "m2", name: "Minor 2nd", semitones: 1 },
+      { id: "M2", name: "Major 2nd", semitones: 2 },
+      { id: "m3", name: "Minor 3rd", semitones: 3 },
+      { id: "M3", name: "Major 3rd", semitones: 4 },
+      { id: "P4", name: "Perfect 4th", semitones: 5 },
+      { id: "TT", name: "Tritone", semitones: 6 },
+      { id: "P5", name: "Perfect 5th", semitones: 7 },
+      { id: "m6", name: "Minor 6th", semitones: 8 },
+      { id: "M6", name: "Major 6th", semitones: 9 },
+      { id: "m7", name: "Minor 7th", semitones: 10 },
+      { id: "M7", name: "Major 7th", semitones: 11 },
+      { id: "P8", name: "Octave", semitones: 12 }
+    ];
+
+    const CHORDS = [
+      { id: "maj", name: "Major", semitones: [0, 4, 7] },
+      { id: "min", name: "Minor", semitones: [0, 3, 7] },
+      { id: "dim", name: "Diminished", semitones: [0, 3, 6] },
+      { id: "aug", name: "Augmented", semitones: [0, 4, 8] },
+      { id: "sus2", name: "Sus2", semitones: [0, 2, 7] },
+      { id: "sus4", name: "Sus4", semitones: [0, 5, 7] },
+      { id: "dom7", name: "Dominant 7", semitones: [0, 4, 7, 10] },
+      { id: "maj7", name: "Major 7", semitones: [0, 4, 7, 11] },
+      { id: "min7", name: "Minor 7", semitones: [0, 3, 7, 10] }
+    ];
+
+    const SCALES = [
+      { id: "major", name: "Major", semitones: [0,2,4,5,7,9,11,12] },
+      { id: "natmin", name: "Natural Minor", semitones: [0,2,3,5,7,8,10,12] },
+      { id: "harmin", name: "Harmonic Minor", semitones: [0,2,3,5,7,8,11,12] },
+      { id: "melmin", name: "Melodic Minor", semitones: [0,2,3,5,7,9,11,12] },
+      { id: "dorian", name: "Dorian", semitones: [0,2,3,5,7,9,10,12] },
+      { id: "phrygian", name: "Phrygian", semitones: [0,1,3,5,7,8,10,12] },
+      { id: "lydian", name: "Lydian", semitones: [0,2,4,6,7,9,11,12] },
+      { id: "mixolydian", name: "Mixolydian", semitones: [0,2,4,5,7,9,10,12] },
+      { id: "minpent", name: "Minor Pentatonic", semitones: [0,3,5,7,10,12] },
+      { id: "blues", name: "Blues", semitones: [0,3,5,6,7,10,12] }
+    ];
+
+    const MODE_DATA = {
+      Intervals: INTERVALS,
+      Chords: CHORDS,
+      Notes: NOTES,
+      Scales: SCALES
+    };
+
+    const MODE_LABELS = {
+      Intervals: "Intervals",
+      Chords: "Chords",
+      Notes: "Notes",
+      Scales: "Scales"
+    };
+
+    const POOL_TITLES = {
+      Intervals: "Included intervals",
+      Chords: "Included chords",
+      Notes: "Included notes",
+      Scales: "Included scales"
+    };
+
+    // =============================
+    // 2. Ad session state
+    // =============================
+    const adSettings = {
+      mode: "Notes",
+      sound: "Piano",
+      volume: 0.7,
+      speed: "Medium",
+      direction: "Ascending",
+      pool: NOTES.map(x => x.id) // Challenge = all 12 notes
+    };
+
+    const adState = {
+      currentQuestion: null,
+      phase: "idle",      // idle | playing | revealed | waiting
+      playCount: 0,
+      sequenceTimer: null,
+      answered: false
+    };
+
+    let audioCtx = null;
+    let activeAudioNodes = [];
+    let audioReleaseTimer = null;
+    let isAudioPlaying = false;
+
+    const PIANO_SAMPLE_SOURCES = [
+      { midi: 48, note: "C3", url: "https://unpkg.com/@audio-samples/piano-mp3-velocity11@1.0.5/audio/C3v11.mp3" },
+      { midi: 60, note: "C4", url: "https://unpkg.com/@audio-samples/piano-mp3-velocity11@1.0.5/audio/C4v11.mp3" },
+      { midi: 72, note: "C5", url: "https://unpkg.com/@audio-samples/piano-mp3-velocity11@1.0.5/audio/C5v11.mp3" },
+      { midi: 84, note: "C6", url: "https://unpkg.com/@audio-samples/piano-mp3-velocity11@1.0.5/audio/C6v11.mp3" }
+    ];
+
+    const sampleState = {
+      status: "idle",
+      buffers: {},
+      failed: false,
+      promise: null
+    };
+
+    // =============================
+    // 3. Utility
+    // =============================
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function clamp(n, a, b) {
+      return Math.max(a, Math.min(b, n));
+    }
+
+    function midiToFreq(midi) {
+      return 440 * Math.pow(2, (midi - 69) / 12);
+    }
+
+    function randomMidi(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function noteNameFromMidi(midi) {
+      return NOTES[((midi % 12) + 12) % 12].name;
+    }
+
+    function byId(arr, id) {
+      return arr.find(x => x.id === id);
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, s => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[s]);
+    }
+
+    function getSpeedDurations() {
+      if (adSettings.speed === "Slow") return { note: 0.62, gap: 0.72, scaleStep: 0.24 };
+      if (adSettings.speed === "Fast") return { note: 0.34, gap: 0.39, scaleStep: 0.13 };
+      return { note: 0.46, gap: 0.54, scaleStep: 0.17 };
+    }
+
+    function activePool() {
+      return adSettings.pool
+        .map(id => byId(MODE_DATA[adSettings.mode], id))
+        .filter(Boolean);
+    }
+
+    function safePool() {
+      const pool = activePool();
+      return pool.length >= 2 ? pool : MODE_DATA[adSettings.mode].slice(0, 5);
+    }
+
+    // =============================
+    // 4. Audio engine (from index.html)
+    // =============================
+    function ensureAudio() {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        return audioCtx;
+      } catch (e) {
+        toast("Audio could not start.");
+        return null;
+      }
+    }
+
+    function freqToMidi(freq) {
+      return Math.round(69 + 12 * Math.log2(freq / 440));
+    }
+
+    function nearestPianoSampleMidi(targetMidi) {
+      return PIANO_SAMPLE_SOURCES.reduce((best, item) => {
+        return Math.abs(item.midi - targetMidi) < Math.abs(best.midi - targetMidi) ? item : best;
+      }, PIANO_SAMPLE_SOURCES[0]);
+    }
+
+    async function preloadPianoSamples() {
+      if (sampleState.promise) return sampleState.promise;
+
+      sampleState.status = "loading";
+      sampleState.failed = false;
+
+      sampleState.promise = (async () => {
+        try {
+          const ctx = ensureAudio();
+          if (!ctx) throw new Error("AudioContext unavailable");
+
+          const decoded = await Promise.all(PIANO_SAMPLE_SOURCES.map(async sample => {
+            const res = await fetch(sample.url, { mode: "cors", cache: "force-cache" });
+            if (!res.ok) throw new Error(`Sample fetch failed: ${sample.note}`);
+            const arr = await res.arrayBuffer();
+            const buffer = await ctx.decodeAudioData(arr.slice(0));
+            return [sample.midi, buffer];
+          }));
+
+          sampleState.buffers = Object.fromEntries(decoded);
+          sampleState.status = "ready";
+          sampleState.failed = false;
+          toast("Piano samples loaded");
+          return sampleState.buffers;
+        } catch (err) {
+          console.warn("Piano samples failed; falling back to synth.", err);
+          sampleState.status = "fallback";
+          sampleState.failed = true;
+          sampleState.buffers = {};
+          return null;
+        }
+      })();
+
+      return sampleState.promise;
+    }
+
+    function playSampleTone(freq, start = 0, duration = 0.55, opts = {}) {
+      const ctx = ensureAudio();
+      if (!ctx) return false;
+      if (sampleState.status !== "ready" || sampleState.failed) return false;
+
+      const targetMidi = freqToMidi(freq);
+      const nearest = nearestPianoSampleMidi(targetMidi);
+      const buffer = sampleState.buffers[nearest.midi];
+      if (!buffer) return false;
+
+      const startAt = ctx.currentTime + start;
+      const source = ctx.createBufferSource();
+      const gain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+      const compressor = ctx.createDynamicsCompressor();
+
+      source.buffer = buffer;
+      source.playbackRate.setValueAtTime(Math.pow(2, (targetMidi - nearest.midi) / 12), startAt);
+
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(4200, startAt);
+      filter.frequency.exponentialRampToValueAtTime(2200, startAt + Math.max(0.18, duration * 0.85));
+      filter.Q.setValueAtTime(0.6, startAt);
+
+      compressor.threshold.setValueAtTime(-26, startAt);
+      compressor.knee.setValueAtTime(20, startAt);
+      compressor.ratio.setValueAtTime(4.5, startAt);
+      compressor.attack.setValueAtTime(0.002, startAt);
+      compressor.release.setValueAtTime(0.12, startAt);
+
+      const vol = Math.min(1.35, (opts.volume ?? 0.16) * adSettings.volume * 12);
+      gain.gain.setValueAtTime(0.0001, startAt);
+      gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, vol), startAt + 0.006);
+      gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, vol * 0.42), startAt + 0.24);
+      gain.gain.setTargetAtTime(0.0001, startAt + duration, 0.16);
+
+      const makeupGain = ctx.createGain();
+      makeupGain.gain.setValueAtTime(1.8, startAt);
+
+      source.connect(filter);
+      filter.connect(gain);
+      gain.connect(compressor);
+      compressor.connect(makeupGain);
+      makeupGain.connect(ctx.destination);
+
+      source.start(startAt, 0);
+      source.stop(startAt + duration + 0.45);
+      registerAudioNode({ osc: source, gain });
+      return true;
+    }
+
+    function registerAudioNode(node) {
+      activeAudioNodes.push(node);
+    }
+
+    function cleanupAudioNodes() {
+      activeAudioNodes = activeAudioNodes.filter(node => Boolean(node));
+    }
+
+    function stopActiveAudio(immediate = false) {
+      const ctx = audioCtx;
+      if (!ctx) return;
+
+      activeAudioNodes.forEach(node => {
+        try {
+          if (node.gain) {
+            const now = ctx.currentTime;
+            node.gain.gain.cancelScheduledValues(now);
+            node.gain.gain.setTargetAtTime(0.0001, now, immediate ? 0.006 : 0.018);
+          }
+          if (node.osc) {
+            node.osc.stop(ctx.currentTime + (immediate ? 0.018 : 0.045));
+          }
+        } catch (e) {}
+      });
+
+      activeAudioNodes = [];
+      clearTimeout(audioReleaseTimer);
+      isAudioPlaying = false;
+    }
+
+    function setAudioBusy(ms) {
+      isAudioPlaying = true;
+      clearTimeout(audioReleaseTimer);
+      audioReleaseTimer = setTimeout(() => {
+        isAudioPlaying = false;
+        cleanupAudioNodes();
+      }, ms);
+    }
+
+    function instrumentModel() {
+      if (adSettings.sound === "Synth") {
+        return {
+          partials: [
+            { ratio: 1, amp: 1.00, type: "triangle" },
+            { ratio: 2, amp: 0.18, type: "sine" },
+            { ratio: 3, amp: 0.08, type: "sine" }
+          ],
+          attack: 0.012, decay: 0.20, sustain: 0.32, release: 0.14,
+          cutoff: 2200, detune: 0, hammer: false, tremolo: false
+        };
+      }
+
+      if (adSettings.sound === "E-piano") {
+        return {
+          partials: [
+            { ratio: 1.00, amp: 1.00, type: "sine" },
+            { ratio: 2.00, amp: 0.34, type: "sine" },
+            { ratio: 3.00, amp: 0.15, type: "sine" },
+            { ratio: 4.20, amp: 0.07, type: "sine" }
+          ],
+          attack: 0.006, decay: 0.28, sustain: 0.38, release: 0.24,
+          cutoff: 2800, tremolo: true, detune: 1.5, hammer: false
+        };
+      }
+
+      // Piano (synth fallback)
+      return {
+        partials: [
+          { ratio: 1.000, amp: 1.00, type: "triangle" },
+          { ratio: 2.010, amp: 0.52, type: "sine" },
+          { ratio: 3.030, amp: 0.25, type: "sine" },
+          { ratio: 4.070, amp: 0.13, type: "sine" },
+          { ratio: 5.120, amp: 0.07, type: "sine" },
+          { ratio: 6.180, amp: 0.04, type: "sine" }
+        ],
+        attack: 0.004, decay: 0.18, sustain: 0.24, release: 0.34,
+        cutoff: 3600, hammer: true, detune: 2.5, tremolo: false
+      };
+    }
+
+    function synthInstrumentBoost() {
+      if (adSettings.sound === "E-piano") return 5.5;
+      if (adSettings.sound === "Synth") return 6.5;
+      return 1;
+    }
+
+    function playTone(freq, start = 0, duration = 0.45, opts = {}) {
+      if (adSettings.sound === "Piano" && playSampleTone(freq, start, duration, opts)) return;
+
+      const ctx = ensureAudio();
+      if (!ctx) return;
+
+      const model = instrumentModel();
+      const baseVolume = Math.min(1.15, (opts.volume ?? 0.072) * adSettings.volume * 100 * synthInstrumentBoost());
+      const startAt = ctx.currentTime + start;
+      const stopAt = startAt + duration + model.release + 0.06;
+
+      const master = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+      const compressor = ctx.createDynamicsCompressor();
+
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(model.cutoff, startAt);
+      filter.frequency.exponentialRampToValueAtTime(Math.max(900, model.cutoff * 0.42), startAt + Math.max(0.15, duration * 0.65));
+      filter.Q.setValueAtTime(adSettings.sound === "Piano" ? 0.7 : 0.9, startAt);
+
+      compressor.threshold.setValueAtTime(-24, startAt);
+      compressor.knee.setValueAtTime(22, startAt);
+      compressor.ratio.setValueAtTime(4.2, startAt);
+      compressor.attack.setValueAtTime(0.003, startAt);
+      compressor.release.setValueAtTime(0.12, startAt);
+
+      master.gain.setValueAtTime(0.0001, startAt);
+      master.gain.exponentialRampToValueAtTime(Math.max(0.0002, baseVolume), startAt + model.attack);
+      master.gain.exponentialRampToValueAtTime(Math.max(0.0002, baseVolume * model.sustain), startAt + model.attack + model.decay);
+      master.gain.setTargetAtTime(0.0001, startAt + duration, model.release);
+
+      const synthMakeupGain = ctx.createGain();
+      synthMakeupGain.gain.setValueAtTime(adSettings.sound === "E-piano" ? 1.6 : adSettings.sound === "Synth" ? 1.9 : 1.0, startAt);
+
+      master.connect(filter);
+      filter.connect(compressor);
+      compressor.connect(synthMakeupGain);
+      synthMakeupGain.connect(ctx.destination);
+
+      model.partials.forEach((partial, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = partial.type;
+        osc.frequency.setValueAtTime(freq * partial.ratio, startAt);
+        if (model.detune) {
+          const detune = (i % 2 === 0 ? 1 : -1) * model.detune * i;
+          osc.detune.setValueAtTime(detune, startAt);
+        }
+
+        gain.gain.setValueAtTime(0.0001, startAt);
+        gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, partial.amp), startAt + model.attack + i * 0.002);
+        gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, partial.amp * model.sustain * (1 / (1 + i * 0.22))), startAt + model.attack + model.decay * (0.7 + i * 0.16));
+        gain.gain.setTargetAtTime(0.0001, startAt + duration * (0.82 - Math.min(0.35, i * 0.06)), model.release * (0.7 + i * 0.08));
+
+        osc.connect(gain);
+        gain.connect(master);
+        osc.start(startAt);
+        osc.stop(stopAt);
+        registerAudioNode({ osc, gain });
+      });
+
+      if (model.hammer) {
+        const noiseBuffer = ctx.createBuffer(1, Math.max(1, Math.floor(ctx.sampleRate * 0.028)), ctx.sampleRate);
+        const data = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 2);
+
+        const noise = ctx.createBufferSource();
+        const noiseGain = ctx.createGain();
+        const noiseFilter = ctx.createBiquadFilter();
+
+        noise.buffer = noiseBuffer;
+        noiseFilter.type = "bandpass";
+        noiseFilter.frequency.setValueAtTime(clamp(freq * 6, 900, 5200), startAt);
+        noiseFilter.Q.setValueAtTime(1.2, startAt);
+
+        noiseGain.gain.setValueAtTime(0.0001, startAt);
+        noiseGain.gain.exponentialRampToValueAtTime(baseVolume * 0.22, startAt + 0.003);
+        noiseGain.gain.exponentialRampToValueAtTime(0.0001, startAt + 0.035);
+
+        noise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        noise.start(startAt);
+        noise.stop(startAt + 0.04);
+        registerAudioNode({ osc: noise, gain: noiseGain });
+      }
+
+      if (model.tremolo) {
+        const lfo = ctx.createOscillator();
+        const lfoGain = ctx.createGain();
+        lfo.frequency.setValueAtTime(5.8, startAt);
+        lfoGain.gain.setValueAtTime(baseVolume * 0.055, startAt);
+        lfo.connect(lfoGain);
+        lfoGain.connect(master.gain);
+        lfo.start(startAt);
+        lfo.stop(stopAt);
+        registerAudioNode({ osc: lfo, gain: lfoGain });
+      }
+    }
+
+    function playNotes(notes, start = 0, duration = 0.85, stagger = 0) {
+      notes.forEach((midi, i) => playTone(midiToFreq(midi), start + i * stagger, duration));
+    }
+
+    function playQuestionAudio(question) {
+      if (!question) return;
+      stopActiveAudio(true);
+
+      const d = getSpeedDurations();
+      let estimatedMs = 950;
+
+      if (question.mode === "Intervals") {
+        if (question.direction === "Harmonic") {
+          playNotes([question.rootMidi, question.targetMidi], 0, 0.95, 0);
+          estimatedMs = 1150;
+        } else {
+          playTone(midiToFreq(question.rootMidi), 0, d.note);
+          playTone(midiToFreq(question.targetMidi), d.gap, d.note + 0.08);
+          estimatedMs = Math.ceil((d.gap + d.note + 0.55) * 1000);
+        }
+      }
+
+      if (question.mode === "Chords") {
+        playNotes(question.notes, 0, 1.05, 0);
+        estimatedMs = 1250;
+      }
+
+      if (question.mode === "Notes") {
+        playTone(midiToFreq(question.midi), 0, 0.78);
+        estimatedMs = 980;
+      }
+
+      if (question.mode === "Scales") {
+        question.notes.forEach((midi, i) => playTone(midiToFreq(midi), i * d.scaleStep, 0.22));
+        estimatedMs = Math.ceil((question.notes.length * d.scaleStep + 0.55) * 1000);
+      }
+
+      setAudioBusy(estimatedMs);
+      return estimatedMs;
+    }
+
+    function getQuestionAudioDurationMs(question) {
+      if (!question) return 900;
+      const d = getSpeedDurations();
+      if (question.mode === "Intervals") {
+        if (question.direction === "Harmonic") return 1150;
+        return Math.ceil((d.gap + d.note + 0.55) * 1000);
+      }
+      if (question.mode === "Chords") return 1250;
+      if (question.mode === "Notes") return 980;
+      if (question.mode === "Scales") return Math.ceil((question.notes.length * d.scaleStep + 0.55) * 1000);
+      return 900;
+    }
+
+    function audioTest() {
+      stopActiveAudio(true);
+      playNotes([60, 64, 67], 0, 0.85, 0);
+      setAudioBusy(1100);
+      toast(`${adSettings.sound} audio test played`);
+    }
+
+    // =============================
+    // 5. Question generation
+    // =============================
+    function generateQuestion() {
+      const mode = adSettings.mode;
+      if (mode === "Intervals") return generateIntervalQuestion();
+      if (mode === "Chords") return generateChordQuestion();
+      if (mode === "Notes") return generateNoteQuestion();
+      return generateScaleQuestion();
+    }
+
+    function generateIntervalQuestion() {
+      const pool = safePool();
+      const item = randomItem(pool);
+      const direction = adSettings.direction;
+      let rootMidi, targetMidi;
+      for (let i = 0; i < 50; i++) {
+        rootMidi = randomMidi(55, 67);
+        targetMidi = direction === "Descending" ? rootMidi - item.semitones : rootMidi + item.semitones;
+        if (targetMidi >= 48 && targetMidi <= 76) break;
+      }
+      // Pick one wrong answer
+      const wrongPool = pool.filter(x => x.id !== item.id);
+      const wrongItem = randomItem(wrongPool);
+      const choices = Math.random() > 0.5
+        ? [item, wrongItem]
+        : [wrongItem, item];
+
+      return {
+        mode: "Intervals",
+        answerId: item.id,
+        answerName: item.name,
+        rootMidi,
+        targetMidi,
+        direction,
+        choices: choices.map(x => x.name)
+      };
+    }
+
+    function generateChordQuestion() {
+      const pool = safePool();
+      const item = randomItem(pool);
+      const rootMidi = randomMidi(48, 60);
+      const wrongPool = pool.filter(x => x.id !== item.id);
+      const wrongItem = randomItem(wrongPool);
+      const choices = Math.random() > 0.5
+        ? [item, wrongItem]
+        : [wrongItem, item];
+
+      return {
+        mode: "Chords",
+        answerId: item.id,
+        answerName: item.name,
+        rootMidi,
+        notes: item.semitones.map(s => rootMidi + s),
+        choices: choices.map(x => x.name)
+      };
+    }
+
+    function generateNoteQuestion() {
+      const pool = safePool();
+      const item = randomItem(pool);
+      const octaveBase = randomItem([48, 60, 72]);
+      const wrongPool = pool.filter(x => x.id !== item.id);
+      const wrongItem = randomItem(wrongPool);
+      const choices = Math.random() > 0.5
+        ? [item, wrongItem]
+        : [wrongItem, item];
+
+      return {
+        mode: "Notes",
+        answerId: item.id,
+        answerName: item.name,
+        midi: octaveBase + item.semitone,
+        choices: choices.map(x => x.name)
+      };
+    }
+
+    function generateScaleQuestion() {
+      const pool = safePool();
+      const item = randomItem(pool);
+      const rootMidi = randomMidi(48, 60);
+      const wrongPool = pool.filter(x => x.id !== item.id);
+      const wrongItem = randomItem(wrongPool);
+      const choices = Math.random() > 0.5
+        ? [item, wrongItem]
+        : [wrongItem, item];
+
+      return {
+        mode: "Scales",
+        answerId: item.id,
+        answerName: item.name,
+        rootMidi,
+        notes: item.semitones.map(s => rootMidi + s),
+        choices: choices.map(x => x.name)
+      };
+    }
+
+    // =============================
+    // 6. Ad session logic
+    // =============================
+    function newQuestion() {
+      clearTimeout(adState.sequenceTimer);
+      stopActiveAudio(true);
+
+      adState.currentQuestion = generateQuestion();
+      adState.phase = "idle";
+      adState.playCount = 0;
+      adState.answered = false;
+
+      renderAnswers();
+      document.getElementById("nextPrompt").classList.remove("visible");
+
+      const btn = document.getElementById("playBtn");
+      btn.textContent = "▶";
+      btn.disabled = false;
+      btn.classList.remove("playing");
+    }
+
+    function handlePlay() {
+      if (adState.phase === "revealed" || adState.phase === "waiting") {
+        // Advance to next question
+        newQuestion();
+        return;
+      }
+
+      if (adState.phase === "playing") return; // ignore during auto-play
+
+      // Start auto-play sequence
+      adState.phase = "playing";
+      adState.playCount = 0;
+      const btn = document.getElementById("playBtn");
+      btn.disabled = true;
+
+      playSequence();
+    }
+
+    function playSequence() {
+      const q = adState.currentQuestion;
+      if (!q) return;
+
+      adState.playCount++;
+      const playNum = adState.playCount;
+
+      // Play the note
+      const btn = document.getElementById("playBtn");
+      btn.classList.add("playing");
+      btn.textContent = "♪";
+      playQuestionAudio(q);
+
+      const audioDuration = getQuestionAudioDurationMs(q);
+
+      // After audio finishes
+      adState.sequenceTimer = setTimeout(() => {
+        btn.classList.remove("playing");
+        btn.textContent = "▶";
+
+        if (playNum < 3) {
+          // Pause before next play
+          const pauseDuration = playNum < 2 ? 1200 : 1200;
+          adState.sequenceTimer = setTimeout(() => {
+            playSequence();
+          }, pauseDuration);
+        } else {
+          // After 3rd play — reveal answer
+          adState.sequenceTimer = setTimeout(() => {
+            revealCorrectAnswer();
+          }, 800);
+        }
+      }, audioDuration);
+    }
+
+    function revealCorrectAnswer() {
+      adState.phase = "revealed";
+      adState.answered = true;
+
+      const correctName = adState.currentQuestion.answerName;
+      document.querySelectorAll(".answer-btn").forEach(btn => {
+        if (btn.dataset.answer === correctName) {
+          btn.classList.add("correct", "pop");
+          setTimeout(() => btn.classList.remove("pop"), 320);
+        }
+      });
+
+      // Show next prompt
+      document.getElementById("nextPrompt").classList.add("visible");
+      document.getElementById("playBtn").disabled = false;
+      document.getElementById("playBtn").textContent = "▶";
+
+      adState.phase = "waiting";
+    }
+
+    function renderAnswers() {
+      const area = document.getElementById("answerArea");
+      const choices = adState.currentQuestion?.choices || [];
+
+      // Find index of each choice in the mode data
+      const modeItems = MODE_DATA[adSettings.mode];
+
+      area.innerHTML = choices.map((choice, i) => {
+        const item = modeItems.find(x => x.name === choice);
+        const num = item ? (modeItems.indexOf(item) + 1) : (i + 1);
+        const html = `
+          <button class="answer-btn" data-answer="${escapeHtml(choice)}" disabled>
+            <kbd>${num}</kbd>${escapeHtml(choice)}
+          </button>
+        `;
+        if (i === 0 && choices.length === 2) {
+          return html + `<div class="or-separator">OR</div>`;
+        }
+        return html;
+      }).join("");
+    }
+
+    // =============================
+    // 7. Customize panel
+    // =============================
+    function selectMode(el, mode) {
+      adSettings.mode = mode;
+      // Set default pool for the new mode
+      adSettings.pool = MODE_DATA[mode].map(x => x.id);
+      document.getElementById("modeLabel").textContent = `${mode} · Challenge`;
+      document.getElementById("poolTitle").textContent = POOL_TITLES[mode];
+      updateCustomizeUI();
+      renderPoolGrid();
+      newQuestion();
+    }
+
+    function selectSound(el, sound) {
+      adSettings.sound = sound;
+      if (sound === "Piano") preloadPianoSamples();
+      updateCustomizeUI();
+    }
+
+    function togglePoolItem(id, el) {
+      const pool = new Set(adSettings.pool);
+      if (pool.has(id)) pool.delete(id);
+      else pool.add(id);
+
+      if (pool.size < 2) {
+        toast("Keep at least 2 answer options");
+        return;
+      }
+
+      adSettings.pool = [...pool];
+      el.classList.toggle("active");
+    }
+
+    function previewItem(id) {
+      const mode = adSettings.mode;
+      const item = byId(MODE_DATA[mode], id);
+      if (!item) return;
+
+      stopActiveAudio(true);
+      if (mode === "Notes") {
+        playTone(midiToFreq(60 + item.semitone), 0, 0.75);
+      } else if (mode === "Intervals") {
+        const d = getSpeedDurations();
+        playTone(midiToFreq(60), 0, d.note);
+        playTone(midiToFreq(60 + item.semitones), d.gap, d.note + 0.08);
+      } else if (mode === "Chords") {
+        playNotes(item.semitones.map(s => 60 + s), 0, 0.9, 0);
+      } else if (mode === "Scales") {
+        const d = getSpeedDurations();
+        item.semitones.forEach((s, i) => playTone(midiToFreq(60 + s), i * d.scaleStep, 0.2));
+      }
+      setAudioBusy(1200);
+      toast("Preview: " + item.name);
+    }
+
+    function renderPoolGrid() {
+      const grid = document.getElementById("poolGrid");
+      const all = MODE_DATA[adSettings.mode];
+      const activeIds = new Set(adSettings.pool);
+
+      grid.innerHTML = all.map(item => `
+        <div class="check ${activeIds.has(item.id) ? "active" : ""}" data-id="${item.id}" onclick="togglePoolItem('${item.id}', this)">
+          <span>${escapeHtml(item.name)}</span>
+          <button class="preview-mini" onclick="event.stopPropagation(); previewItem('${item.id}')">▶</button>
+        </div>
+      `).join("");
+    }
+
+    function updateCustomizeUI() {
+      // Exercise seg
+      document.querySelectorAll("#exerciseSeg button").forEach(b =>
+        b.classList.toggle("active", b.textContent.trim() === adSettings.mode)
+      );
+      // Sound seg
+      document.querySelectorAll("#soundSeg button").forEach(b =>
+        b.classList.toggle("active", (b.dataset.sound || b.textContent.trim()) === adSettings.sound)
+      );
+    }
+
+    function applySettings() {
+      newQuestion();
+      toast("Settings applied");
+      // Scroll back up to viewport
+      document.getElementById("adViewport").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // =============================
+    // 8. Keyboard
+    // =============================
+    document.addEventListener("keydown", e => {
+      const activeTag = document.activeElement?.tagName?.toLowerCase();
+      const typing = ["input", "textarea", "select"].includes(activeTag);
+      if (typing) return;
+
+      if (e.code === "Space") {
+        e.preventDefault();
+        handlePlay();
+      }
+    });
+
+    // Also allow clicking the viewport to advance when waiting
+    document.getElementById("adViewport").addEventListener("click", e => {
+      // Only advance if clicked outside the play button and we're in waiting state
+      if (adState.phase === "waiting" && e.target !== document.getElementById("playBtn")) {
+        newQuestion();
+      }
+    });
+
+    // =============================
+    // 9. Toast
+    // =============================
+    function toast(message) {
+      const wrap = document.getElementById("toastWrap");
+      const el = document.createElement("div");
+      el.className = "toast";
+      el.textContent = message;
+      wrap.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(8px)";
+      }, 2100);
+      setTimeout(() => el.remove(), 2500);
+    }
+
+    // =============================
+    // 10. Init
+    // =============================
+    function init() {
+      preloadPianoSamples();
+      renderPoolGrid();
+      updateCustomizeUI();
+      newQuestion();
+    }
+
+    init();
+  </script>
+</body>
+</html>
