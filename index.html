@@ -6000,7 +6000,18 @@
 
     function refreshFooterAd(reason = "timed") {
       state.footerAdRefreshCount++;
-      // Adsterra handles its own ad delivery, so we disable the manual innerHTML overwrite.
+      
+      // Karena kita menggunakan script Adsterra, script tersebut akan men-generate tag <iframe>.
+      // Untuk me-refresh iklan (agar dihitung impresi baru) tanpa merusak script, 
+      // kita cari iframe-nya dan muat ulang sumbernya (src).
+      const footerAd = document.getElementById("footerAd");
+      if (footerAd) {
+        const iframe = footerAd.querySelector("iframe");
+        if (iframe) {
+          // Memuat ulang iframe untuk memanggil iklan baru
+          iframe.src = iframe.src;
+        }
+      }
     }
 
     function closeMobileAd() {
