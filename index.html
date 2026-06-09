@@ -4080,12 +4080,18 @@
     </div>
   </section>
 
-  <div class="ad-slot mobile-anchor-ad" id="mobileAnchorAd" aria-label="Mobile sticky ad">
-    <div class="ad-content">
-      <b>Mobile ad slot</b>
-      <span>320×50 sticky anchor · no sound</span>
-    </div>
-    <button class="ad-close" onclick="closeMobileAd()" aria-label="Close mobile ad">×</button>
+  <div class="mobile-anchor-ad" id="mobileAnchorAd" aria-label="Mobile sticky ad" style="display:flex; justify-content:center; align-items:center; background:transparent; border:none; height:50px">
+<script>
+  atOptions = {
+    'key' : '1e9dff4d38b74af80869cf7d94361062',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/1e9dff4d38b74af80869cf7d94361062/invoke.js"></script>
+    <button class="ad-close" onclick="closeMobileAd()" aria-label="Close mobile ad" style="position:absolute; right:4px; top:-12px; background:var(--panel); border:1px solid var(--border); border-radius:50%; width:24px; height:24px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:16px; line-height:1; color:var(--text); z-index:10;">×</button>
   </div>
 
   <section class="interstitial-ad" id="interstitialAd" role="dialog" aria-modal="true" aria-label="Advertisement">
@@ -5969,13 +5975,6 @@
                 <div class="field-label"><b>Weak areas</b><span>based on this session</span></div>
                 <div class="weak-list">${weakHtml}</div>
               </div>
-
-              <div class="ad-slot result-ad">
-                <div class="ad-content">
-                  <b>Result page ad slot</b>
-                  <span>Shown only after the session is complete</span>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -5983,12 +5982,6 @@
             <button class="btn primary" onclick="newSession()">New session</button>
             <button class="btn" onclick="closeModal(); startWeakAreas()">Practice weak areas</button>
             <button class="btn ghost" onclick="closeModal(); openDrawer('customize')">Change settings</button>
-          </div>
-          <div class="ad-slot result-bottom-ad">
-            <div class="ad-content">
-              <b>Result summary banner ad</b>
-              <span>Alternative horizontal placement for smaller screens</span>
-            </div>
           </div>
         </div>
       `;
