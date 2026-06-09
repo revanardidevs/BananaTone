@@ -3771,11 +3771,17 @@
         </div>
       </section>
 
-      <div class="ad-slot footer-ad" id="footerAd" aria-label="Advertisement slot">
-        <div class="ad-content">
-          <b>Practice-friendly ad slot</b>
-          <span>Static placeholder · no audio · no layout shift</span>
-        </div>
+      <div class="footer-ad" id="footerAd" style="height:90px; border:none; background:transparent; display:flex; justify-content:center; overflow:hidden">
+<script>
+  atOptions = {
+    'key' : '9ef314974bc11a1daddd84c2303ae114',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/9ef314974bc11a1daddd84c2303ae114/invoke.js"></script>
       </div>
 
       <footer class="bottom-bar">
@@ -6001,14 +6007,7 @@
 
     function refreshFooterAd(reason = "timed") {
       state.footerAdRefreshCount++;
-      const el = document.getElementById("footerAd");
-      if (!el) return;
-      el.innerHTML = `
-        <div class="ad-content">
-          <b>Practice-friendly ad slot #${state.footerAdRefreshCount}</b>
-          <span>Refreshed by ${reason} · static container prevents layout shift</span>
-        </div>
-      `;
+      // Adsterra handles its own ad delivery, so we disable the manual innerHTML overwrite.
     }
 
     function closeMobileAd() {
