@@ -61,7 +61,12 @@
     }
 
     button, input, select { font: inherit; }
-    button { border: 0; cursor: pointer; }
+    button { 
+      border: 0; 
+      cursor: pointer; 
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
 
     /* ===== 9:16 Phone Frame (Now Fullscreen for Recording) ===== */
     .ad-viewport {
