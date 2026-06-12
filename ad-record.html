@@ -415,6 +415,28 @@
       border: 2px solid var(--line);
     }
 
+    .refresh-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--panel-2);
+      color: var(--muted);
+      border: 2px solid var(--line);
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      transition: .15s ease;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .refresh-btn:hover {
+      background: var(--brand-peach);
+      color: var(--text);
+      border-color: rgba(217,184,95,.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217,184,95,.25);
+    }
+
     .apply-btn {
       width: 100%;
       margin-top: 20px;
@@ -483,8 +505,13 @@
 
   <!-- ===== Customize Panel (below viewport, not visible during recording) ===== -->
   <div class="customize-section" id="customizeSection">
-    <h2>Customize</h2>
-    <p>Change exercise type, note pool, instrument, and volume for your ad recording session.</p>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+      <div>
+        <h2>Customize</h2>
+        <p>Change exercise type, note pool, instrument, and volume for your ad recording session.</p>
+      </div>
+      <button class="refresh-btn" onclick="newQuestion()" aria-label="Refresh Question" title="Refresh Question">↻</button>
+    </div>
 
     <div class="field" style="border-top:0; padding-top:0; margin-top:0;">
       <div class="field-label"><b>Exercise</b><span>Drill type</span></div>
