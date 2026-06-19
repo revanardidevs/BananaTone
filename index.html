@@ -1405,6 +1405,12 @@
       box-shadow: 0 0 0 3px rgba(232,185,75,.10);
     }
 
+    :root:not([data-theme="light"]) .feedback-form textarea::placeholder,
+    :root:not([data-theme="light"]) .feedback-form input::placeholder {
+      color: var(--text);
+      opacity: 0.55;
+    }
+
     .feedback-form textarea {
       min-height: 130px;
       resize: vertical;
@@ -3854,6 +3860,9 @@
         <button class="ghost" onclick="sessionDoneEndSession()">End session</button>
       </div>
     </div>
+    <div style="position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; color: var(--muted); font-weight: 750; opacity: 0.75; z-index: 10; display: flex; align-items: center;">
+      Do you like Banana Tone? <button class="small-link" onclick="openFeedback()" style="margin-left: 8px; padding: 5px 12px; border-radius: 999px; background: transparent; border: 1px solid var(--line); color: var(--text); cursor: pointer; font-family: inherit; font-weight: 800; font-size: 11px;">Give us your feedback</button>
+    </div>
   </section>
 </div>
 
@@ -5996,6 +6005,9 @@
             <button class="btn primary" onclick="newSession()">New session</button>
             <button class="btn" onclick="closeModal(); startWeakAreas()">Practice weak areas</button>
             <button class="btn ghost" onclick="closeModal(); openDrawer('customize')">Change settings</button>
+          </div>
+          <div style="position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; color: var(--muted); font-weight: 750; opacity: 0.75; z-index: 10; display: flex; align-items: center;">
+            Do you like Banana Tone? <button class="small-link" onclick="openFeedback()" style="margin-left: 8px; padding: 5px 12px; border-radius: 999px; background: transparent; border: 1px solid var(--line); color: var(--text); cursor: pointer; font-family: inherit; font-weight: 800; font-size: 11px;">Give us your feedback</button>
           </div>
         </div>
       `;
