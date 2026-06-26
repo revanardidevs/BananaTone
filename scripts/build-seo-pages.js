@@ -721,7 +721,488 @@ const PAGES = [
     ],
     ctaLabel: "Practice C major notes on BananaTone",
     ctaLink: "/"
+  },
+  {
+    "slug": "ear-training-for-beginners",
+    "title": "Ear Training for Beginners - Free Step-by-Step Practice | BananaTone",
+    "description": "The perfect starting point for your ear training journey. Free, interactive step-by-step exercises for absolute beginners.",
+    "canonical": "https://bananatone.com/ear-training-for-beginners",
+    "h1": "Ear Training for Beginners",
+    "intro": "Starting ear training can feel overwhelming, but it doesn't have to be. By breaking down sounds into small, recognizable pieces, anyone can learn to play by ear.",
+    "cards": [
+      {
+        "h2": "Why start ear training?",
+        "body": "<p>Ear training is the bridge between hearing a song in your head and playing it on your instrument. It allows you to:</p>\n<ul>\n  <li>Learn songs by ear without needing sheet music or tabs.</li>\n  <li>Improvise freely by translating the melodies in your mind to your fingers.</li>\n  <li>Understand the emotional structure of the music you love.</li>\n</ul>"
+      },
+      {
+        "h2": "The beginner's approach",
+        "body": "<p>The biggest mistake beginners make is trying to learn everything at once. The secret is to start small:</p>\n<ul>\n  <li><strong>Limit the options:</strong> Practice with just two or three intervals or chords at a time.</li>\n  <li><strong>Use a reference:</strong> Always relate sounds to songs you already know.</li>\n  <li><strong>Be consistent:</strong> 5 minutes a day is much better than an hour once a week.</li>\n</ul>"
+      },
+      {
+        "h2": "Where to begin right now",
+        "body": "<p>Start with our <strong>Beginner Intervals</strong> preset. This limits the options to the most distinct and fundamental sounds: the Minor 3rd, Major 3rd, Perfect 5th, and Octave.</p>\n<p>Once you can reliably score 90% or higher, gradually add one new interval at a time.</p>"
+      }
+    ],
+    "ctaLabel": "Start Beginner Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "relative-pitch-ear-training",
+    "title": "Relative Pitch Ear Training - Free Online Practice Tool | BananaTone",
+    "description": "Develop your relative pitch with free online ear training exercises. Learn to identify intervals, chords, and melodies by ear.",
+    "canonical": "https://bananatone.com/relative-pitch-ear-training",
+    "h1": "Relative Pitch Ear Training",
+    "intro": "Relative pitch is the ability to identify a note or chord by comparing it to a reference pitch. It is the most practical, learnable, and essential skill for any musician.",
+    "cards": [
+      {
+        "h2": "Relative Pitch vs Perfect Pitch",
+        "body": "<p>While <strong>perfect pitch</strong> (identifying a note in isolation) is rare and hard to learn as an adult, <strong>relative pitch</strong> can be mastered by anyone.</p>\n<p>With relative pitch, you use a reference note (like a key center or a root note) to measure the distance to the next note. It's like using a map instead of a compass — once you know where \"home\" is, you can find anything.</p>"
+      },
+      {
+        "h2": "How to develop relative pitch",
+        "body": "<ul>\n  <li><strong>Master Intervals:</strong> Intervals are the measuring sticks of relative pitch. Learn the sound of every distance, from a minor 2nd to an octave.</li>\n  <li><strong>Sing Everything:</strong> Your voice connects your brain to your ears. If you can sing an interval, you have internalized it.</li>\n  <li><strong>Transcribe:</strong> Figure out simple melodies from the radio using your instrument.</li>\n</ul>"
+      },
+      {
+        "h2": "Why it makes you a better musician",
+        "body": "<p>Musicians with strong relative pitch don't just \"guess\" when they improvise or learn songs. They can predict exactly how a note will sound before they even touch their instrument. It turns playing music from a mechanical exercise into a fluent language.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Relative Pitch",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "perfect-pitch-test",
+    "title": "Perfect Pitch Test - Find Out If You Have Absolute Pitch | BananaTone",
+    "description": "Take the free perfect pitch test online. Find out if you have absolute pitch by identifying notes without a reference.",
+    "canonical": "https://bananatone.com/perfect-pitch-test",
+    "h1": "Perfect Pitch Test",
+    "intro": "Do you have absolute pitch? Only 1 in 10,000 people are born with the ability to instantly recognize a musical note without any reference point. Take this test to find out.",
+    "cards": [
+      {
+        "h2": "How the test works",
+        "body": "<p>This test will play random notes across the 12-tone chromatic scale (C, C#, D, etc.). Your goal is to identify the note name.</p>\n<p>Because true perfect pitch does not rely on reference notes, you should try to answer instantly based on the \"color\" or character of the pitch itself, rather than trying to calculate it from the previous note.</p>"
+      },
+      {
+        "h2": "What is Perfect Pitch?",
+        "body": "<p>Perfect pitch (or absolute pitch) is a cognitive trait that allows a person to identify or re-create a given musical note without the benefit of a reference tone. It is similar to recognizing colors — just as you can instantly see that an apple is red without comparing it to blue, someone with perfect pitch hears a note and instantly knows it is an F#.</p>"
+      },
+      {
+        "h2": "Can I improve my score?",
+        "body": "<p>Even if you don't have innate absolute pitch, you can develop <strong>strong pitch memory</strong>. By taking this test daily, your brain will begin to internalize the specific frequencies of the notes, allowing you to recognize them more accurately over time.</p>"
+      }
+    ],
+    "ctaLabel": "Take the Perfect Pitch Test",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-for-singers",
+    "title": "Ear Training for Singers & Vocalists - Pitch Matching Practice | BananaTone",
+    "description": "Improve your vocal intonation and pitch matching with free ear training exercises designed specifically for singers.",
+    "canonical": "https://bananatone.com/ear-training-for-singers",
+    "h1": "Ear Training for Singers",
+    "intro": "For vocalists, your ear is your instrument's steering wheel. If you can't hear a pitch accurately, you can't sing it accurately. Ear training is the fastest way to stop singing flat or sharp.",
+    "cards": [
+      {
+        "h2": "Why singers need ear training",
+        "body": "<p>Unlike a piano or guitar where the frets and keys decide the pitch, a singer must create the pitch entirely from their mind and body. Ear training sharpens your internal pitch map, allowing you to:</p>\n<ul>\n  <li>Match pitches instantly and accurately.</li>\n  <li>Sing complex harmonies without getting distracted by the melody.</li>\n  <li>Hear when you are drifting off-key and correct it in real-time.</li>\n</ul>"
+      },
+      {
+        "h2": "The Pitch Matching method",
+        "body": "<p>The best practice for singers is active pitch matching. When using our trainer:</p>\n<ol>\n  <li>Listen to the note played.</li>\n  <li><strong>Sing it back out loud</strong> before you click an answer.</li>\n  <li>Internalize how the note feels in your voice.</li>\n</ol>"
+      },
+      {
+        "h2": "Beyond single notes",
+        "body": "<p>Once your pitch matching is perfect, move on to Interval training. Being able to confidently sing a perfect fourth or major sixth jump is what separates amateur singers from professionals.</p>"
+      }
+    ],
+    "ctaLabel": "Start Vocal Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "jazz-ear-training",
+    "title": "Jazz Ear Training - Practice 7th Chords & Extensions | BananaTone",
+    "description": "Advanced ear training for jazz musicians. Practice identifying complex 7th chords, extensions, and jazz harmony.",
+    "canonical": "https://bananatone.com/jazz-ear-training",
+    "h1": "Jazz Ear Training Practice",
+    "intro": "Jazz harmony is built on complex chords, extensions, and rapid modulations. To improvise over a standard, you must be able to instantly recognize 7th chords and their alterations by ear.",
+    "cards": [
+      {
+        "h2": "The Foundation of Jazz",
+        "body": "<p>Before you worry about 9ths, 11ths, and 13ths, you must have absolute mastery over the core seventh chords:</p>\n<ul>\n  <li>Major 7 (Maj7)</li>\n  <li>Minor 7 (min7)</li>\n  <li>Dominant 7 (dom7)</li>\n  <li>Half-Diminished (m7b5)</li>\n  <li>Fully Diminished (dim7)</li>\n</ul>"
+      },
+      {
+        "h2": "Listening for the 3rd and 7th",
+        "body": "<p>In jazz, the root and the fifth are often omitted by the piano player. The defining character of the chord comes from the \"guide tones\" — the 3rd and the 7th.</p>\n<p>When practicing chord recognition, focus on the top of the chord. Is the seventh major (dreamy) or minor (bluesy/funky)? Is the third major (bright) or minor (dark)?</p>"
+      },
+      {
+        "h2": "How to practice",
+        "body": "<p>Start by configuring the chord trainer to only include Maj7, min7, and dom7. These three chords make up the II-V-I progression, which is 80% of the jazz repertoire. Once you can identify them flawlessly in random inversions, add diminished and augmented sounds.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Jazz Chords",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "triad-ear-training",
+    "title": "Triad Ear Training - Major, Minor, Diminished, Augmented | BananaTone",
+    "description": "Master the four basic triads: Major, Minor, Diminished, and Augmented with our free interactive ear training tool.",
+    "canonical": "https://bananatone.com/triad-ear-training",
+    "h1": "Triad Ear Training",
+    "intro": "Triads are the fundamental building blocks of all Western harmony. There are only four types of triads, and mastering their distinct emotional colors is essential for any musician.",
+    "cards": [
+      {
+        "h2": "The Four Triads",
+        "body": "<ul>\n  <li><strong>Major:</strong> Bright, happy, resolved (Root, M3, P5).</li>\n  <li><strong>Minor:</strong> Dark, sad, resolved (Root, m3, P5).</li>\n  <li><strong>Diminished:</strong> Tense, scary, unstable (Root, m3, dim5).</li>\n  <li><strong>Augmented:</strong> Dreamy, floating, unresolved (Root, M3, aug5).</li>\n</ul>"
+      },
+      {
+        "h2": "How to tell them apart",
+        "body": "<p>The easiest method is to divide them into categories of stability:</p>\n<p>First, ask yourself: does it sound stable and complete? If yes, it's either Major or Minor. Then decide if it's happy (Major) or sad (Minor).</p>\n<p>If it sounds unstable, tense, or unresolved, it's Diminished or Augmented. If it feels \"squished\" and dark, it's Diminished. If it feels \"stretched\" and bright, it's Augmented.</p>"
+      },
+      {
+        "h2": "Why triads matter",
+        "body": "<p>Even the most complex 13th chords in jazz are just triads stacked on top of each other. If you can't instantly recognize a basic triad, you will struggle with advanced harmony. Get your foundation solid first.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Triads on BananaTone",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "advanced-ear-training",
+    "title": "Advanced Ear Training Exercises for Musicians | BananaTone",
+    "description": "Push your musical ear to the limit with advanced ear training exercises. Practice complex intervals, extended chords, and fast tempos.",
+    "canonical": "https://bananatone.com/advanced-ear-training",
+    "h1": "Advanced Ear Training",
+    "intro": "Have you mastered the basics? Once Major vs Minor is too easy, it's time to step out of your comfort zone and tackle the most challenging aspects of aural skills.",
+    "cards": [
+      {
+        "h2": "What makes ear training advanced?",
+        "body": "<p>Difficulty in ear training doesn't just come from adding more complex chords. It comes from:</p>\n<ul>\n  <li><strong>Speed:</strong> Reducing the time you have to process the sound.</li>\n  <li><strong>Context:</strong> Hearing harmonic intervals (notes played simultaneously) rather than melodic ones.</li>\n  <li><strong>Pool Size:</strong> Having to choose from 12 intervals instead of just 4.</li>\n</ul>"
+      },
+      {
+        "h2": "The ultimate interval challenge",
+        "body": "<p>The true test of interval recognition is the <strong>Harmonic Challenge</strong>. Set your trainer to include all 12 intervals, and set the direction to \"Harmonic\" (both notes played at exactly the same time). This forces you to recognize the overall texture and dissonance of the interval, rather than calculating the distance between two distinct notes.</p>"
+      },
+      {
+        "h2": "Breaking through plateaus",
+        "body": "<p>If you get stuck on advanced exercises (like constantly confusing the Minor 6th and Major 6th), isolate the problem. Create a custom session with ONLY those two confusing intervals and drill them until the difference becomes obvious.</p>"
+      }
+    ],
+    "ctaLabel": "Start Advanced Practice",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "guess-the-note-game",
+    "title": "Guess The Note Game - Fun Ear Training Practice | BananaTone",
+    "description": "Play the Guess The Note game! A fun, interactive way to practice note recognition and develop your pitch memory.",
+    "canonical": "https://bananatone.com/guess-the-note-game",
+    "h1": "Guess The Note Game",
+    "intro": "Who says ear training has to feel like homework? Guess The Note is a fast, fun way to build your pitch memory through interactive, game-like repetition.",
+    "cards": [
+      {
+        "h2": "How to play",
+        "body": "<p>The rules are simple: the app plays a piano note, and you have to click the correct note name (C, D, E, etc.).</p>\n<p>Every time you guess correctly, your streak increases. If you miss, your streak resets. Try to build the highest streak possible while training your ear in the background!</p>"
+      },
+      {
+        "h2": "Why gamification works",
+        "body": "<p>Ear training requires hundreds of repetitions to build permanent neural pathways. When practice feels like a chore, you won't do it enough. By turning it into a fast-paced game with immediate feedback and streaks, you can effortlessly put in the repetitions needed to achieve real results.</p>"
+      },
+      {
+        "h2": "Tips for high scores",
+        "body": "<ul>\n  <li>Don't overthink it. Go with your first instinct.</li>\n  <li>Sing the note out loud before clicking — this engages a different part of your brain and improves accuracy.</li>\n  <li>Start with the \"Beginner\" preset (only 5 notes) before moving up to the full chromatic scale.</li>\n</ul>"
+      }
+    ],
+    "ctaLabel": "Play Guess The Note",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "guess-the-chord-game",
+    "title": "Guess The Chord Game - Play Online for Free | BananaTone",
+    "description": "Play the free Guess The Chord game. Test your ear and see how long a streak you can build identifying major, minor, and 7th chords.",
+    "canonical": "https://bananatone.com/guess-the-chord-game",
+    "h1": "Guess The Chord Game",
+    "intro": "Test your harmonic hearing with the Guess The Chord game. Build your streak by instantly identifying major, minor, diminished, and seventh chords by ear.",
+    "cards": [
+      {
+        "h2": "How it works",
+        "body": "<p>BananaTone will play a chord using a high-quality piano sample. Your job is to listen to the emotional quality of the chord and identify its type (e.g., Major, Minor, Dominant 7).</p>\n<p>The root notes are randomized, so you can't rely on absolute pitch — you must listen to the internal structure and color of the chord itself.</p>"
+      },
+      {
+        "h2": "The color of chords",
+        "body": "<p>Every chord type has a unique personality:</p>\n<ul>\n  <li>Major is bright and happy.</li>\n  <li>Minor is dark and melancholic.</li>\n  <li>Diminished sounds tense, like a horror movie.</li>\n  <li>Augmented sounds dreamy and floating.</li>\n</ul>"
+      },
+      {
+        "h2": "Challenge yourself",
+        "body": "<p>Start with the classic Major vs Minor battle. Once you can easily build a streak of 20, open the settings and add Suspended chords (sus2, sus4) or Seventh chords to the mix to dramatically increase the difficulty.</p>"
+      }
+    ],
+    "ctaLabel": "Play Guess The Chord",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "minor-2nd-vs-major-2nd-ear-training",
+    "title": "Minor 2nd vs Major 2nd Ear Training | BananaTone",
+    "description": "Learn to distinguish between the minor 2nd (half step) and major 2nd (whole step) intervals with free online practice.",
+    "canonical": "https://bananatone.com/minor-2nd-vs-major-2nd-ear-training",
+    "h1": "Minor 2nd vs Major 2nd",
+    "intro": "The minor second and major second are the smallest common intervals in Western music. Telling them apart is the first step to transcribing melodies by ear.",
+    "cards": [
+      {
+        "h2": "The Half Step vs Whole Step",
+        "body": "<p>A <strong>minor second (m2)</strong> is a distance of one half-step (e.g., C to C#). It is the smallest interval on a piano or guitar.</p>\n<p>A <strong>major second (M2)</strong> is a distance of two half-steps, or one whole step (e.g., C to D).</p>"
+      },
+      {
+        "h2": "How do they sound?",
+        "body": "<p>The <strong>minor second</strong> is incredibly dissonant and tense. Played harmonically, it sounds like the notes are clashing violently. Played melodically, it is the famous \"Jaws\" theme.</p>\n<p>The <strong>major second</strong> is also dissonant, but much softer. It sounds like the opening two notes of \"Happy Birthday\".</p>"
+      },
+      {
+        "h2": "Practice tips",
+        "body": "<p>Because these intervals are so close in size, beginners often confuse them. Set your trainer to ONLY these two intervals, and play them in Harmonic mode. The sheer crunch and extreme tension of the minor 2nd will quickly become obvious compared to the milder major 2nd.</p>"
+      }
+    ],
+    "ctaLabel": "Practice 2nd Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "minor-6th-vs-major-6th-ear-training",
+    "title": "Minor 6th vs Major 6th Ear Training | BananaTone",
+    "description": "Practice identifying minor 6th and major 6th intervals by ear. Use our free interactive tool to master these tricky leaps.",
+    "canonical": "https://bananatone.com/minor-6th-vs-major-6th-ear-training",
+    "h1": "Minor 6th vs Major 6th",
+    "intro": "The sixth intervals are wide leaps that often trip up beginners. Because they are the inversions of the thirds, they carry similar emotional weight but span a much wider distance.",
+    "cards": [
+      {
+        "h2": "What is the difference?",
+        "body": "<p>A <strong>minor sixth (m6)</strong> spans 8 half-steps. It sounds tragic, romantic, and yearning. A classic example is the opening leap in the theme from \"Love Story\" or the song \"In My Life\" by The Beatles.</p>\n<p>A <strong>major sixth (M6)</strong> spans 9 half-steps. It sounds open, sweet, and comforting. The most famous example is the first two notes of the \"NBC Chimes\" or \"My Bonnie Lies Over the Ocean\".</p>"
+      },
+      {
+        "h2": "The inversion trick",
+        "body": "<p>If you struggle to hear sixths, remember that they are upside-down thirds!</p>\n<ul>\n  <li>If you flip a minor 6th upside down, it becomes a Major 3rd.</li>\n  <li>If you flip a major 6th upside down, it becomes a Minor 3rd.</li>\n</ul>\n<p>If you can hear that \"happy\" major third quality hidden inside the interval, you are listening to a minor 6th!</p>"
+      },
+      {
+        "h2": "Practice strategy",
+        "body": "<p>Drill these two side-by-side. The major 6th will always feel slightly wider, brighter, and more \"resolved\" than the yearning, tragic pull of the minor 6th.</p>"
+      }
+    ],
+    "ctaLabel": "Practice 6th Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ascending-intervals-ear-training",
+    "title": "Ascending Intervals Ear Training Practice | BananaTone",
+    "description": "Focus purely on ascending intervals. Train your ear to recognize upward melodic leaps with our free tool.",
+    "canonical": "https://bananatone.com/ascending-intervals-ear-training",
+    "h1": "Ascending Intervals Ear Training",
+    "intro": "Ascending intervals (where the second note is higher than the first) are the easiest way to begin ear training, because they naturally mimic how we sing and recall popular melodies.",
+    "cards": [
+      {
+        "h2": "Why practice ascending first?",
+        "body": "<p>When a singer jumps for a high note, they are singing an ascending interval. Most of the \"song association\" tricks taught in music school (like using \"Star Wars\" for a perfect fifth) rely on ascending melodies. It is the most natural way for the human brain to process pitch distance.</p>"
+      },
+      {
+        "h2": "The song reference method",
+        "body": "<p>To master ascending intervals, assign a famous song to each one:</p>\n<ul>\n  <li>Minor 2nd: Jaws theme</li>\n  <li>Major 2nd: Happy Birthday</li>\n  <li>Perfect 4th: Here Comes the Bride</li>\n  <li>Perfect 5th: Twinkle Twinkle Little Star</li>\n  <li>Octave: Somewhere Over the Rainbow</li>\n</ul>"
+      },
+      {
+        "h2": "How to use BananaTone",
+        "body": "<p>Open the settings drawer and ensure \"Direction\" is set specifically to \"Ascending\". Start with a small pool of intervals (like Beginner) before expanding to the full 12-interval challenge.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Ascending Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "descending-intervals-ear-training",
+    "title": "Descending Intervals Ear Training Practice | BananaTone",
+    "description": "Challenge yourself with descending interval practice. Master the often-neglected skill of hearing downward melodic leaps.",
+    "canonical": "https://bananatone.com/descending-intervals-ear-training",
+    "h1": "Descending Intervals Ear Training",
+    "intro": "Many students master ascending intervals but completely freeze when the notes go down. Descending intervals require a completely different set of neural pathways and song references.",
+    "cards": [
+      {
+        "h2": "The descending blind spot",
+        "body": "<p>Because most melodies build energy by moving upward, we spend less time analyzing downward leaps. A student might instantly recognize an upward Perfect 5th, but guess a Perfect 4th when that exact same distance is played downwards.</p>"
+      },
+      {
+        "h2": "Descending song references",
+        "body": "<p>You need a new set of reference songs for downward leaps:</p>\n<ul>\n  <li>Descending m3: \"Hey Jude\" (first two notes)</li>\n  <li>Descending M3: Beethoven's 5th Symphony (dun-dun-dun-dun)</li>\n  <li>Descending P4: \"O Come All Ye Faithful\"</li>\n  <li>Descending P5: The Flintstones theme</li>\n</ul>"
+      },
+      {
+        "h2": "The inversion trap",
+        "body": "<p>Be careful! A descending Perfect 4th lands on the same note as an ascending Perfect 5th (from the same root). Your brain might try to trick you into hearing the upward distance. Force yourself to hear the gravity pulling the note downwards.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Descending Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "harmonic-intervals-ear-training",
+    "title": "Harmonic Intervals Ear Training (Simultaneous Notes) | BananaTone",
+    "description": "Practice identifying harmonic intervals where both notes are played at the same time. The ultimate test of interval recognition.",
+    "canonical": "https://bananatone.com/harmonic-intervals-ear-training",
+    "h1": "Harmonic Intervals Ear Training",
+    "intro": "When two notes are played at exactly the same time, it creates a harmonic interval. This is much harder than melodic (sequential) intervals, as you must identify the interval by its texture and dissonance.",
+    "cards": [
+      {
+        "h2": "Melodic vs Harmonic",
+        "body": "<p>In a <strong>melodic</strong> interval, you can hear the starting note, hear the ending note, and measure the distance. In a <strong>harmonic</strong> interval, the sounds blend together into a single \"texture.\" You must learn to recognize the feeling of that texture.</p>"
+      },
+      {
+        "h2": "Consonance and Dissonance",
+        "body": "<p>Harmonic intervals are identified by how much they clash:</p>\n<ul>\n  <li><strong>Highly Dissonant:</strong> Minor 2nd, Major 7th, Tritone. They sound tense and uncomfortable.</li>\n  <li><strong>Imperfect Consonance:</strong> Major/Minor 3rds and 6ths. They sound sweet and pleasant.</li>\n  <li><strong>Perfect Consonance:</strong> Perfect 4th, Perfect 5th, Octave. They sound hollow, pure, and completely stable.</li>\n</ul>"
+      },
+      {
+        "h2": "Practice tips",
+        "body": "<p>Set BananaTone's direction to \"Harmonic\". If you get stuck, try to sing the bottom note, then sing the top note, effectively breaking the harmonic interval back into a melodic one in your head.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Harmonic Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "diatonic-intervals-ear-training",
+    "title": "Diatonic Intervals Ear Training | BananaTone",
+    "description": "Focus purely on diatonic intervals from the major scale. Perfect for beginners transitioning into advanced ear training.",
+    "canonical": "https://bananatone.com/diatonic-intervals-ear-training",
+    "h1": "Diatonic Intervals Ear Training",
+    "intro": "Diatonic intervals are the distances found naturally within a major scale, without any sharps or flats. Mastering these first makes navigating tonal music incredibly easy.",
+    "cards": [
+      {
+        "h2": "What are diatonic intervals?",
+        "body": "<p>If you start on the root note of a Major scale (Do) and jump to any other note in that scale, you are playing a diatonic interval. They are:</p>\n<ul>\n  <li>Major 2nd (Do-Re)</li>\n  <li>Major 3rd (Do-Mi)</li>\n  <li>Perfect 4th (Do-Fa)</li>\n  <li>Perfect 5th (Do-Sol)</li>\n  <li>Major 6th (Do-La)</li>\n  <li>Major 7th (Do-Ti)</li>\n  <li>Perfect 8ve (Do-Do)</li>\n</ul>"
+      },
+      {
+        "h2": "The 'Major' shortcut",
+        "body": "<p>Notice a pattern? Every interval built from the root of a major scale is either <strong>Major</strong> or <strong>Perfect</strong>. There are no minor or diminished intervals when you measure upward from the root of a major key.</p>"
+      },
+      {
+        "h2": "How to practice",
+        "body": "<p>In the BananaTone Interval settings, deselect all minor intervals and the tritone. Practice leaping from the root to these bright, stable diatonic intervals until they feel like second nature.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Diatonic Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "dominant-7th-chord-ear-training",
+    "title": "Dominant 7th Chord Ear Training | BananaTone",
+    "description": "Learn to hear the dominant 7th chord. Master the bluesy, tense sound that drives rock, blues, and jazz.",
+    "canonical": "https://bananatone.com/dominant-7th-chord-ear-training",
+    "h1": "Dominant 7th Chord Ear Training",
+    "intro": "The Dominant 7th chord is the engine of Western music. It creates a specific type of tension that aggressively pushes the music forward, demanding to be resolved to the root chord.",
+    "cards": [
+      {
+        "h2": "The structure of a Dominant 7",
+        "body": "<p>A dominant 7th chord (e.g., G7) consists of a major triad with a minor seventh added on top (Root - M3 - P5 - m7). </p>\n<p>The magic of this chord comes from the clash between the major 3rd and the minor 7th. These two notes form a <strong>tritone</strong>, which creates intense, bluesy tension.</p>"
+      },
+      {
+        "h2": "Where you'll hear it",
+        "body": "<p>It is the \"V\" chord in most chord progressions (like the G7 pulling to C major). However, in Blues music, almost <em>every</em> chord is a dominant 7th, giving the genre its characteristic gritty, unresolved sound.</p>"
+      },
+      {
+        "h2": "How to identify it",
+        "body": "<p>Listen for a chord that has a happy, major core, but a tense, slightly sour top note. If it sounds like it belongs in a 12-bar blues progression, or if it makes you desperately want to hear the next chord, it's a dominant 7th.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Dominant 7th Chords",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "phrygian-mode-ear-training",
+    "title": "Phrygian Mode Ear Training & Recognition | BananaTone",
+    "description": "Train your ear to recognize the Phrygian mode. Learn the dark, Spanish-flavored scale used in metal and flamenco.",
+    "canonical": "https://bananatone.com/phrygian-mode-ear-training",
+    "h1": "Phrygian Mode Ear Training",
+    "intro": "The Phrygian mode is the darkest of the common minor modes. With its characteristic flat 2nd degree, it immediately evokes images of Spanish flamenco, Middle Eastern music, or heavy metal.",
+    "cards": [
+      {
+        "h2": "What is the Phrygian mode?",
+        "body": "<p>Phrygian is the 3rd mode of the major scale. If you play only the white keys from E to E, you are playing E Phrygian.</p>\n<p>Compared to the natural minor scale, the only difference is the <strong>flatted 2nd degree</strong>. That half-step interval right at the beginning of the scale gives Phrygian its dark, exotic bite.</p>"
+      },
+      {
+        "h2": "The sound of Phrygian",
+        "body": "<p>Because the second note is only a half-step above the root, it creates immense tension that wants to pull back down. This sound is the backbone of heavy metal riffs (think Metallica or Megadeth) and Spanish acoustic guitar music.</p>"
+      },
+      {
+        "h2": "Listening tips",
+        "body": "<p>When practicing in BananaTone's Scale mode, listen to the very first step of the scale. If the scale immediately steps up by a tiny, tense half-step before continuing into a minor sound, you are hearing Phrygian.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Phrygian Mode",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "lydian-mode-ear-training",
+    "title": "Lydian Mode Ear Training - The Brightest Mode | BananaTone",
+    "description": "Identify the Lydian mode by ear. Master the dreamy, cinematic scale favored by film composers like John Williams.",
+    "canonical": "https://bananatone.com/lydian-mode-ear-training",
+    "h1": "Lydian Mode Ear Training",
+    "intro": "If the major scale is happy, the Lydian mode is magical. It is considered the brightest of all the modes, featuring a raised 4th degree that creates a sense of wonder, space, and floating.",
+    "cards": [
+      {
+        "h2": "What is the Lydian mode?",
+        "body": "<p>Lydian is the 4th mode of the major scale. Playing all white keys from F to F gives you F Lydian.</p>\n<p>It is identical to a standard major scale, but the 4th note is raised by a half-step (sharp 4 / augmented 4th). This removes the half-step clash that normally exists in the major scale, creating an incredibly open sound.</p>"
+      },
+      {
+        "h2": "The cinematic sound",
+        "body": "<p>Film composers love Lydian because it sounds heroic, futuristic, and full of wonder. The themes from <em>E.T.</em>, <em>The Simpsons</em>, and <em>Back to the Future</em> all feature prominent Lydian melodies.</p>"
+      },
+      {
+        "h2": "How to distinguish it",
+        "body": "<p>Listen for a scale that sounds like Major, but has an unexpected, slightly tense \"lift\" right in the middle (the sharp 4th). It often feels like the scale is floating upwards rather than resting solidly on the ground.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Lydian Mode",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "melodic-minor-scale-ear-training",
+    "title": "Melodic Minor Scale Ear Training | BananaTone",
+    "description": "Learn to recognize the complex and beautiful melodic minor scale with free interactive ear training exercises.",
+    "canonical": "https://bananatone.com/melodic-minor-scale-ear-training",
+    "h1": "Melodic Minor Scale Ear Training",
+    "intro": "The melodic minor scale is unique because it changes depending on whether you are going up or down. It bridges the gap between minor sadness and major brightness in a beautiful, classical way.",
+    "cards": [
+      {
+        "h2": "The structure of Melodic Minor",
+        "body": "<p>In classical theory, the melodic minor scale raises the 6th and 7th degrees when ascending (making the top half sound exactly like a major scale), but reverts to the natural minor when descending.</p>\n<p>In jazz theory, the \"jazz minor\" scale keeps the raised 6th and 7th degrees in both directions. BananaTone uses the jazz/ascending form: it's a minor scale with a major 6th and major 7th.</p>"
+      },
+      {
+        "h2": "How it sounds",
+        "body": "<p>It starts out dark and sad (because of the minor third), but then surprisingly finishes bright and heroic (because of the major 6th and 7th). It feels like a story that starts in tragedy but ends in triumph.</p>"
+      },
+      {
+        "h2": "Comparing the Minor Scales",
+        "body": "<ul>\n  <li><strong>Natural Minor:</strong> Completely dark.</li>\n  <li><strong>Harmonic Minor:</strong> Dark, but with a sudden, exotic Middle Eastern jump at the end (raised 7).</li>\n  <li><strong>Melodic Minor:</strong> Starts dark, smoothly transitions into bright/major at the end (raised 6 and 7).</li>\n</ul>"
+      }
+    ],
+    "ctaLabel": "Practice Melodic Minor",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "church-modes-ear-training",
+    "title": "Church Modes Ear Training - Practice All 7 Modes | BananaTone",
+    "description": "Master the 7 Greek church modes (Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, Locrian) by ear.",
+    "canonical": "https://bananatone.com/church-modes-ear-training",
+    "h1": "Church Modes Ear Training",
+    "intro": "The seven Church Modes (also known as Greek Modes) are variations of the major scale, each starting on a different degree. Recognizing them by ear unlocks a massive palette of musical colors.",
+    "cards": [
+      {
+        "h2": "The 7 Modes",
+        "body": "<p>In order from brightest to darkest:</p>\n<ol>\n  <li><strong>Lydian:</strong> Magical, floating (Major with #4)</li>\n  <li><strong>Ionian (Major):</strong> Happy, resolved</li>\n  <li><strong>Mixolydian:</strong> Bluesy, rocky (Major with b7)</li>\n  <li><strong>Dorian:</strong> Jazzy, sophisticated minor (Minor with natural 6)</li>\n  <li><strong>Aeolian (Natural Minor):</strong> Sad, pure minor</li>\n  <li><strong>Phrygian:</strong> Dark, Spanish, tense (Minor with b2)</li>\n  <li><strong>Locrian:</strong> Extremely unstable, terrifying (Minor with b2 and b5)</li>\n</ol>"
+      },
+      {
+        "h2": "How to study them",
+        "body": "<p>Never try to learn all seven at once! Divide them into families:</p>\n<p><strong>The Major Family:</strong> Ionian, Lydian, Mixolydian. Focus on distinguishing their subtle differences.</p>\n<p><strong>The Minor Family:</strong> Aeolian, Dorian, Phrygian. Practice hearing whether the minor scale sounds jazzy, plain, or dark/exotic.</p>"
+      },
+      {
+        "h2": "Using BananaTone",
+        "body": "<p>Configure the Scale trainer to include the modes you want to practice. Start with just Ionian and Aeolian (Major and Minor), then add Dorian and Mixolydian as your skills improve.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Church Modes",
+    "ctaLink": "/"
   }
+
 ];
 
 // ─── HTML template ───────────────────────────────────────────────────
