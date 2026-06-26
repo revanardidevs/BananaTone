@@ -1864,7 +1864,11 @@ function main() {
     let learnHtml = fs.readFileSync(learnIndexPath, "utf-8");
     
     // Generate the links HTML
-    const linksHtml = PAGES.map(p => `        <a href="/${p.slug}.html" style="color: var(--primary); text-decoration: none; font-size: 0.95em; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); text-align: center;">${p.h1}</a>`).join("\\n");
+    const linksHtml = PAGES.map(p => `        <a href="/${p.slug}.html" class="grid-card">
+          <h3 style="font-size: 1.1em; margin-bottom: 8px;">${p.h1}</h3>
+          <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 12px;">${p.description}</p>
+          <div class="read-more" style="margin-top: auto;">Read guide &rarr;</div>
+        </a>`).join("\n");
     
     // Inject between markers
     const startMarker = "<!-- SEO_LINKS_START -->";
