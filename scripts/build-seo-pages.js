@@ -1201,6 +1201,486 @@ const PAGES = [
     ],
     "ctaLabel": "Practice Church Modes",
     "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-for-guitar-players",
+    "title": "Ear Training for Guitar Players - Practice Online | BananaTone",
+    "description": "Learn to play guitar by ear. Free interactive ear training exercises designed to help guitarists transcribe solos and chords.",
+    "canonical": "https://bananatone.com/ear-training-for-guitar-players",
+    "h1": "Ear Training for Guitar Players",
+    "intro": "For guitarists, ear training is the difference between being glued to tabs and being able to jam freely. When you train your ear, the fretboard opens up, and you can play exactly what you hear in your head.",
+    "cards": [
+      {
+        "h2": "Why guitarists need ear training",
+        "body": "<p>Many guitarists fall into the \"shape trap\" — relying entirely on visual scale patterns and chord boxes without actually hearing the notes they are playing. Ear training breaks you out of this box.</p>\n<p>By learning to recognize intervals, you'll be able to hear a solo on Spotify and immediately know which string and fret to jump to.</p>"
+      },
+      {
+        "h2": "The best practice method for guitar",
+        "body": "<p>Start with <strong>Interval Training</strong>. Because the guitar fretboard is laid out in semitones, intervals translate directly to fret distances:</p>\n<ul>\n  <li>Minor 2nd = 1 fret</li>\n  <li>Major 2nd = 2 frets</li>\n  <li>Minor 3rd = 3 frets</li>\n  <li>Perfect 4th = adjacent string (usually)</li>\n</ul>"
+      },
+      {
+        "h2": "Why practice with piano sounds?",
+        "body": "<p>BananaTone uses piano samples. Why is this good for guitarists? Because it builds pure relative pitch. If you only practice with guitar sounds, you might rely on timbre or string noise rather than actual pitch. Mastering intervals on a piano guarantees you truly know the sound.</p>"
+      }
+    ],
+    "ctaLabel": "Start Guitar Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-for-piano-players",
+    "title": "Ear Training for Piano Players - Free Online Practice | BananaTone",
+    "description": "Improve your piano playing with free ear training. Learn to identify complex chords, voicings, and melodies by ear.",
+    "canonical": "https://bananatone.com/ear-training-for-piano-players",
+    "h1": "Ear Training for Piano Players",
+    "intro": "The piano is the ultimate harmonic instrument, capable of playing 10 notes at once. To master it, your ears need to be as agile as your fingers.",
+    "cards": [
+      {
+        "h2": "Beyond Sheet Music",
+        "body": "<p>Classical piano training often emphasizes sight-reading over aural skills. While reading is important, playing entirely from sheet music limits your ability to improvise, play by ear, or join a jam session.</p>\n<p>Ear training allows you to hear a chord progression and instantly map it to the keyboard.</p>"
+      },
+      {
+        "h2": "Focus on Chords and Harmony",
+        "body": "<p>Because pianists are often responsible for the entire harmonic foundation of a song, <strong>Chord Ear Training</strong> is your most important tool.</p>\n<ul>\n  <li>Start by drilling Major vs Minor triads.</li>\n  <li>Move on to 7th chords (Major 7, Minor 7, Dominant 7) which are essential for jazz and modern pop.</li>\n  <li>Practice identifying the highest note (the melody) and lowest note (the bass) of block chords.</li>\n</ul>"
+      },
+      {
+        "h2": "The advantage of the keyboard layout",
+        "body": "<p>Pianists have a massive advantage: the piano is a linear map of music theory. When you hear a Perfect 5th, you can easily visualize the 7 semitone gap. Use BananaTone's interval and chord trainers to connect your ears directly to this visual map.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Piano Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-for-bass-players",
+    "title": "Ear Training for Bass Players - Hear The Roots | BananaTone",
+    "description": "Free ear training designed for bass players. Learn to hear root movement, chord qualities, and groove-building intervals.",
+    "canonical": "https://bananatone.com/ear-training-for-bass-players",
+    "h1": "Ear Training for Bass Players",
+    "intro": "The bass is the bridge between rhythm and harmony. A great bassist doesn't just need good timing; they need ears sharp enough to hear exactly where the chord progression is going before it gets there.",
+    "cards": [
+      {
+        "h2": "Hearing the Root Movement",
+        "body": "<p>As a bassist, your primary job is often playing the root of the chord. To learn songs by ear quickly, you must be able to track root movement.</p>\n<p>The most common root movements in modern music are <strong>Perfect 4ths</strong> and <strong>Perfect 5ths</strong>. Master recognizing these two intervals, and you will be able to map out most pop and rock songs instantly.</p>"
+      },
+      {
+        "h2": "Recognizing Chord Qualities",
+        "body": "<p>Even if you're only playing one note, you need to know the quality of the chord the band is playing (Major, Minor, Dominant) so you can choose the correct passing notes.</p>\n<p>Use BananaTone's <strong>Chord Trainer</strong> to practice identifying the emotional color of chords, so you always know whether to walk up using a major 3rd or a minor 3rd.</p>"
+      },
+      {
+        "h2": "The Bassist's Practice Routine",
+        "body": "<ul>\n  <li>5 mins: Perfect 4th vs Perfect 5th (Root movement).</li>\n  <li>5 mins: Major 3rd vs Minor 3rd (Choosing passing notes).</li>\n  <li>5 mins: Guess The Chord (Listening to the full band context).</li>\n</ul>"
+      }
+    ],
+    "ctaLabel": "Start Bass Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-for-music-producers",
+    "title": "Ear Training for Music Producers & Beatmakers | BananaTone",
+    "description": "Level up your music production. Free ear training to help producers identify keys, scales, and chords from samples instantly.",
+    "canonical": "https://bananatone.com/ear-training-for-music-producers",
+    "h1": "Ear Training for Music Producers",
+    "intro": "In modern music production, speed is everything. Ear training gives you the ability to hear a sample, instantly know its key and scale, and immediately start writing basslines and melodies that fit perfectly.",
+    "cards": [
+      {
+        "h2": "The Producer's Secret Weapon",
+        "body": "<p>Many producers rely on MIDI chord packs or trial-and-error to find notes that work. This slows down the creative process and leads to generic-sounding beats.</p>\n<p>By training your ear to recognize scales and chords, you can write original melodies that perfectly match the emotional vibe of your track, entirely from scratch.</p>"
+      },
+      {
+        "h2": "Working with Samples",
+        "body": "<p>When you flip a sample, you need to know its harmonic content to add 808s or synths on top.</p>\n<p>Practice <strong>Scale Recognition</strong> in BananaTone (especially Natural Minor and Minor Pentatonic) so you can instantly recognize the \"flavor\" of a sample and know exactly which notes you are allowed to use in your piano roll.</p>"
+      },
+      {
+        "h2": "Tuning your 808s",
+        "body": "<p>One of the most common mistakes in beatmaking is out-of-tune 808 basslines. Because 808s are so low in frequency, pitch is hard to hear. Use BananaTone's <strong>Note Recognition</strong> tool to build solid pitch memory, so an out-of-tune sub-bass will instantly sound wrong to you.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Producer Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-for-songwriters",
+    "title": "Ear Training for Songwriters - Hear The Harmony | BananaTone",
+    "description": "Write better songs faster. Free ear training for songwriters to help you transcribe melodies and understand chord progressions.",
+    "canonical": "https://bananatone.com/ear-training-for-songwriters",
+    "h1": "Ear Training for Songwriters",
+    "intro": "Have you ever heard a beautiful melody in your dream, only to lose it before you could figure out how to play it? Ear training closes the gap between your imagination and your instrument.",
+    "cards": [
+      {
+        "h2": "Catching Inspiration",
+        "body": "<p>Inspiration is fleeting. When a great melody pops into your head while driving or taking a shower, you need to be able to identify its intervals so you can write it down or record it accurately.</p>\n<p>Mastering <strong>Intervals</strong> allows you to dictate your own thoughts. You'll know instantly that your melody jumps up a Perfect 5th and steps down a Major 2nd.</p>"
+      },
+      {
+        "h2": "Understanding Emotional Colors",
+        "body": "<p>Songwriting is about manipulating emotion. Why does a specific chord progression make you want to cry? It's usually the tension of specific chord types.</p>\n<p>Practice <strong>Chord Recognition</strong> to learn the exact emotional flavors of Major 7ths, Minor 7ths, and Diminished chords. When you want your song to sound \"dreamy,\" your ear will automatically tell you to reach for a Major 7 or Augmented chord.</p>"
+      },
+      {
+        "h2": "Stealing Like an Artist",
+        "body": "<p>The best way to learn songwriting is to analyze great songs. With a trained ear, you can listen to the radio and instantly reverse-engineer the chord progressions of hit songs without looking up the chords online.</p>"
+      }
+    ],
+    "ctaLabel": "Start Songwriter Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "aural-skills-practice-online",
+    "title": "Aural Skills Practice Online - Free Theory Prep | BananaTone",
+    "description": "Prepare for your college music theory or AP Aural Skills exams with free, fast, interactive online ear training.",
+    "canonical": "https://bananatone.com/aural-skills-practice-online",
+    "h1": "Aural Skills Practice Online",
+    "intro": "Whether you're preparing for AP Music Theory, college entrance exams, or weekly dictation quizzes, consistent aural skills practice is the only way to guarantee a passing grade.",
+    "cards": [
+      {
+        "h2": "Ace Your Ear Training Exams",
+        "body": "<p>Aural skills classes are notoriously difficult because you cannot cram for them. Your brain requires time to form the neural connections needed to recognize pitch distances.</p>\n<p>Using a fast, repetitive tool like BananaTone allows you to get hundreds of micro-repetitions in just 10 minutes a day, building the muscle memory needed to pass your exams.</p>"
+      },
+      {
+        "h2": "Intervals and Triads",
+        "body": "<p>The foundation of AP Music Theory and College Theory 101 is melodic/harmonic intervals and triad qualities (Major, Minor, Diminished, Augmented).</p>\n<p>Use our <strong>Custom Presets</strong> to isolate exactly the topics your professor is covering this week. If you have a quiz on 6ths and 7ths, simply uncheck all other intervals and drill.</p>"
+      },
+      {
+        "h2": "No bloat, just practice",
+        "body": "<p>Unlike bloated university software that requires logins and Flash players, BananaTone runs instantly in your mobile browser. You can practice your aural skills on the bus ride to class.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Aural Skills Free",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "how-to-play-by-ear",
+    "title": "How to Play by Ear - The Ultimate Free Guide & Tool | BananaTone",
+    "description": "Learn how to play music by ear. A complete guide and free interactive tool to help you transcribe melodies and chords instantly.",
+    "canonical": "https://bananatone.com/how-to-play-by-ear",
+    "h1": "How to Play by Ear",
+    "intro": "Playing by ear seems like a magical superpower, but it is actually a mechanical, highly learnable skill. It all comes down to breaking music into recognizable patterns: intervals and chords.",
+    "cards": [
+      {
+        "h2": "The Myth of playing by ear",
+        "body": "<p>Many people believe you must be born with \"perfect pitch\" to play by ear. This is 100% false. Most professional musicians who play by ear use <strong>relative pitch</strong> — the ability to hear the distance between notes.</p>"
+      },
+      {
+        "h2": "Step 1: Mastering Intervals",
+        "body": "<p>Melodies are just a series of distances. If you can hear that the first two notes of a song jump up by a \"Perfect 4th\", you can play those two notes on any instrument, starting from any key.</p>\n<p>Start by using BananaTone's Interval trainer to memorize the sound of the 12 basic distances.</p>"
+      },
+      {
+        "h2": "Step 2: Mastering Chord Qualities",
+        "body": "<p>The accompaniment of a song is made of chords. You need to instantly recognize if the band is playing a happy (Major) chord or a sad (Minor) chord.</p>\n<p>Once your ear can identify the root movement (intervals) and the chord quality (major/minor), you have successfully learned how to play songs by ear.</p>"
+      }
+    ],
+    "ctaLabel": "Start Learning to Play by Ear",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "how-to-learn-songs-by-ear",
+    "title": "How to Learn Songs by Ear - Free Practice Tool | BananaTone",
+    "description": "Stop relying on tabs and sheet music. Train your ear to transcribe and learn your favorite songs by ear in 3 simple steps.",
+    "canonical": "https://bananatone.com/how-to-learn-songs-by-ear",
+    "h1": "How to Learn Songs by Ear",
+    "intro": "Tired of searching for inaccurate chord charts and tabs on the internet? Training yourself to learn songs by ear is the most liberating thing you can do as a musician.",
+    "cards": [
+      {
+        "h2": "Why tabs and chord charts hold you back",
+        "body": "<p>When you read music, your eyes are doing the work, not your ears. This bypasses the musical part of your brain. By learning songs by ear, you internalize the music, remember it longer, and improve your overall musicianship.</p>"
+      },
+      {
+        "h2": "The 3-Step Transcription Process",
+        "body": "<ol>\n  <li><strong>Find the Bass (Root):</strong> The bass guitar usually plays the root note of the chord. Use your ear to find this single note on your instrument.</li>\n  <li><strong>Identify the Quality:</strong> Listen to the harmony above the bass. Is it Major (happy)? Minor (sad)? Dominant (bluesy)?</li>\n  <li><strong>Find the Melody:</strong> Use interval recognition to trace the distance between the melody notes.</li>\n</ol>"
+      },
+      {
+        "h2": "How BananaTone helps",
+        "body": "<p>To execute step 2 and 3 quickly, you need a trained ear. Spend 10 minutes a day on BananaTone's <strong>Chord</strong> and <strong>Interval</strong> modes. When you go back to learning a song, you'll be amazed at how much clearer the music sounds.</p>"
+      }
+    ],
+    "ctaLabel": "Train Your Ear for Transcription",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "solfege-ear-training",
+    "title": "Solfege Ear Training - Do Re Mi Practice Online | BananaTone",
+    "description": "Practice Solfege (Do Re Mi) ear training online. Master movable-do and fixed-do relative pitch with free exercises.",
+    "canonical": "https://bananatone.com/solfege-ear-training",
+    "h1": "Solfege Ear Training",
+    "intro": "Solfege (Do-Re-Mi-Fa-Sol-La-Ti-Do) is one of the oldest and most effective systems for developing relative pitch. By assigning a syllable to each note of the scale, you create a powerful mental map of harmony.",
+    "cards": [
+      {
+        "h2": "Movable Do vs Fixed Do",
+        "body": "<p>In <strong>Fixed Do</strong>, \"Do\" is always the note C. This trains absolute pitch memory.</p>\n<p>In <strong>Movable Do</strong>, \"Do\" is the root note of whatever key you are in. This trains relative pitch and functional harmony, which is vastly more useful for most musicians.</p>"
+      },
+      {
+        "h2": "How to practice Solfege here",
+        "body": "<p>BananaTone doesn't use solfege syllables on the buttons, but you can still use the method! Open the <strong>Intervals</strong> mode and select \"Diatonic intervals\".</p>\n<p>When you hear an interval, sing the solfege out loud before you click:</p>\n<ul>\n  <li>Major 2nd: Sing \"Do - Re\"</li>\n  <li>Major 3rd: Sing \"Do - Mi\"</li>\n  <li>Perfect 5th: Sing \"Do - Sol\"</li>\n</ul>"
+      },
+      {
+        "h2": "The power of singing",
+        "body": "<p>The secret to solfege is that you MUST sing it. Singing forces your brain to internalize the pitch before it comes out of your mouth. Use BananaTone as your prompt, sing the solfege response, and then click to verify.</p>"
+      }
+    ],
+    "ctaLabel": "Start Solfege Practice",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "functional-ear-training",
+    "title": "Functional Ear Training - Key Center Practice | BananaTone",
+    "description": "Develop your relative pitch through functional ear training. Learn to hear how notes relate to the tonal center (the root).",
+    "canonical": "https://bananatone.com/functional-ear-training",
+    "h1": "Functional Ear Training",
+    "intro": "Functional ear training is a highly effective method where you learn to recognize notes not by their distance from the previous note, but by their 'function' or 'gravity' in relation to the key center.",
+    "cards": [
+      {
+        "h2": "What is Functional Ear Training?",
+        "body": "<p>Standard interval training teaches you to hear C to E as a \"Major 3rd.\"</p>\n<p>Functional ear training teaches you to hear E as the \"3rd degree\" of the C Major scale. Every note in a key has a specific feeling of tension or resolution pulling it toward the tonic (the root note).</p>"
+      },
+      {
+        "h2": "The gravity of notes",
+        "body": "<ul>\n  <li><strong>The Tonic (Root/Do):</strong> Ultimate rest. Zero tension.</li>\n  <li><strong>The 5th (Sol):</strong> Very stable, supports the root.</li>\n  <li><strong>The 3rd (Mi):</strong> Peaceful, determines major/minor color.</li>\n  <li><strong>The 7th (Ti):</strong> Extreme tension, desperately wants to pull up to the tonic.</li>\n</ul>"
+      },
+      {
+        "h2": "How to practice functionally",
+        "body": "<p>In BananaTone, go to the <strong>Notes</strong> mode and select the <strong>Beginner</strong> or <strong>Balanced</strong> preset. Before you guess the note, try to feel its \"gravity.\" Does it feel like it's resting at home (C), or does it feel tense and wanting to move (B)?</p>"
+      }
+    ],
+    "ctaLabel": "Practice Functional Ear Training",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "musical-dictation-practice",
+    "title": "Musical Dictation Practice - Free Online Exercises | BananaTone",
+    "description": "Improve your melodic and harmonic musical dictation skills. Free ear training tool for transcribing what you hear.",
+    "canonical": "https://bananatone.com/musical-dictation-practice",
+    "h1": "Musical Dictation Practice",
+    "intro": "Musical dictation is the act of listening to a piece of music and writing it down on staff paper. It is the ultimate test of a musician's ear, requiring fast interval recognition and strong pitch memory.",
+    "cards": [
+      {
+        "h2": "The challenge of dictation",
+        "body": "<p>In a dictation exam, the music doesn't stop. You must instantly recognize the distance between notes while simultaneously memorizing the rhythm. If your interval recognition is slow, you will fall behind and fail.</p>"
+      },
+      {
+        "h2": "Building speed",
+        "body": "<p>To get better at dictation, you don't need to do full dictations — you need to isolate your weakness. For most students, the weakness is interval recognition speed.</p>\n<p>Use BananaTone's Interval mode on <strong>Fast Speed</strong> with <strong>Auto-Next</strong> turned on. This forces your brain to process the intervals instantly, mimicking the pressure of a real dictation environment.</p>"
+      },
+      {
+        "h2": "Harmonic Dictation",
+        "body": "<p>For harmonic dictation (writing down chords), switch to BananaTone's <strong>Chord</strong> mode. Start with triads, and drill them until you can instantly tell if the professor played a Major, Minor, or Diminished chord just by its color.</p>"
+      }
+    ],
+    "ctaLabel": "Start Dictation Practice",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "daily-ear-training-routine",
+    "title": "Daily Ear Training Routine - The 20-Minute Plan | BananaTone",
+    "description": "Stop guessing how to practice. Follow this structured 20-minute daily ear training routine for maximum results.",
+    "canonical": "https://bananatone.com/daily-ear-training-routine",
+    "h1": "Daily Ear Training Routine",
+    "intro": "Ear training is like going to the gym: doing 10 minutes a day is vastly superior to doing 3 hours on Sunday. A structured, daily routine is the secret to unlocking relative pitch.",
+    "cards": [
+      {
+        "h2": "The 20-Minute Master Plan",
+        "body": "<p>To get a balanced workout, divide your practice into four 5-minute blocks using BananaTone's fast interface:</p>\n<ol>\n  <li><strong>5 Min Intervals:</strong> Warm up your relative pitch. Start melodic, then switch to harmonic.</li>\n  <li><strong>5 Min Chords:</strong> Practice identifying harmonic colors (Major vs Minor vs Diminished).</li>\n  <li><strong>5 Min Scales:</strong> Listen to the broader context (Major vs Natural Minor vs Dorian).</li>\n  <li><strong>5 Min Weaknesses:</strong> Pick the two intervals or chords you confused the most today, and drill them exclusively.</li>\n</ol>"
+      },
+      {
+        "h2": "Consistency over Intensity",
+        "body": "<p>Your brain needs sleep to solidify aural neural pathways. If you practice for hours, you hit diminishing returns quickly and risk ear fatigue. Short, focused, daily bursts are scientifically proven to work better for audio recognition.</p>"
+      },
+      {
+        "h2": "Tracking your progress",
+        "body": "<p>BananaTone automatically tracks your score and streaks in your browser. Try to beat your highest streak every day. If you hit 95% accuracy on a preset for three days in a row, it's time to increase the difficulty.</p>"
+      }
+    ],
+    "ctaLabel": "Start Your Daily Routine",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "harmonic-ear-training",
+    "title": "Harmonic Ear Training - Hear Multiple Notes at Once | BananaTone",
+    "description": "Train your ear to dissect complex chords and harmonic intervals. Free interactive harmonic ear training exercises.",
+    "canonical": "https://bananatone.com/harmonic-ear-training",
+    "h1": "Harmonic Ear Training",
+    "intro": "Harmonic ear training focuses on sounds played simultaneously rather than sequentially. It teaches you to hear the 'texture' and 'color' of dissonance and consonance.",
+    "cards": [
+      {
+        "h2": "Melodic vs Harmonic Hearing",
+        "body": "<p>When notes are played one after another (melodic), you can easily measure the distance between them. When played together (harmonic), the soundwaves physically interact, creating a new, blended texture.</p>\n<p>Harmonic ear training requires you to stop trying to hear the individual notes, and instead focus on the feeling of the combined sound.</p>"
+      },
+      {
+        "h2": "Levels of Dissonance",
+        "body": "<p>In harmonic interval training, group the sounds by their dissonance:</p>\n<ul>\n  <li><strong>Harsh Dissonance:</strong> Minor 2nd, Major 7th, Tritone. They sound like they are grinding or clashing.</li>\n  <li><strong>Soft Consonance:</strong> Major 3rd, Minor 6th. They sound sweet, romantic, and sad.</li>\n  <li><strong>Open Consonance:</strong> Perfect 4th, Perfect 5th, Octave. They sound hollow, pure, and vast.</li>\n</ul>"
+      },
+      {
+        "h2": "Practicing Chords",
+        "body": "<p>Chords are the ultimate harmonic test. Use BananaTone's Chord mode to practice hearing three or four notes simultaneously. Focus entirely on the emotional impact: is it bright (Major) or tense (Diminished)?</p>"
+      }
+    ],
+    "ctaLabel": "Practice Harmonic Listening",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "melodic-ear-training",
+    "title": "Melodic Ear Training - Recognize Melodies Instantly | BananaTone",
+    "description": "Master melodic ear training. Practice ascending and descending intervals to learn melodies by ear instantly.",
+    "canonical": "https://bananatone.com/melodic-ear-training",
+    "h1": "Melodic Ear Training",
+    "intro": "Melodic ear training is the art of recognizing notes played sequentially. It is the core skill required to hear a solo on the radio and immediately play it back on your instrument.",
+    "cards": [
+      {
+        "h2": "The Building Blocks of Melody",
+        "body": "<p>Every melody in existence is simply a series of melodic intervals. If you can accurately identify the distance from Note 1 to Note 2, and Note 2 to Note 3, you can transcribe any melody in the world.</p>"
+      },
+      {
+        "h2": "Ascending vs Descending",
+        "body": "<p>A common trap is only practicing ascending (upward) melodies. The human brain processes downward pitch movement differently. You must practice both!</p>\n<p>In BananaTone's settings, make sure the Interval Direction is set to \"Mixed\" so you are constantly challenged by both upward and downward leaps.</p>"
+      },
+      {
+        "h2": "The Song Association Method",
+        "body": "<p>The fastest way to learn melodic intervals is to map them to famous melodies. For example, an ascending Perfect 4th is the start of \"Here Comes the Bride\", while a descending Minor 3rd is the start of \"Hey Jude\". Use these mental hooks during your practice sessions.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Melodic Intervals",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "chord-progression-ear-training",
+    "title": "Chord Progression Ear Training - Free Practice | BananaTone",
+    "description": "Build the foundation for recognizing chord progressions by ear. Master major, minor, and 7th chords with free interactive exercises.",
+    "canonical": "https://bananatone.com/chord-progression-ear-training",
+    "h1": "Chord Progression Ear Training",
+    "intro": "To recognize entire chord progressions by ear (like the famous I-V-vi-IV pop progression), you must first have absolute, instant recognition of individual chord qualities.",
+    "cards": [
+      {
+        "h2": "The prerequisite to progressions",
+        "body": "<p>You cannot identify a chord progression if you can't tell a Major chord from a Minor chord. When a song moves from the I chord (Major) to the vi chord (Minor), your ear must instantly recognize that the emotional color just turned \"sad.\"</p>"
+      },
+      {
+        "h2": "Hearing the Bass Line",
+        "body": "<p>The second half of recognizing progressions is hearing the root movement. The bass usually plays the root of the chord. If you can hear that the bass just jumped up a Perfect 5th, and the chord quality is Major, you know exactly what chord was just played.</p>"
+      },
+      {
+        "h2": "How to train for progressions",
+        "body": "<p>BananaTone isolates the two skills you need:</p>\n<ol>\n  <li>Use <strong>Chord mode</strong> to master qualities (Major, Minor, Diminished).</li>\n  <li>Use <strong>Interval mode</strong> to master bass root movement (P4, P5, Major 2nd).</li>\n</ol>\n<p>Combine these two skills, and you will be able to map out any pop song in real-time.</p>"
+      }
+    ],
+    "ctaLabel": "Train Your Chord Recognition",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "pitch-matching-exercises",
+    "title": "Pitch Matching Exercises - Free Vocal Ear Training | BananaTone",
+    "description": "Improve your singing intonation with pitch matching exercises. Free online tool to practice hitting the right notes.",
+    "canonical": "https://bananatone.com/pitch-matching-exercises",
+    "h1": "Pitch Matching Exercises",
+    "intro": "Pitch matching is the most fundamental aural skill. It is the ability to hear a note and accurately reproduce it with your voice or instrument. Without it, all other ear training is impossible.",
+    "cards": [
+      {
+        "h2": "Why pitch matching matters",
+        "body": "<p>If you can't match a pitch, you will always sing flat or sharp. The good news is that \"tone deafness\" (amusia) is extremely rare. Almost anyone who struggles with pitch matching simply hasn't trained the neural connection between their ear and their vocal cords.</p>"
+      },
+      {
+        "h2": "The Active Practice Method",
+        "body": "<p>Use BananaTone's <strong>Note Recognition</strong> mode, but don't just click the answers!</p>\n<ol>\n  <li>Play the note.</li>\n  <li>Hum or sing the note out loud. Adjust your voice until you feel it \"lock in\" and vibrate smoothly with the piano sound.</li>\n  <li>Only after you have matched it, guess the note name.</li>\n</ol>"
+      },
+      {
+        "h2": "Start Small",
+        "body": "<p>Don't use all 12 notes at first. Select the \"Beginner\" preset (C, D, E, G, A) to limit the options. Focus purely on hitting the pitch accurately with your voice before worrying about naming it.</p>"
+      }
+    ],
+    "ctaLabel": "Start Pitch Matching",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "scale-recognition-practice",
+    "title": "Scale Recognition Practice - Identify Modes by Ear | BananaTone",
+    "description": "Train your ear to recognize musical scales and modes. Free interactive scale ear training for major, minor, and church modes.",
+    "canonical": "https://bananatone.com/scale-recognition-practice",
+    "h1": "Scale Recognition Practice",
+    "intro": "Scales are the alphabet of melodies. Being able to hear a scale and instantly know if it is Major, Minor, Dorian, or Mixolydian is a superpower for improvisers and producers.",
+    "cards": [
+      {
+        "h2": "Hearing the \"Flavor\"",
+        "body": "<p>You don't recognize scales by analyzing every single note. You recognize them by their overall emotional \"flavor\" or \"vibe.\"</p>\n<ul>\n  <li><strong>Major:</strong> Happy, resolved, bright.</li>\n  <li><strong>Natural Minor:</strong> Sad, tragic, dark.</li>\n  <li><strong>Dorian:</strong> Jazzy, sophisticated minor.</li>\n  <li><strong>Harmonic Minor:</strong> Exotic, Middle-Eastern, dramatic.</li>\n</ul>"
+      },
+      {
+        "h2": "Focusing on the Differences",
+        "body": "<p>When practicing, group similar scales together and listen for the ONE note that makes them different.</p>\n<p>For example, Natural Minor and Dorian are identical except for the 6th note. Set BananaTone to play only those two scales, and train your ear to wait for that specific 6th note to reveal the answer.</p>"
+      },
+      {
+        "h2": "Why this helps improvisation",
+        "body": "<p>When you're jamming with a band, if you can hear that the backing track is using a Mixolydian flavor, you instantly know which notes you are allowed to play in your solo without clashing.</p>"
+      }
+    ],
+    "ctaLabel": "Practice Scale Recognition",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "ear-training-games-online",
+    "title": "Ear Training Games Online - Fast, Fun, Free | BananaTone",
+    "description": "Play free ear training games online. Build streaks, improve your relative pitch, and have fun mastering music theory.",
+    "canonical": "https://bananatone.com/ear-training-games-online",
+    "h1": "Ear Training Games Online",
+    "intro": "Who said music theory has to be boring? BananaTone is designed like a fast-paced game. Build your high score, maintain your streak, and train your ear without it feeling like homework.",
+    "cards": [
+      {
+        "h2": "Gamified Learning",
+        "body": "<p>Ear training requires massive repetition. If the process is boring, you will quit. By adding instant feedback, streaks, and a snappy interface, BananaTone turns relative pitch practice into an addictive game.</p>"
+      },
+      {
+        "h2": "How to Play",
+        "body": "<p>Choose your mode: Intervals, Chords, Notes, or Scales. The app will play a sound, and you must click the correct answer. Get it right, and your streak goes up. Get it wrong, and you lose your streak.</p>\n<p>Turn on <strong>\"Auto-Next\"</strong> in the settings for a rapid-fire speedrun mode!</p>"
+      },
+      {
+        "h2": "Challenge your friends",
+        "body": "<p>Because BananaTone requires no login and no downloads, you can pull it out on your phone anywhere. Challenge a bandmate to see who can build a streak of 50 in the \"Major vs Minor Chord\" challenge.</p>"
+      }
+    ],
+    "ctaLabel": "Play Ear Training Games",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "relative-pitch-exercises",
+    "title": "Relative Pitch Exercises - The Ultimate Free Tool | BananaTone",
+    "description": "Develop professional-level relative pitch with these interactive exercises. Master intervals, chords, and scales by ear.",
+    "canonical": "https://bananatone.com/relative-pitch-exercises",
+    "h1": "Relative Pitch Exercises",
+    "intro": "Relative pitch is the most important skill a musician can possess. It is the ability to understand music by hearing the distances and relationships between notes.",
+    "cards": [
+      {
+        "h2": "The Foundation: Intervals",
+        "body": "<p>All relative pitch starts with interval recognition. An interval is simply the distance between two notes. If you memorize the sound of the 12 basic intervals, you have the vocabulary to understand any melody.</p>"
+      },
+      {
+        "h2": "The Next Level: Chords",
+        "body": "<p>Once you can measure distance (intervals), you need to recognize color (chords). A Major chord always sounds \"happy\" regardless of what key it is in. A Diminished chord always sounds \"tense.\" Recognizing these qualities is pure relative pitch.</p>"
+      },
+      {
+        "h2": "Interactive Exercises",
+        "body": "<p>BananaTone provides endless, randomized exercises for both intervals and chords. Because the root notes are completely randomized every time, you cannot cheat by memorizing absolute pitches — you are forced to use true relative pitch.</p>"
+      }
+    ],
+    "ctaLabel": "Start Relative Pitch Exercises",
+    "ctaLink": "/"
+  },
+  {
+    "slug": "best-free-ear-training-app",
+    "title": "Best Free Ear Training App (No Sign-Up, No Ads) | BananaTone",
+    "description": "Looking for the best free ear training app? BananaTone is 100% free, requires no sign-ups, no downloads, and runs instantly in your browser.",
+    "canonical": "https://bananatone.com/best-free-ear-training-app",
+    "h1": "The Best Free Ear Training App",
+    "intro": "Tired of downloading bloated apps that force you to create an account, pay for a subscription, or watch unskippable video ads just to practice a Major 3rd? BananaTone is different.",
+    "cards": [
+      {
+        "h2": "Zero Friction Practice",
+        "body": "<p>BananaTone was built with one philosophy: <strong>Zero Friction</strong>. There are no logins, no paywalls, no downloads, and no loading screens. You open the URL and you are instantly practicing. It works perfectly on desktop, tablet, and mobile browsers.</p>"
+      },
+      {
+        "h2": "Everything you need, nothing you don't",
+        "body": "<p>We focus exclusively on the core pillars of aural skills:</p>\n<ul>\n  <li><strong>Intervals:</strong> Melodic and Harmonic.</li>\n  <li><strong>Chords:</strong> Triads and 7ths.</li>\n  <li><strong>Scales:</strong> Modes and Minor variations.</li>\n  <li><strong>Notes:</strong> Perfect pitch and pitch matching practice.</li>\n</ul>"
+      },
+      {
+        "h2": "Customizable and Fast",
+        "body": "<p>Unlike guided courses that lock you into a rigid path, BananaTone lets you customize your practice pool. Want to drill ONLY the Minor 6th vs Major 6th? You can do that. Turn on \"Auto-Next\" for rapid-fire speed training.</p>"
+      }
+    ],
+    "ctaLabel": "Launch The Free App Now",
+    "ctaLink": "/"
   }
 
 ];
