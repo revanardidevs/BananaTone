@@ -1858,6 +1858,29 @@ function main() {
   fs.writeFileSync(sitemapPath, buildSitemap(PAGES), "utf-8");
   console.log(`\n  ✓  Updated: sitemap.xml`);
 
+  // Update learn/index.html with SEO links
+  const learnIndexPath = path.join(ROOT, "learn", "index.html");
+  if (fs.existsSync(learnIndexPath)) {
+    let learnHtml = fs.readFileSync(learnIndexPath, "utf-8");
+    
+    // Generate the links HTML
+    const linksHtml = PAGES.map(p => `        <a href="/${p.slug}.html" style="color: var(--primary); text-decoration: none; font-size: 0.95em; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); text-align: center;">${p.h1}</a>`).join("\\n");
+    
+    // Inject between markers
+    const startMarker = "<!-- SEO_LINKS_START -->";
+    const endMarker = "<!-- SEO_LINKS_END -->";
+    
+    if (learnHtml.includes(startMarker) && learnHtml.includes(endMarker)) {
+      const before = learnHtml.substring(0, learnHtml.indexOf(startMarker) + startMarker.length);
+      const after = learnHtml.substring(learnHtml.indexOf(endMarker));
+      learnHtml = before + "\\n" + linksHtml + "\\n        " + after;
+      fs.writeFileSync(learnIndexPath, learnHtml, "utf-8");
+      console.log(`  ✓  Updated: learn/index.html with ${PAGES.length} links`);
+    } else {
+      console.log(`  !  Skipped: learn/index.html (Markers not found)`);
+    }
+  }
+
   console.log(`\nDone. ${created} created, ${skipped} overwritten, ${PAGES.length} total pages.`);
   console.log(`Sitemap includes ${PAGES.length} SEO pages + existing static pages.\n`);
 }
